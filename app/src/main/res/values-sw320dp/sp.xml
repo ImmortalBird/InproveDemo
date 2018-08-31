@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="base1sp">.89sp</dimen>
+    <dimen name="base2sp">1.78sp</dimen>
+    <dimen name="base3sp">2.67sp</dimen>
+    <dimen name="base4sp">3.56sp</dimen>
+    <dimen name="base5sp">4.44sp</dimen>
+    <dimen name="base6sp">5.33sp</dimen>
+    <dimen name="base7sp">6.22sp</dimen>
+    <dimen name="base8sp">7.11sp</dimen>
+    <dimen name="base9sp">8.00sp</dimen>
+    <dimen name="base10sp">8.89sp</dimen>
+    <dimen name="base11sp">9.78sp</dimen>
+    <dimen name="base12sp">10.67sp</dimen>
+    <dimen name="base13sp">11.56sp</dimen>
+    <dimen name="base14sp">12.44sp</dimen>
+    <dimen name="base15sp">13.33sp</dimen>
+    <dimen name="base16sp">14.22sp</dimen>
+    <dimen name="base17sp">15.11sp</dimen>
+    <dimen name="base18sp">16.00sp</dimen>
+    <dimen name="base19sp">16.89sp</dimen>
+    <dimen name="base20sp">17.78sp</dimen>
+    <dimen name="base21sp">18.67sp</dimen>
+    <dimen name="base22sp">19.56sp</dimen>
+    <dimen name="base23sp">20.44sp</dimen>
+    <dimen name="base24sp">21.33sp</dimen>
+    <dimen name="base25sp">22.22sp</dimen>
+    <dimen name="base26sp">23.11sp</dimen>
+    <dimen name="base27sp">24.00sp</dimen>
+    <dimen name="base28sp">24.89sp</dimen>
+    <dimen name="base29sp">25.78sp</dimen>
+    <dimen name="base30sp">26.67sp</dimen>
+</resources>
