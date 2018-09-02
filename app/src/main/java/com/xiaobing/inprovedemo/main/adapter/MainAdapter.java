@@ -44,7 +44,7 @@ public abstract class MainAdapter extends BaseAdapter<MainAdapter.MainHolder>{
         return data.size();
     }
 
-    static class MainHolder extends  RecyclerView.ViewHolder{
+   public static class MainHolder extends  RecyclerView.ViewHolder{
         private TextView tvName;
         MainHolder(@NonNull View itemView) {
             super(itemView);
