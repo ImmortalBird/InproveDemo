@@ -1,15 +1,29 @@
 package com.xiaobing.inprovedemo.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 import com.xiaobing.inprovedemo.R;
+import com.xiaobing.inprovedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.inprovedemo.design.DesignActivity;
+import com.xiaobing.inprovedemo.design.activity.ExpandRecyclerViewActivity;
 import com.xiaobing.inprovedemo.link.UriAction;
 
 public class ParseLinkUtil {
+
+
+    public static String getLink(String... sss){
+        String link = UriAction.SCHEME.concat("://");
+        for (String s : sss){
+            link= link.concat(s).concat("/");
+        }
+
+        return link.substring(0,link.length()-1);
+    }
 
     /**
      * 解析Link，跳转相应页面
@@ -26,6 +40,14 @@ public class ParseLinkUtil {
         switch (uri.getAuthority()) {
             case UriAction.ACTION_DESIGN:
                 mContext.startActivity(new Intent(mContext, DesignActivity.class));
+                isRight = true;
+                break;
+            case UriAction.ACTION_APP_COMPAT_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, AppCompatActivityDemo.class));
+                isRight = true;
+                break;
+            case UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, ExpandRecyclerViewActivity.class));
                 isRight = true;
                 break;
 //            case UriAction.PRODUCT:

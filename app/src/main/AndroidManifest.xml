@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".design.DesignActivity" />
+        <activity android:name=".appcompat.AppCompatActivityDemo" />
+        <activity android:name=".design.activity.ExpandRecyclerViewActivity" />
     </application>
 
 </manifest>

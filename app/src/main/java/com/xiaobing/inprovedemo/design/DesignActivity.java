@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.base.BaseActivity;
-import com.xiaobing.inprovedemo.main.MainActivity;
+import com.xiaobing.inprovedemo.link.UriAction;
 import com.xiaobing.inprovedemo.main.adapter.MainAdapter;
 import com.xiaobing.inprovedemo.main.bean.MainBean;
 import com.xiaobing.inprovedemo.util.ParseLinkUtil;
@@ -30,8 +29,8 @@ public class DesignActivity extends BaseActivity {
         rvDesign.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<MainBean> data = new ArrayList<>();
         MainBean e = new MainBean();
-        e.setName("Design");
-        e.setLink("xiaobing://design");
+        e.setName(UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY);
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY));
         data.add(e);
         MainAdapter adapter = new MainAdapter(this, data) {
             @Override

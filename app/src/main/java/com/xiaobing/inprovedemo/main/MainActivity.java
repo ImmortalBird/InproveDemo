@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
+import com.xiaobing.inprovedemo.link.UriAction;
 import com.xiaobing.inprovedemo.main.adapter.MainAdapter;
 import com.xiaobing.inprovedemo.main.bean.MainBean;
 import com.xiaobing.inprovedemo.util.ParseLinkUtil;
@@ -29,8 +30,12 @@ public class MainActivity extends Activity {
         rvMain.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<MainBean> data = new ArrayList<>();
         MainBean e = new MainBean();
-        e.setName("Design");
-        e.setLink("xiaobing://design");
+        e.setName(UriAction.ACTION_DESIGN);
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_DESIGN));
+        data.add(e);
+        e = new MainBean();
+        e.setName(UriAction.ACTION_APP_COMPAT_ACTIVITY);
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_APP_COMPAT_ACTIVITY));
         data.add(e);
         MainAdapter adapter = new MainAdapter(this, data) {
             @Override
