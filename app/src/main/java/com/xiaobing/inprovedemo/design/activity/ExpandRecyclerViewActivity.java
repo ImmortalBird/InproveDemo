@@ -16,14 +16,14 @@ import java.util.ArrayList;
 public class ExpandRecyclerViewActivity extends Activity {
 
     private RecyclerView rv;
-    private ArrayList<GroupBean> mobileOSes;
+    private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expand_rv);
         rv = findViewById(R.id.rv);
         setData();
-        rv.setAdapter(new ExpandAdapter());
+        rv.setAdapter(new ExpandAdapter(mobileOSes,this));
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 
