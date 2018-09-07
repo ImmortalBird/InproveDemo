@@ -5,6 +5,16 @@ import java.util.ArrayList;
 public class GroupBean {
 
     private String title;
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    private boolean isSelected;
     private ArrayList<ChildText> children;
 
     public GroupBean(String title) {

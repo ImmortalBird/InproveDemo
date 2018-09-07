@@ -33,7 +33,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int itemType) {
         LayoutInflater from = LayoutInflater.from(context);
-        Log.e("ExpandAdapter","onCreateViewHolder itemType = "+itemType );
+        Log.e("ExpandAdapter", "onCreateViewHolder itemType = " + itemType);
         switch (itemType) {
             case TYPE_GROUP:
                 return new GroupHolder(from.inflate(R.layout.item_group_title, viewGroup, false));
@@ -44,23 +44,79 @@ public class ExpandAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int pos) {
-        Log.e("ExpandAdapter","onBindViewHolder pos = "+pos +"----- itemType = "+getItemViewType(pos)  );
+        Log.e("ExpandAdapter", "onBindViewHolder pos = " + pos + "----- itemType = " + getItemViewType(pos));
         switch (getItemViewType(pos)) {
             case TYPE_GROUP:
                 bindGroup((GroupHolder) viewHolder, getGroup(pos));
                 break;
             default:
-                bindChild((ChildHolder) viewHolder, getGroup(pos).getChildren().get(getChildIndex(pos)));
+                bindChild((ChildHolder) viewHolder,getGroup(pos), getGroup(pos).getChildren().get(getChildIndex(pos)));
         }
 
     }
 
     private void bindGroup(GroupHolder holder, GroupBean groupBean) {
         holder.tvGroup.setText(groupBean.getTitle());
+        holder.cbGroup.setChecked(groupBean.isSelected());
+        holder.itemView.setOnClickListener(v -> {
+            // 2018/9/7 组被点击 开发分组购物车列表
+            if (groupBean.isSelected()) {
+                groupBean.setSelected(false);
+                for (ChildText ct : groupBean.getChildren()) {
+                    ct.setSelected(false);
+                }
+            } else {
+                groupBean.setSelected(true);
+                for (ChildText ct : groupBean.getChildren()) {
+                    ct.setSelected(true);
+                }
+            }
+            notifyDataSetChanged();
+        });
     }
 
-    private void bindChild(ChildHolder holder, ChildText childText) {
+    private GroupBean getGroup(int position) {
+        int index = 0;
+        for (int i = 0; i < mobileOSes.size(); i++) {
+            if (position >= index && position < mobileOSes.get(i).getChildren().size() + 1 + index) {
+                return mobileOSes.get(i);
+            } else {
+                index += mobileOSes.get(i).getChildren().size() + 1;
+            }
+        }
+        return new GroupBean("");
+    }
+
+    private void bindChild(ChildHolder holder, GroupBean group, ChildText childText) {
         holder.tvChild.setText(childText.getText());
+        holder.cbChild.setChecked(childText.isSelected());
+        holder.itemView.setOnClickListener(v -> {
+            // 2018/9/7 child被点击
+            if (childText.isSelected()) {
+                childText.setSelected(false);
+                group.setSelected(false);
+            } else {
+                childText.setSelected(true);
+                group.setSelected(true);
+                for (ChildText ct : group.getChildren()) {
+                    if (!ct.isSelected()){
+                        group.setSelected(false);
+                        break;
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        });
+    }
+
+    private int getChildIndex(int position) {
+        GroupBean bean = getGroup(position);
+        int groupIndex = mobileOSes.indexOf(bean);
+        int delta = 0;
+        for (int i = 0; i < groupIndex; i++) {
+            delta += mobileOSes.get(i).getChildren().size();
+        }
+        return position - groupIndex - delta - 1;
     }
 
     private boolean isGroup(int position) {
@@ -91,39 +147,17 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         return count;
     }
 
-    private int getChildIndex(int position) {
-        GroupBean bean = getGroup(position);
-        int groupIndex = mobileOSes.indexOf(bean);
-        int delta = 0;
-        for (int i = 0; i < groupIndex; i++) {
-            delta += mobileOSes.get(i).getChildren().size();
-        }
-        return position - groupIndex - delta - 1;
-    }
-
     private int getGroupIndex(int position) {
         int index = 0;
         for (int i = 0; i < mobileOSes.size(); i++) {
-            if (position >= index  && position < mobileOSes.get(i).getChildren().size() + 1 + index){
+            if (position >= index && position < mobileOSes.get(i).getChildren().size() + 1 + index) {
                 return i;
-            }else {
+            } else {
                 index += mobileOSes.get(i).getChildren().size() + 1;
                 i--;
             }
         }
         return 0;
-    }
-
-    private GroupBean getGroup(int position) {
-        int index = 0;
-        for (int i = 0; i < mobileOSes.size(); i++) {
-            if (position >= index  && position < mobileOSes.get(i).getChildren().size() + 1 + index){
-                return mobileOSes.get(i);
-            }else {
-                index += mobileOSes.get(i).getChildren().size() + 1;
-            }
-        }
-        return new GroupBean("");
     }
 
     class GroupHolder extends RecyclerView.ViewHolder {

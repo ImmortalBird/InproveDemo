@@ -4,6 +4,16 @@ public class ChildText {
 
     private String text;
 
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    private boolean isSelected;
+
 
     public ChildText(String text) {
         this.text = text;
