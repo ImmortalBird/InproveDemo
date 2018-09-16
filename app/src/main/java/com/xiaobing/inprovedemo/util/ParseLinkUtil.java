@@ -12,6 +12,7 @@ import com.xiaobing.inprovedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.inprovedemo.design.DesignActivity;
 import com.xiaobing.inprovedemo.design.activity.ExpandRecyclerViewActivity;
 import com.xiaobing.inprovedemo.link.UriAction;
+import com.xiaobing.inprovedemo.notification.NotificationActivity;
 
 public class ParseLinkUtil {
 
@@ -48,6 +49,10 @@ public class ParseLinkUtil {
                 break;
             case UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY:
                 mContext.startActivity(new Intent(mContext, ExpandRecyclerViewActivity.class));
+                isRight = true;
+                break;
+            case UriAction.ACTION_NOTIFICATION_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, NotificationActivity.class));
                 isRight = true;
                 break;
 //            case UriAction.PRODUCT:

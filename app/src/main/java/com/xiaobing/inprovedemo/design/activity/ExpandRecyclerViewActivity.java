@@ -7,20 +7,22 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
+import com.xiaobing.inprovedemo.base.BaseActivity;
 import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
 import com.xiaobing.inprovedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
-public class ExpandRecyclerViewActivity extends Activity {
+public class ExpandRecyclerViewActivity extends BaseActivity {
 
     private RecyclerView rv;
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expand_rv);
+        super.onCreate(savedInstanceState);
+        setTitle(getString(R.string.ID_design_02_01));
         rv = findViewById(R.id.rv);
         setData();
         rv.setAdapter(new ExpandAdapter(mobileOSes,this));

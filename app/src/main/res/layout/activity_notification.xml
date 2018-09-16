@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/head"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/base16sp"
+                android:text="@string/ID_design_02_02"
+                android:background="@drawable/ic_launcher_background"
+                android:layout_margin="@dimen/base12dp"
+                />
+            <TextView
+                android:id="@+id/tv_expand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/base16sp"
+                android:text="@string/ID_design_02_03"
+                android:background="@drawable/ic_launcher_background"
+                android:layout_margin="@dimen/base12dp"
+                />
+            <TextView
+                android:id="@+id/tv_hang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/base16sp"
+                android:text="@string/ID_design_02_04"
+                android:background="@drawable/ic_launcher_background"
+                android:layout_margin="@dimen/base12dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
