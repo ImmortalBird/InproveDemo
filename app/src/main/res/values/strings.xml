@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">InproveDemo</string>
     <string name="scheme">xiaobing</string>
+    <string name="ID_01_01">主页</string>
+    <string name="ID_design_01">Design</string>
 </resources>

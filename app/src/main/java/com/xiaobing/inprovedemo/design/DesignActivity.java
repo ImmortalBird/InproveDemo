@@ -20,9 +20,10 @@ public class DesignActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design);
+        super.onCreate(savedInstanceState);
         rvDesign = findViewById(R.id.rv_design);
+        setTitle(getString(R.string.ID_design_01));
         initView();
     }
     private void initView() {
