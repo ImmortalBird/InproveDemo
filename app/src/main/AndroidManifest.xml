@@ -21,6 +21,7 @@
         <activity android:name=".design.DesignActivity" />
         <activity android:name=".appcompat.AppCompatActivityDemo" />
         <activity android:name=".design.activity.ExpandRecyclerViewActivity" />
+        <activity android:name=".design.activity.ExpandSelectRecyclerViewActivity" />
         <activity android:name=".notification.NotificationActivity" />
     </application>
 

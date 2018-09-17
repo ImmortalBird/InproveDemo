@@ -3,8 +3,10 @@
     <string name="scheme">xiaobing</string>
     <string name="ID_01_01">主页</string>
     <string name="ID_design_01">Design</string>
-    <string name="ID_design_02_01">复选分组列表</string>
-    <string name="ID_design_02_02">普通通知</string>
-    <string name="ID_design_02_03">折叠式通知</string>
-    <string name="ID_design_02_04">悬挂式通知</string>
+    <string name="ID_design_01_02">复选分组列表</string>
+    <string name="ID_design_02_01">可收起的分组选择列表</string>
+    <string name="ID_notification_01">通知</string>
+    <string name="ID_notification_01_02">普通通知</string>
+    <string name="ID_notification_01_03">折叠式通知</string>
+    <string name="ID_notification_01_04">悬挂式通知</string>
 </resources>

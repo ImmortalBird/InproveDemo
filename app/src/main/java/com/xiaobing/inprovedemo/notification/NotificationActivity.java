@@ -1,6 +1,5 @@
 package com.xiaobing.inprovedemo.notification;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -48,7 +47,7 @@ public class NotificationActivity extends BaseActivity implements View.OnClickLi
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher))
                         .setAutoCancel(true)
-                        .setContentTitle(getString(R.string.ID_design_02_02))
+                        .setContentTitle(getString(R.string.ID_notification_01_02))
                         .build();
                 notificationManager.notify(1,notification);
 

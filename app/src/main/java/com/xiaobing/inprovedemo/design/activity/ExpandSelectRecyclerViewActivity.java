@@ -1,19 +1,19 @@
 package com.xiaobing.inprovedemo.design.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
-import com.xiaobing.inprovedemo.base.BaseActivity;
 import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
 import com.xiaobing.inprovedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
-public class ExpandRecyclerViewActivity extends BaseActivity {
+public class ExpandSelectRecyclerViewActivity extends Activity {
 
     private RecyclerView rv;
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
@@ -21,8 +21,8 @@ public class ExpandRecyclerViewActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_expand_rv);
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.ID_design_01_02));
         rv = findViewById(R.id.rv);
+        setTitle(getString(R.string.ID_design_02_01));
         setData();
         rv.setAdapter(new ExpandAdapter(mobileOSes,this));
         rv.setLayoutManager(new LinearLayoutManager(this));
