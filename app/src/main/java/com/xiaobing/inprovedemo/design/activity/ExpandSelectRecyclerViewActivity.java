@@ -7,13 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
+import com.xiaobing.inprovedemo.base.BaseActivity;
 import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
 import com.xiaobing.inprovedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
-public class ExpandSelectRecyclerViewActivity extends Activity {
+public class ExpandSelectRecyclerViewActivity extends BaseActivity {
 
     private RecyclerView rv;
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();

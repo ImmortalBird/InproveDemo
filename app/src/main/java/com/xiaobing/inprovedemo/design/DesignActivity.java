@@ -30,7 +30,7 @@ public class DesignActivity extends BaseActivity {
         rvDesign.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<MainBean> data = new ArrayList<>();
         MainBean e = new MainBean();
-        e.setName(getString(R.string.ID_design_02_01));
+        e.setName(getString(R.string.ID_design_01_02));
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY));
         data.add(e);
         e = new MainBean();
