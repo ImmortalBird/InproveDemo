@@ -1,6 +1,5 @@
 package com.xiaobing.inprovedemo.design.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.base.BaseActivity;
-import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
+import com.xiaobing.inprovedemo.design.adapter.ExpandSelectAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
 import com.xiaobing.inprovedemo.design.bean.GroupBean;
 
@@ -25,7 +24,7 @@ public class ExpandSelectRecyclerViewActivity extends BaseActivity {
         rv = findViewById(R.id.rv);
         setTitle(getString(R.string.ID_design_02_01));
         setData();
-        rv.setAdapter(new ExpandAdapter(mobileOSes,this));
+        rv.setAdapter(new ExpandSelectAdapter(mobileOSes,this));
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 

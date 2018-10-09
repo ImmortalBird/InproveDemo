@@ -15,7 +15,16 @@ public class GroupBean {
     }
 
     private boolean isSelected;
+    private boolean isExpand;
     private ArrayList<ChildText> children;
+
+    public boolean isExpand() {
+        return isExpand;
+    }
+
+    public void setExpand(boolean expand) {
+        isExpand = expand;
+    }
 
     public GroupBean(String title) {
         this.title = title;

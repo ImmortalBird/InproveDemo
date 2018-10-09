@@ -5,6 +5,7 @@ public class UriAction {
     public static final String ACTION_DESIGN = "Design";
     public static final String ACTION_APP_COMPAT_ACTIVITY = "AppcompatActivity";
     public static final String ACTION_NOTIFICATION_ACTIVITY = "NotificationActivity";
+    public static final String ACTION_GROUP_SELECT_RECYCLER_VIEW_ACTIVITY = "GroupSelectRecyclerViewActivity";
     public static final String ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY = "ExpandRecyclerViewActivity";
     public static final String ACTION_EXPAND_SELECT_RECYCLER_VIEW_ACTIVITY = "ExpandSelectRecyclerViewActivity";
     // TODO: 2018/9/4 搞清楚ConstraintLayout用法

@@ -16,14 +16,14 @@ import com.xiaobing.inprovedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
-public class ExpandAdapter extends RecyclerView.Adapter {
+public class ExpandSelectAdapter extends RecyclerView.Adapter {
     private static final int TYPE_GROUP = 10000;
     private static final int TYPE_CHILD = 10001;
     private ArrayList<GroupBean> mobileOSes;
     private Context context;
 
 
-    public ExpandAdapter(ArrayList<GroupBean> mobileOSes, Context context) {
+    public ExpandSelectAdapter(ArrayList<GroupBean> mobileOSes, Context context) {
         this.mobileOSes = mobileOSes;
         this.context = context;
 
@@ -59,32 +59,30 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         holder.tvGroup.setText(groupBean.getTitle());
         holder.cbGroup.setChecked(groupBean.isSelected());
         holder.itemView.setOnClickListener(v -> {
-            // TODO: 2018/10/9 展开或者收缩分组
-            if (!groupBean.isExpand()){
-                groupBean.setExpand(true);
-                notifyItemRangeInserted(holder.getAdapterPosition()+1,groupBean.getChildren().size());
-            }else {
-                groupBean.setExpand(false);
-                notifyItemRangeRemoved(holder.getAdapterPosition()+1,groupBean.getChildren().size());
+            // 2018/9/7 组被点击 开发分组购物车列表
+            if (groupBean.isSelected()) {
+                groupBean.setSelected(false);
+                for (ChildText ct : groupBean.getChildren()) {
+                    ct.setSelected(false);
+                }
+            } else {
+                groupBean.setSelected(true);
+                for (ChildText ct : groupBean.getChildren()) {
+                    ct.setSelected(true);
+                }
             }
-
+            notifyDataSetChanged();
         });
     }
 
     private GroupBean getGroup(int position) {
         int index = 0;
         for (int i = 0; i < mobileOSes.size(); i++) {
-            if (mobileOSes.get(i).isExpand())
-                if (position >= index && position < mobileOSes.get(i).getChildren().size() + 1 + index) {
-                    return mobileOSes.get(i);
-                } else {
-                    index += mobileOSes.get(i).getChildren().size() + 1;
-                }
-            else
-                if (position >= index && position < 1 + index){
-                    return mobileOSes.get(i);
-                }else
-                    index += 1;
+            if (position >= index && position < mobileOSes.get(i).getChildren().size() + 1 + index) {
+                return mobileOSes.get(i);
+            } else {
+                index += mobileOSes.get(i).getChildren().size() + 1;
+            }
         }
         return new GroupBean("");
     }
@@ -94,20 +92,20 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         holder.cbChild.setChecked(childText.isSelected());
         holder.itemView.setOnClickListener(v -> {
             // 2018/9/7 child被点击
-//            if (childText.isSelected()) {
-//                childText.setSelected(false);
-//                group.setSelected(false);
-//            } else {
-//                childText.setSelected(true);
-//                group.setSelected(true);
-//                for (ChildText ct : group.getChildren()) {
-//                    if (!ct.isSelected()){
-//                        group.setSelected(false);
-//                        break;
-//                    }
-//                }
-//            }
-//            notifyDataSetChanged();
+            if (childText.isSelected()) {
+                childText.setSelected(false);
+                group.setSelected(false);
+            } else {
+                childText.setSelected(true);
+                group.setSelected(true);
+                for (ChildText ct : group.getChildren()) {
+                    if (!ct.isSelected()){
+                        group.setSelected(false);
+                        break;
+                    }
+                }
+            }
+            notifyDataSetChanged();
         });
     }
 
@@ -115,14 +113,10 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         GroupBean bean = getGroup(position);
         int groupIndex = mobileOSes.indexOf(bean);
         int delta = 0;
-        for (int i = 0; i < groupIndex+1; i++) {
-            if (!bean.isExpand())
-                delta += bean.getChildren().size();
-            else
-                delta += 1;
-
+        for (int i = 0; i < groupIndex; i++) {
+            delta += mobileOSes.get(i).getChildren().size();
         }
-        return position - delta;
+        return position - groupIndex - delta - 1;
     }
 
     private boolean isGroup(int position) {
@@ -130,7 +124,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         if (position == 0)
             return true;
         for (GroupBean gb : mobileOSes) {
-            if (gb.isExpand())count += gb.getChildren().size() + 1;else count += 1;
+            count += gb.getChildren().size() + 1;
             if (position == count)
                 return true;
         }
@@ -146,18 +140,9 @@ public class ExpandAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        // 2018/10/9 计算条目总数
-        /*
-         * 1. 判断分组是否是展开状态
-         *      如果是：加上子条目的数量和当前组所占的一个条目数量
-         *      如果否：只加上 当前组所占的一个条目数量
-         */
         int count = 0;
         for (GroupBean gb : mobileOSes) {
-            if (gb.isExpand()){
-                count += gb.getChildren().size() + 1;
-            }else count += 1;
-
+            count += gb.getChildren().size() + 1;
         }
         return count;
     }

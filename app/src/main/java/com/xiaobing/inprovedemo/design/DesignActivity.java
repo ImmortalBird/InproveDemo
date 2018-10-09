@@ -31,11 +31,15 @@ public class DesignActivity extends BaseActivity {
         ArrayList<MainBean> data = new ArrayList<>();
         MainBean e = new MainBean();
         e.setName(getString(R.string.ID_design_01_02));
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY));
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_GROUP_SELECT_RECYCLER_VIEW_ACTIVITY));
         data.add(e);
         e = new MainBean();
         e.setName(getString(R.string.ID_design_02_01));
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_SELECT_RECYCLER_VIEW_ACTIVITY));
+        data.add(e);
+        e = new MainBean();
+        e.setName(getString(R.string.ID_design_02_02));
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY));
         data.add(e);
         MainAdapter adapter = new MainAdapter(this, data) {
             @Override

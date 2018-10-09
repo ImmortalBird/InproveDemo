@@ -1,16 +1,15 @@
 package com.xiaobing.inprovedemo.util;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.inprovedemo.design.DesignActivity;
 import com.xiaobing.inprovedemo.design.activity.ExpandRecyclerViewActivity;
+import com.xiaobing.inprovedemo.design.activity.GroupSelectRecyclerViewActivity;
 import com.xiaobing.inprovedemo.design.activity.ExpandSelectRecyclerViewActivity;
 import com.xiaobing.inprovedemo.link.UriAction;
 import com.xiaobing.inprovedemo.notification.NotificationActivity;
@@ -46,6 +45,10 @@ public class ParseLinkUtil {
                 break;
             case UriAction.ACTION_APP_COMPAT_ACTIVITY:
                 mContext.startActivity(new Intent(mContext, AppCompatActivityDemo.class));
+                isRight = true;
+                break;
+            case UriAction.ACTION_GROUP_SELECT_RECYCLER_VIEW_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, GroupSelectRecyclerViewActivity.class));
                 isRight = true;
                 break;
             case UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY:
