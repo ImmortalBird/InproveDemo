@@ -21,6 +21,9 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     private static final int TYPE_CHILD = 10001;
     private ArrayList<GroupBean> mobileOSes;
     private Context context;
+    private int changeIndex = -1;
+    private int changeSize = 0;
+    private int changeAction = 0;
 
 
     public ExpandAdapter(ArrayList<GroupBean> mobileOSes, Context context) {
@@ -50,7 +53,9 @@ public class ExpandAdapter extends RecyclerView.Adapter {
                 bindGroup((GroupHolder) viewHolder, getGroup(pos));
                 break;
             default:
-                bindChild((ChildHolder) viewHolder,getGroup(pos), getGroup(pos).getChildren().get(getChildIndex(pos)));
+                int childIndex = getChildIndex(pos);
+                Log.e("GroupSelectAdapter", "onBindViewHolder childIndex = " + childIndex);
+                bindChild((ChildHolder) viewHolder,getGroup(pos), getGroup(pos).getChildren().get(childIndex));
         }
 
     }
@@ -60,12 +65,14 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         holder.cbGroup.setChecked(groupBean.isSelected());
         holder.itemView.setOnClickListener(v -> {
             // TODO: 2018/10/9 展开或者收缩分组
+            changeIndex = mobileOSes.indexOf(groupBean);
+            changeSize = groupBean.getChildren().size();
             if (!groupBean.isExpand()){
                 groupBean.setExpand(true);
-                notifyItemRangeInserted(holder.getAdapterPosition()+1,groupBean.getChildren().size());
+                notifyItemRangeInserted(holder.getAdapterPosition()+1, changeSize);
             }else {
                 groupBean.setExpand(false);
-                notifyItemRangeRemoved(holder.getAdapterPosition()+1,groupBean.getChildren().size());
+                notifyItemRangeRemoved(holder.getAdapterPosition()+1, changeSize);
             }
 
         });
@@ -112,17 +119,35 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     }
 
     private int getChildIndex(int position) {
+        Log.e("GroupSelectAdapter","position = " + position);
         GroupBean bean = getGroup(position);
         int groupIndex = mobileOSes.indexOf(bean);
+        Log.e("GroupSelectAdapter","groupIndex = " + groupIndex);
         int delta = 0;
-        for (int i = 0; i < groupIndex+1; i++) {
-            if (!bean.isExpand())
-                delta += bean.getChildren().size();
-            else
-                delta += 1;
-
+        for (int i = 0; i < groupIndex+(changeSize > 0 ? 1:0); i++) {
+//        for (int i = 0; i < groupIndex; i++) {
+            bean = mobileOSes.get(i);
+            if (i == changeIndex && changeSize > 0){
+                if (!bean.isExpand())
+                    delta += bean.getChildren().size()+1;
+                else
+                    delta += 1;
+                changeSize --;
+            }else{
+                if (bean.isExpand())
+                    delta += bean.getChildren().size()+1;
+                else
+                    delta += 1;
+            }
+//                if(changeSize <= 0){
+//            }else{
+//                if (!bean.isExpand())
+//                    delta += bean.getChildren().size()+1;
+//                else
+//                    delta += 1;
+//            }
         }
-        return position - delta;
+        return position - delta- (changeSize > 0 ? 0:1);
     }
 
     private boolean isGroup(int position) {

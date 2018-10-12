@@ -49,17 +49,27 @@ public class ExpandRecyclerViewActivity extends BaseActivity {
         nexus.add(new ChildText("溜溜球"));
         nexus.add(new ChildText("橄榄球"));
 
+        ArrayList<ChildText> games = new ArrayList<>();
+        games.add(new ChildText("单击游戏"));
+        games.add(new ChildText("主机游戏"));
+        games.add(new ChildText("FPS游戏"));
+        games.add(new ChildText("挂机游戏"));
+        games.add(new ChildText("小游戏"));
+        games.add(new ChildText("手游"));
         ArrayList<ChildText> windowPhones = new ArrayList<>();
-        windowPhones.add(new ChildText("单击游戏"));
-        windowPhones.add(new ChildText("主机游戏"));
-        windowPhones.add(new ChildText("FPS游戏"));
-        windowPhones.add(new ChildText("挂机游戏"));
-        windowPhones.add(new ChildText("小游戏"));
-        windowPhones.add(new ChildText("手游"));
+        windowPhones.add(new ChildText("苹果"));
+        windowPhones.add(new ChildText("三星"));
+        windowPhones.add(new ChildText("华为"));
+        windowPhones.add(new ChildText("小米"));
+        windowPhones.add(new ChildText("Google"));
+        windowPhones.add(new ChildText("360"));
+        windowPhones.add(new ChildText("中兴"));
+        windowPhones.add(new ChildText("联想"));
 
         mobileOSes.add(new GroupBean("水果", iphones));
         mobileOSes.add(new GroupBean("球类", nexus));
-        mobileOSes.add(new GroupBean("游戏", windowPhones));
+        mobileOSes.add(new GroupBean("游戏", games));
+        mobileOSes.add(new GroupBean("手机", windowPhones));
     }
 
 }
