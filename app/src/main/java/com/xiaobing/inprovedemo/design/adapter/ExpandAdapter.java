@@ -21,7 +21,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     private static final int TYPE_CHILD = 10001;
     private ArrayList<GroupBean> mobileOSes;
     private Context context;
-    private int expandIndex = -1,closeIndex = -1;
+    private int expandIndex = -1, closeIndex = -1;
     private int changeSize = 0;
     private int changeAction = 0;
 
@@ -55,7 +55,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
             default:
                 int childIndex = getChildIndex(pos);
                 Log.e("GroupSelectAdapter", "onBindViewHolder childIndex = " + childIndex);
-                bindChild((ChildHolder) viewHolder,getGroup(pos), getGroup(pos).getChildren().get(childIndex));
+                bindChild((ChildHolder) viewHolder, getGroup(pos), getGroup(pos).getChildren().get(childIndex));
         }
 
     }
@@ -66,20 +66,20 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         holder.itemView.setOnClickListener(v -> {
             // 2018/10/9 展开或者收缩分组
             changeSize = groupBean.getChildren().size();
-            if (!groupBean.isExpand()){
+            if (!groupBean.isExpand()) {
                 groupBean.setExpand(true);
                 expandIndex = mobileOSes.indexOf(groupBean);
                 closeIndex = -1;
-                notifyItemRangeInserted(holder.getAdapterPosition()+1, changeSize);
-            }else {
+                notifyItemRangeInserted(holder.getAdapterPosition() + 1, changeSize);
+            } else {
                 groupBean.setExpand(false);
                 closeIndex = mobileOSes.indexOf(groupBean);
                 expandIndex = -1;
-                notifyItemRangeRemoved(holder.getAdapterPosition()+1, changeSize);
+                notifyItemRangeRemoved(holder.getAdapterPosition() + 1, changeSize);
             }
-            Log.e("OnClick","changeSize = " + changeSize);
-            Log.e("OnClick","expandIndex = " + expandIndex);
-            Log.e("OnClick","closeIndex = " + closeIndex);
+            Log.e("OnClick", "changeSize = " + changeSize);
+            Log.e("OnClick", "expandIndex = " + expandIndex);
+            Log.e("OnClick", "closeIndex = " + closeIndex);
         });
     }
 
@@ -92,11 +92,10 @@ public class ExpandAdapter extends RecyclerView.Adapter {
                 } else {
                     index += mobileOSes.get(i).getChildren().size() + 1;
                 }
-            else
-                if (position >= index && position < 1 + index){
-                    return mobileOSes.get(i);
-                }else
-                    index += 1;
+            else if (position >= index && position < 1 + index) {
+                return mobileOSes.get(i);
+            } else
+                index += 1;
         }
         return new GroupBean("");
     }
@@ -124,30 +123,26 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     }
 
     private int getChildIndex(int position) {
-        Log.e("GroupSelectAdapter","position = " + position);
+        Log.e("GroupSelectAdapter", "position = " + position);
         GroupBean bean = getGroup(position);
         int groupIndex = mobileOSes.indexOf(bean);
-        Log.e("GroupSelectAdapter","groupIndex = " + groupIndex);
-        int delta = 0,x = changeSize > 0 ? 1:0;
-        for (int i = 0; i < groupIndex+x; i++) {
+        Log.e("GroupSelectAdapter", "groupIndex = " + groupIndex);
+        int delta = 0, x = changeSize > 0 ? 1 : 0;
+        for (int i = 0; i < groupIndex + x; i++) {
 //        for (int i = 0; i < groupIndex; i++) {
             bean = mobileOSes.get(i);
-            if (i == expandIndex && changeSize > 0){
-                if (!bean.isExpand())
-                    delta += bean.getChildren().size()+1;
-                else
-                    delta += 1;
-                changeSize --;
-            }else if(closeIndex == i && changeSize > 0){
-//                if (!bean.isExpand())
-//                    delta += bean.getChildren().size()+1;
-//                else
-                    delta += 1;
+            if (i == expandIndex && changeSize > 0) {
+                delta += 1;
+                changeSize--;
+                if (changeSize == 0)
+                    expandIndex = -1;
+            } else if (closeIndex == i && changeSize > 0) {
+                delta += 1;
                 closeIndex = -1;
                 changeSize = 0;
             } else {
                 if (bean.isExpand())
-                    delta += bean.getChildren().size()+1;
+                    delta += bean.getChildren().size() + 1;
                 else
                     delta += 1;
             }
@@ -159,7 +154,17 @@ public class ExpandAdapter extends RecyclerView.Adapter {
 //                    delta += 1;
 //            }
         }
-        return position - delta- groupIndex - x +1;
+        int index = position - delta - 1 + x;
+        Log.e("GroupSelectAdapter", "index = " + index);
+        if (index < 0 || index >= bean.getChildren().size()){
+            expandIndex = -1;
+            closeIndex = -1;
+            changeSize = 0;
+            return 0;
+//            index = getChildIndex(position);
+        }
+
+        return index;
     }
 
     private boolean isGroup(int position) {
@@ -167,7 +172,8 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         if (position == 0)
             return true;
         for (GroupBean gb : mobileOSes) {
-            if (gb.isExpand())count += gb.getChildren().size() + 1;else count += 1;
+            if (gb.isExpand()) count += gb.getChildren().size() + 1;
+            else count += 1;
             if (position == count)
                 return true;
         }
@@ -191,9 +197,9 @@ public class ExpandAdapter extends RecyclerView.Adapter {
          */
         int count = 0;
         for (GroupBean gb : mobileOSes) {
-            if (gb.isExpand()){
+            if (gb.isExpand()) {
                 count += gb.getChildren().size() + 1;
-            }else count += 1;
+            } else count += 1;
 
         }
         return count;
