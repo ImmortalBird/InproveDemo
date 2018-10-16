@@ -21,7 +21,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     private static final int TYPE_CHILD = 10001;
     private ArrayList<GroupBean> mobileOSes;
     private Context context;
-    private int changeIndex = -1;
+    private int expandIndex = -1,closeIndex = -1;
     private int changeSize = 0;
     private int changeAction = 0;
 
@@ -64,17 +64,22 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         holder.tvGroup.setText(groupBean.getTitle());
         holder.cbGroup.setChecked(groupBean.isSelected());
         holder.itemView.setOnClickListener(v -> {
-            // TODO: 2018/10/9 展开或者收缩分组
-            changeIndex = mobileOSes.indexOf(groupBean);
+            // 2018/10/9 展开或者收缩分组
             changeSize = groupBean.getChildren().size();
             if (!groupBean.isExpand()){
                 groupBean.setExpand(true);
+                expandIndex = mobileOSes.indexOf(groupBean);
+                closeIndex = -1;
                 notifyItemRangeInserted(holder.getAdapterPosition()+1, changeSize);
             }else {
                 groupBean.setExpand(false);
+                closeIndex = mobileOSes.indexOf(groupBean);
+                expandIndex = -1;
                 notifyItemRangeRemoved(holder.getAdapterPosition()+1, changeSize);
             }
-
+            Log.e("OnClick","changeSize = " + changeSize);
+            Log.e("OnClick","expandIndex = " + expandIndex);
+            Log.e("OnClick","closeIndex = " + closeIndex);
         });
     }
 
@@ -127,13 +132,20 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         for (int i = 0; i < groupIndex+(changeSize > 0 ? 1:0); i++) {
 //        for (int i = 0; i < groupIndex; i++) {
             bean = mobileOSes.get(i);
-            if (i == changeIndex && changeSize > 0){
+            if (i == expandIndex && changeSize > 0){
                 if (!bean.isExpand())
                     delta += bean.getChildren().size()+1;
                 else
                     delta += 1;
                 changeSize --;
-            }else{
+            }else if(closeIndex == i && changeSize > 0){
+//                if (!bean.isExpand())
+//                    delta += bean.getChildren().size()+1;
+//                else
+                    delta += 1;
+                closeIndex = -1;
+                changeSize = 0;
+            } else {
                 if (bean.isExpand())
                     delta += bean.getChildren().size()+1;
                 else
