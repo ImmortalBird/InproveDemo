@@ -50,7 +50,7 @@ public class ExpandRecyclerViewActivity extends BaseActivity {
         nexus.add(new ChildText("橄榄球"));
 
         ArrayList<ChildText> games = new ArrayList<>();
-        games.add(new ChildText("单击游戏"));
+        games.add(new ChildText("单机游戏"));
         games.add(new ChildText("主机游戏"));
         games.add(new ChildText("FPS游戏"));
         games.add(new ChildText("挂机游戏"));

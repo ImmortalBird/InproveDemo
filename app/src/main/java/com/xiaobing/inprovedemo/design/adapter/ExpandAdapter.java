@@ -128,8 +128,8 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         GroupBean bean = getGroup(position);
         int groupIndex = mobileOSes.indexOf(bean);
         Log.e("GroupSelectAdapter","groupIndex = " + groupIndex);
-        int delta = 0;
-        for (int i = 0; i < groupIndex+(changeSize > 0 ? 1:0); i++) {
+        int delta = 0,x = changeSize > 0 ? 1:0;
+        for (int i = 0; i < groupIndex+x; i++) {
 //        for (int i = 0; i < groupIndex; i++) {
             bean = mobileOSes.get(i);
             if (i == expandIndex && changeSize > 0){
@@ -159,7 +159,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
 //                    delta += 1;
 //            }
         }
-        return position - delta- (changeSize > 0 ? 0:1);
+        return position - delta- groupIndex - x +1;
     }
 
     private boolean isGroup(int position) {
