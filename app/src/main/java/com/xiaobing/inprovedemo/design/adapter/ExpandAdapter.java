@@ -36,7 +36,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int itemType) {
         LayoutInflater from = LayoutInflater.from(context);
-        Log.e("GroupSelectAdapter", "onCreateViewHolder itemType = " + itemType);
+        Log.e("ExpandAdapter", "onCreateViewHolder itemType = " + itemType);
         switch (itemType) {
             case TYPE_GROUP:
                 return new GroupHolder(from.inflate(R.layout.item_group_title, viewGroup, false));
@@ -47,35 +47,37 @@ public class ExpandAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int pos) {
-        Log.e("GroupSelectAdapter", "onBindViewHolder pos = " + pos + "----- itemType = " + getItemViewType(pos));
+        Log.e("ExpandAdapter", "onBindViewHolder pos = " + pos + "----- itemType = " + getItemViewType(pos));
         switch (getItemViewType(pos)) {
             case TYPE_GROUP:
-                bindGroup((GroupHolder) viewHolder, getGroup(pos));
+                bindGroup((GroupHolder) viewHolder, getGroup(pos),pos);
                 break;
             default:
                 int childIndex = getChildIndex(pos);
-                Log.e("GroupSelectAdapter", "onBindViewHolder childIndex = " + childIndex);
-                bindChild((ChildHolder) viewHolder, getGroup(pos), getGroup(pos).getChildren().get(childIndex));
+                Log.e("ExpandAdapter", "onBindViewHolder childIndex = " + childIndex);
+                bindChild((ChildHolder) viewHolder, getGroup(pos), getGroup(pos).getChildren().get(childIndex),pos);
         }
 
     }
 
-    private void bindGroup(GroupHolder holder, GroupBean groupBean) {
+    private void bindGroup(GroupHolder holder, GroupBean groupBean, int pos) {
         holder.tvGroup.setText(groupBean.getTitle());
         holder.cbGroup.setChecked(groupBean.isSelected());
         holder.itemView.setOnClickListener(v -> {
             // 2018/10/9 展开或者收缩分组
-            changeSize = groupBean.getChildren().size();
+
             if (!groupBean.isExpand()) {
                 groupBean.setExpand(true);
                 expandIndex = mobileOSes.indexOf(groupBean);
                 closeIndex = -1;
+                changeSize = groupBean.getChildren().size();
                 notifyItemRangeInserted(holder.getAdapterPosition() + 1, changeSize);
             } else {
                 groupBean.setExpand(false);
                 closeIndex = mobileOSes.indexOf(groupBean);
+                changeSize = 0;
                 expandIndex = -1;
-                notifyItemRangeRemoved(holder.getAdapterPosition() + 1, changeSize);
+                notifyItemRangeRemoved(holder.getAdapterPosition() + 1, groupBean.getChildren().size());
             }
             Log.e("OnClick", "changeSize = " + changeSize);
             Log.e("OnClick", "expandIndex = " + expandIndex);
@@ -100,8 +102,8 @@ public class ExpandAdapter extends RecyclerView.Adapter {
         return new GroupBean("");
     }
 
-    private void bindChild(ChildHolder holder, GroupBean group, ChildText childText) {
-        holder.tvChild.setText(childText.getText());
+    private void bindChild(ChildHolder holder, GroupBean group, ChildText childText, int pos) {
+        holder.tvChild.setText(childText.getText() + holder.getAdapterPosition() + "---" + pos);
         holder.cbChild.setChecked(childText.isSelected());
         holder.itemView.setOnClickListener(v -> {
             // 2018/9/7 child被点击
@@ -123,10 +125,10 @@ public class ExpandAdapter extends RecyclerView.Adapter {
     }
 
     private int getChildIndex(int position) {
-        Log.e("GroupSelectAdapter", "position = " + position);
+        Log.e("ExpandAdapter", "position = " + position);
         GroupBean bean = getGroup(position);
         int groupIndex = mobileOSes.indexOf(bean);
-        Log.e("GroupSelectAdapter", "groupIndex = " + groupIndex);
+        Log.e("ExpandAdapter", "groupIndex = " + groupIndex);
         int delta = 0, x = changeSize > 0 ? 1 : 0;
         for (int i = 0; i < groupIndex + x; i++) {
 //        for (int i = 0; i < groupIndex; i++) {
@@ -136,7 +138,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
                 changeSize--;
                 if (changeSize == 0)
                     expandIndex = -1;
-            } else if (closeIndex == i && changeSize > 0) {
+            } else if (closeIndex == i) {
                 delta += 1;
                 closeIndex = -1;
                 changeSize = 0;
@@ -155,7 +157,7 @@ public class ExpandAdapter extends RecyclerView.Adapter {
 //            }
         }
         int index = position - delta - 1 + x;
-        Log.e("GroupSelectAdapter", "index = " + index);
+        Log.e("ExpandAdapter", "index = " + index);
         if (index < 0 || index >= bean.getChildren().size()){
             expandIndex = -1;
             closeIndex = -1;
@@ -202,6 +204,8 @@ public class ExpandAdapter extends RecyclerView.Adapter {
             } else count += 1;
 
         }
+
+        Log.e("ExpandAdapter","getItemCount = " + count);
         return count;
     }
 
