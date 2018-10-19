@@ -1,9 +1,10 @@
 package com.xiaobing.inprovedemo.main;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.base.BaseActivity;
@@ -49,6 +50,7 @@ public class MainActivity extends BaseActivity {
                 ParseLinkUtil.parseLink(MainActivity.this,link);
             }
         };
+        ImageView viewById = findViewById(R.id.img);
         rvMain.setAdapter(adapter);
 
     }

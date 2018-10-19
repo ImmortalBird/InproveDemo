@@ -1,14 +1,13 @@
 package com.xiaobing.inprovedemo.design.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.base.BaseActivity;
 import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
-import com.xiaobing.inprovedemo.design.adapter.ExpandSelectAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
 import com.xiaobing.inprovedemo.design.bean.GroupBean;
 
