@@ -23,7 +23,8 @@
         <activity android:name=".design.activity.GroupSelectRecyclerViewActivity" />
         <activity android:name=".design.activity.ExpandSelectRecyclerViewActivity" />
         <activity android:name=".notification.NotificationActivity" />
-        <activity android:name=".design.activity.ExpandRecyclerViewActivity" />
+        <activity android:name=".design.activity.ExpandListActivity" />
+        <activity android:name=".design.activity.ExpandCloseActivity" />
     </application>
 
 </manifest>

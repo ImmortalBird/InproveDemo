@@ -8,7 +8,8 @@ import android.text.TextUtils;
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.inprovedemo.design.DesignActivity;
-import com.xiaobing.inprovedemo.design.activity.ExpandRecyclerViewActivity;
+import com.xiaobing.inprovedemo.design.activity.ExpandCloseActivity;
+import com.xiaobing.inprovedemo.design.activity.ExpandListActivity;
 import com.xiaobing.inprovedemo.design.activity.GroupSelectRecyclerViewActivity;
 import com.xiaobing.inprovedemo.design.activity.ExpandSelectRecyclerViewActivity;
 import com.xiaobing.inprovedemo.link.UriAction;
@@ -52,7 +53,7 @@ public class ParseLinkUtil {
                 isRight = true;
                 break;
             case UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY:
-                mContext.startActivity(new Intent(mContext, ExpandRecyclerViewActivity.class));
+                mContext.startActivity(new Intent(mContext, ExpandListActivity.class));
                 isRight = true;
                 break;
             case UriAction.ACTION_NOTIFICATION_ACTIVITY:
@@ -61,6 +62,10 @@ public class ParseLinkUtil {
                 break;
             case UriAction.ACTION_EXPAND_SELECT_RECYCLER_VIEW_ACTIVITY:
                 mContext.startActivity(new Intent(mContext, ExpandSelectRecyclerViewActivity.class));
+                isRight = true;
+                break;
+            case UriAction.ACTION_EXPAND_CLOSE_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, ExpandCloseActivity.class));
                 isRight = true;
                 break;
 //            case UriAction.PRODUCT:

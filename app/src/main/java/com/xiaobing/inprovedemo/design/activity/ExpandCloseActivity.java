@@ -7,25 +7,24 @@ import android.support.v7.widget.RecyclerView;
 
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.base.BaseActivity;
-import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
-import com.xiaobing.inprovedemo.design.adapter.ExpandSelectAdapter;
+import com.xiaobing.inprovedemo.design.adapter.ExpandCloseAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
 import com.xiaobing.inprovedemo.design.bean.GroupBean;
+import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableGroup;
 
 import java.util.ArrayList;
 
-public class ExpandRecyclerViewActivity extends BaseActivity {
+public class ExpandCloseActivity extends BaseActivity {
 
-    private RecyclerView rv;
-    private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
+    private ArrayList<ExpandableGroup> mobileOSes = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_expand_rv);
         super.onCreate(savedInstanceState);
-        rv = findViewById(R.id.rv);
-        setTitle(getString(R.string.ID_design_02_02));
+        RecyclerView rv = findViewById(R.id.rv);
+        setTitle(getString(R.string.ID_design_02_03));
         setData();
-        rv.setAdapter(new ExpandAdapter(mobileOSes,this));
+        rv.setAdapter(new ExpandCloseAdapter(mobileOSes));
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -36,9 +35,14 @@ public class ExpandRecyclerViewActivity extends BaseActivity {
         iphones.add(new ChildText("3芒果"));
         iphones.add(new ChildText("4香蕉"));
         iphones.add(new ChildText("5火龙果"));
-//        iphones.add(new ChildText("草莓"));
-//        iphones.add(new ChildText("柚子"));
-//        iphones.add(new ChildText("哈密瓜"));
+        iphones.add(new ChildText("6草莓"));
+        iphones.add(new ChildText("7柚子"));
+        iphones.add(new ChildText("8哈密瓜"));
+        iphones.add(new ChildText("9西瓜"));
+        iphones.add(new ChildText("10葡萄"));
+        iphones.add(new ChildText("11柿子"));
+        iphones.add(new ChildText("12山竹"));
+        iphones.add(new ChildText("13榴莲"));
 
         ArrayList<ChildText> nexus = new ArrayList<>();
         nexus.add(new ChildText("1足球"));
@@ -66,10 +70,10 @@ public class ExpandRecyclerViewActivity extends BaseActivity {
         windowPhones.add(new ChildText("7中兴"));
         windowPhones.add(new ChildText("8联想"));
 
-        mobileOSes.add(new GroupBean("水果", iphones));
-        mobileOSes.add(new GroupBean("球类", nexus));
-        mobileOSes.add(new GroupBean("游戏", games));
-        mobileOSes.add(new GroupBean("手机", windowPhones));
+//        mobileOSes.add(new GroupBean("水果", iphones));
+//        mobileOSes.add(new GroupBean("球类", nexus));
+//        mobileOSes.add(new GroupBean("游戏", games));
+//        mobileOSes.add(new GroupBean("手机", windowPhones));
     }
 
 }
