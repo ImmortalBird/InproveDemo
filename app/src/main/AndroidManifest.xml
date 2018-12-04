@@ -25,6 +25,7 @@
         <activity android:name=".notification.NotificationActivity" />
         <activity android:name=".design.activity.ExpandListActivity" />
         <activity android:name=".design.activity.ExpandCloseActivity" />
+        <activity android:name=".span.SpanActivity" />
     </application>
 
 </manifest>
