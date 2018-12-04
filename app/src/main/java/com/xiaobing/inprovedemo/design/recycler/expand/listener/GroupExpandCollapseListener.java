@@ -1,7 +1,7 @@
-package com.xiaobing.inprovedemo.design.bean.expand.listener;
+package com.xiaobing.inprovedemo.design.recycler.expand.listener;
 
 
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableGroup;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableGroup;
 
 public interface GroupExpandCollapseListener {
 

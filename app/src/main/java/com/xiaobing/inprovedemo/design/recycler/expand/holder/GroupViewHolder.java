@@ -1,10 +1,10 @@
-package com.xiaobing.inprovedemo.design.bean.expand.holder;
+package com.xiaobing.inprovedemo.design.recycler.expand.holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.xiaobing.inprovedemo.design.bean.expand.listener.OnGroupClickListener;
+import com.xiaobing.inprovedemo.design.recycler.expand.listener.OnGroupClickListener;
 
 
 public abstract class GroupViewHolder extends RecyclerView.ViewHolder implements OnClickListener {

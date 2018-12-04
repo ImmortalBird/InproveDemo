@@ -1,9 +1,9 @@
-package com.xiaobing.inprovedemo.design.bean.expand.holder;
+package com.xiaobing.inprovedemo.design.recycler.expand.holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableGroup;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableGroup;
 
 
 /**

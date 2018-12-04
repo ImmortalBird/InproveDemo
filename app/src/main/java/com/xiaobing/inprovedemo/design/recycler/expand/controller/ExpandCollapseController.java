@@ -1,11 +1,11 @@
-package com.xiaobing.inprovedemo.design.bean.expand.controller;
+package com.xiaobing.inprovedemo.design.recycler.expand.controller;
 
 
 import com.xiaobing.inprovedemo.design.adapter.ExpandAdapter;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableGroup;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableList;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableListPosition;
-import com.xiaobing.inprovedemo.design.bean.expand.listener.ExpandCollapseListener;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableGroup;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableList;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableListPosition;
+import com.xiaobing.inprovedemo.design.recycler.expand.listener.ExpandCollapseListener;
 
 /**
  * This class is the sits between the backing {@link ExpandableList} and the {@link

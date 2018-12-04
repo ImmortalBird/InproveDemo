@@ -1,4 +1,4 @@
-package com.xiaobing.inprovedemo.design.bean.expand.bean;
+package com.xiaobing.inprovedemo.design.recycler.expand.bean;
 
 import java.util.List;
 

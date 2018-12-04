@@ -9,8 +9,7 @@ import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.base.BaseActivity;
 import com.xiaobing.inprovedemo.design.adapter.ExpandCloseAdapter;
 import com.xiaobing.inprovedemo.design.bean.ChildText;
-import com.xiaobing.inprovedemo.design.bean.GroupBean;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableGroup;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableGroup;
 
 import java.util.ArrayList;
 

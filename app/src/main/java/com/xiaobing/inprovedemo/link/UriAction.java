@@ -11,4 +11,5 @@ public class UriAction {
     public static final String ACTION_EXPAND_SELECT_RECYCLER_VIEW_ACTIVITY = "ExpandSelectRecyclerViewActivity";
     // TODO: 2018/9/4 搞清楚ConstraintLayout用法
     public static final String ACTION_CONSTRAINT_LAYOUT = "ConstraintLayout";
+    public static final String ACTION_SPAN_ACTIVITY = "SpanActivity";
 }

@@ -9,18 +9,15 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.xiaobing.inprovedemo.R;
-import com.xiaobing.inprovedemo.design.bean.ChildText;
-import com.xiaobing.inprovedemo.design.bean.GroupBean;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableGroup;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableList;
-import com.xiaobing.inprovedemo.design.bean.expand.bean.ExpandableListPosition;
-import com.xiaobing.inprovedemo.design.bean.expand.controller.ExpandCollapseController;
-import com.xiaobing.inprovedemo.design.bean.expand.holder.GroupViewHolder;
-import com.xiaobing.inprovedemo.design.bean.expand.listener.ExpandCollapseListener;
-import com.xiaobing.inprovedemo.design.bean.expand.listener.GroupExpandCollapseListener;
-import com.xiaobing.inprovedemo.design.bean.expand.listener.OnGroupClickListener;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableGroup;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableList;
+import com.xiaobing.inprovedemo.design.recycler.expand.bean.ExpandableListPosition;
+import com.xiaobing.inprovedemo.design.recycler.expand.controller.ExpandCollapseController;
+import com.xiaobing.inprovedemo.design.recycler.expand.holder.GroupViewHolder;
+import com.xiaobing.inprovedemo.design.recycler.expand.listener.ExpandCollapseListener;
+import com.xiaobing.inprovedemo.design.recycler.expand.listener.GroupExpandCollapseListener;
+import com.xiaobing.inprovedemo.design.recycler.expand.listener.OnGroupClickListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExpandCloseAdapter extends RecyclerView.Adapter

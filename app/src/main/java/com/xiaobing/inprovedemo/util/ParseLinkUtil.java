@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import com.xiaobing.inprovedemo.R;
 import com.xiaobing.inprovedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.inprovedemo.design.DesignActivity;
-import com.xiaobing.inprovedemo.design.activity.ExpandCloseActivity;
 import com.xiaobing.inprovedemo.design.activity.ExpandListActivity;
 import com.xiaobing.inprovedemo.design.activity.GroupSelectRecyclerViewActivity;
 import com.xiaobing.inprovedemo.design.activity.ExpandSelectRecyclerViewActivity;
 import com.xiaobing.inprovedemo.link.UriAction;
 import com.xiaobing.inprovedemo.notification.NotificationActivity;
+import com.xiaobing.inprovedemo.span.SpanActivity;
 
 public class ParseLinkUtil {
 
@@ -65,7 +65,10 @@ public class ParseLinkUtil {
                 isRight = true;
                 break;
             case UriAction.ACTION_EXPAND_CLOSE_ACTIVITY:
-                mContext.startActivity(new Intent(mContext, ExpandCloseActivity.class));
+
+                break;
+            case UriAction.ACTION_SPAN_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, SpanActivity.class));
                 isRight = true;
                 break;
 //            case UriAction.PRODUCT:
