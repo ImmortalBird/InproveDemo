@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xiaobing.inprovedemo">
+    package="com.xiaobing.improvedemo">
     <uses-permission android:name = "android.permission.DISABLE_KEYGUARD"/>
     <application
         android:allowBackup="true"
@@ -14,11 +14,27 @@
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http"
+                    android:host="www.improve.com"
+                    android:pathPrefix="/go" />
+            </intent-filter>
         </activity>
-        <activity android:name=".design.DesignActivity" />
+        <activity android:name=".design.DesignActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="improve"
+                    android:host="www.improve.com"
+                    android:pathPrefix="/go" />
+            </intent-filter>
+        </activity>
         <activity android:name=".appcompat.AppCompatActivityDemo" />
         <activity android:name=".design.activity.GroupSelectRecyclerViewActivity" />
         <activity android:name=".design.activity.ExpandSelectRecyclerViewActivity" />
