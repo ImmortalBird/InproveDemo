@@ -1,0 +1,13 @@
+ext {
+    retrofitVersion = "2.1.0"
+    rxlifecycleVersion = "1.0"
+
+
+    rxandroid                 = "io.reactivex:rxandroid:1.2.1"
+    rxjava                    = "io.reactivex:rxjava:1.2.6"
+    rxlifecycle               = "com.trello:rxlifecycle:${rxlifecycleVersion}"
+    rxlifecycle_components    = "com.trello:rxlifecycle-components:${rxlifecycleVersion}"
+    retrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    retrofit_converter_gson = "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    retrofit_adapter_rxjava = "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
+}
