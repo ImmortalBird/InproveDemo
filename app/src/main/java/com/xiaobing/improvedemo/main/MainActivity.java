@@ -15,7 +15,6 @@ import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
 import java.util.ArrayList;
 
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -76,6 +75,10 @@ public class MainActivity extends BaseActivity {
         e = new MainBean();
         e.setName(UriAction.ACTION_SPAN_ACTIVITY);
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_SPAN_ACTIVITY));
+        data.add(e);
+        e = new MainBean();
+        e.setName(UriAction.ACTION_IO_ACTIVITY);
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_IO_ACTIVITY));
         data.add(e);
         MainAdapter adapter = new MainAdapter(this, data) {
             @Override

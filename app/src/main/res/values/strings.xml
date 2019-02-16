@@ -11,4 +11,8 @@
     <string name="ID_notification_01_02">普通通知</string>
     <string name="ID_notification_01_03">折叠式通知</string>
     <string name="ID_notification_01_04">悬挂式通知</string>
+    <string name="ID_io_01_01">读取</string>
+    <string name="ID_io_01_02">写入</string>
+    <string name="ID_io_01_03">读取SD</string>
+    <string name="ID_io_01_04">写入SD</string>
 </resources>

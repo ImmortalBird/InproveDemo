@@ -12,4 +12,5 @@ public class UriAction {
     // TODO: 2018/9/4 搞清楚ConstraintLayout用法
     public static final String ACTION_CONSTRAINT_LAYOUT = "ConstraintLayout";
     public static final String ACTION_SPAN_ACTIVITY = "SpanActivity";
+    public static final String ACTION_IO_ACTIVITY = "IOActivity";
 }
