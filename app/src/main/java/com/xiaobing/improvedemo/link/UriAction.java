@@ -13,4 +13,5 @@ public class UriAction {
     public static final String ACTION_CONSTRAINT_LAYOUT = "ConstraintLayout";
     public static final String ACTION_SPAN_ACTIVITY = "SpanActivity";
     public static final String ACTION_IO_ACTIVITY = "IOActivity";
+    public static final String ACTION_RX_ACTIVITY = "RxActivity";
 }

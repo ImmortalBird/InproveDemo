@@ -14,6 +14,7 @@ import com.xiaobing.improvedemo.design.activity.ExpandSelectRecyclerViewActivity
 import com.xiaobing.improvedemo.io.IOActivity;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.notification.NotificationActivity;
+import com.xiaobing.improvedemo.rx2.RxActivity;
 import com.xiaobing.improvedemo.span.SpanActivity;
 
 public class ParseLinkUtil {
@@ -76,8 +77,10 @@ public class ParseLinkUtil {
                 mContext.startActivity(new Intent(mContext, IOActivity.class));
                 isRight = true;
                 break;
-//            case UriAction.PRODUCT:
-//                break;
+            case UriAction.ACTION_RX_ACTIVITY:
+                mContext.startActivity(new Intent(mContext, RxActivity.class));
+                isRight = true;
+                break;
 //            case UriAction.LOGIN:
 //                isRight = true;
 //                break;

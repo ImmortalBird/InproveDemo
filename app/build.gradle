@@ -68,6 +68,8 @@ dependencies {
     }
     implementation rxandroid
     implementation rxjava
+    implementation rxandroid2
+    implementation rxjava2
     implementation rxlifecycle
     implementation rxlifecycle_components
 }
