@@ -3,8 +3,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <include layout="@layout/head" />
+    <TextView
+        android:id="@+id/tv_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base16sp"
+        android:layout_margin="@dimen/base5dp"
+        android:background="@drawable/shape_8dp"
+        android:gravity="center"
+        android:text="@string/ID_rx_01_02"
+        android:padding="@dimen/base5dp"/>
+    <TextView
+        android:id="@+id/tv_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base16sp"
+        android:layout_margin="@dimen/base5dp"
+        android:background="@drawable/shape_8dp"
+        android:gravity="center"
+        android:text="@string/ID_rx_01_03"
+        android:padding="@dimen/base5dp"/>
+    <TextView
+        android:id="@+id/tv_03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base16sp"
+        android:layout_margin="@dimen/base5dp"
+        android:background="@drawable/shape_8dp"
+        android:gravity="center"
+        android:text="@string/ID_rx_01_04"
+        android:padding="@dimen/base5dp"/>
+    <TextView
+        android:id="@+id/tv_04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base16sp"
+        android:layout_margin="@dimen/base5dp"
+        android:background="@drawable/shape_8dp"
+        android:gravity="center"
+        android:text="@string/ID_rx_01_05"
+        android:padding="@dimen/base5dp"/>
+    <TextView
+        android:id="@+id/tv_05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base16sp"
+        android:layout_margin="@dimen/base5dp"
+        android:background="@drawable/shape_8dp"
+        android:gravity="center"
+        android:text="@string/ID_rx_01_06"
+        android:padding="@dimen/base5dp"/>
+    <TextView
+        android:id="@+id/tv_06"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base16sp"
+        android:layout_margin="@dimen/base5dp"
+        android:background="@drawable/shape_8dp"
+        android:gravity="center"
+        android:text="@string/ID_rx_01_07"
+        android:padding="@dimen/base5dp"/>
 </LinearLayout>

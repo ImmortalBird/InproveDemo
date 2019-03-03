@@ -2,6 +2,8 @@ package com.xiaobing.improvedemo.main;
 
 import android.app.Application;
 
+import com.xiaobing.improvedemo.network.rr2.NetworkManager;
+
 
 /**
  * Created by Administrator on 2018/8/29 0029.
@@ -27,5 +29,9 @@ public class IDApplication extends Application {
 
     }
 
-
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        NetworkManager.getInstance().init();
+    }
 }

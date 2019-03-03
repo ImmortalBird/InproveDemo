@@ -15,4 +15,11 @@
     <string name="ID_io_01_02">写入</string>
     <string name="ID_io_01_03">读取SD</string>
     <string name="ID_io_01_04">写入SD</string>
+    <string name="ID_rx_01_01">RxJava测试页</string>
+    <string name="ID_rx_01_02">发射数据</string>
+    <string name="ID_rx_01_03">操作符:map</string>
+    <string name="ID_rx_01_04">操作符:concat</string>
+    <string name="ID_rx_01_05">操作符:flatMap</string>
+    <string name="ID_rx_01_06">操作符:zip</string>
+    <string name="ID_rx_01_07">操作符:interval</string>
 </resources>
