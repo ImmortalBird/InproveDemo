@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 用于访问网络，网络定位需要上网 -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 指示应用程序使用OpenGL 2.0或更高版本 -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
     <application
         android:name=".main.IDApplication"
         android:allowBackup="false"
@@ -60,6 +63,7 @@
         <activity android:name=".span.SpanActivity" />
         <activity android:name=".io.IOActivity" />
         <activity android:name=".rx2.RxActivity" />
+        <activity android:name=".map.MapActivity" />
     </application>
 
 </manifest>

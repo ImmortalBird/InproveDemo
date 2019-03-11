@@ -84,6 +84,10 @@ public class MainActivity extends BaseActivity {
         e.setName(UriAction.ACTION_RX_ACTIVITY);
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_RX_ACTIVITY));
         data.add(e);
+        e = new MainBean();
+        e.setName(UriAction.ACTION_RX_ACTIVITY);
+        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_RX_ACTIVITY));
+        data.add(e);
         MainAdapter adapter = new MainAdapter(this, data) {
             @Override
             protected void onClick(String link) {
