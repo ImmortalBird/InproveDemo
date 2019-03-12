@@ -3,8 +3,6 @@ package com.xiaobing.improvedemo.map;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.esri.android.map.GraphicsLayer;
@@ -13,8 +11,10 @@ import com.esri.android.map.MapView;
 import com.esri.android.map.ags.ArcGISDynamicMapServiceLayer;
 import com.esri.android.map.event.OnSingleTapListener;
 import com.esri.core.geometry.Point;
+import com.esri.core.geometry.Polygon;
 import com.esri.core.geometry.Polyline;
 import com.esri.core.map.Graphic;
+import com.esri.core.symbol.SimpleFillSymbol;
 import com.esri.core.symbol.SimpleLineSymbol;
 import com.esri.core.symbol.SimpleMarkerSymbol;
 import com.xiaobing.improvedemo.R;
@@ -37,8 +37,12 @@ public class MapActivity extends BaseActivity {
      */
     private boolean mIsSetStart = false;
     private Polyline polyline;
-    private RadioGroup rg;
-    private RadioButton rbPoint, polygon, line;
+    private Polygon polygon1;
+
+    private int type;
+    private static final int TYPE_POINT = 1;
+    private static final int TYPE_LINE = 2;
+    private static final int TYPE_POLYGON = 3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,30 +50,53 @@ public class MapActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         // 声明一个 map 对象
         map = findViewById(R.id.map);
-        rg = findViewById(R.id.rg);
-        rbPoint = findViewById(R.id.rb_point);
-        line = findViewById(R.id.rb_line);
-        polygon = findViewById(R.id.rb_polygon);
+        RadioGroup rg = findViewById(R.id.rg);
         setTitle(R.string.ID_map_01_01);
-
+        type = TYPE_POINT;
         /*
-        * 为 RadioGroup 设置监听器
-        **/
+         * 为 RadioGroup 设置监听器
+         **/
         rg.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.rb_point:
                     // 点击 描点
                     /*
-                    * TODO: 2019/3/11 判断当前图层是否为描点图层
-                    *   是：不做动作
-                    *   不是：移除当前图层，并添加一个描点图层
-                    *
+                     * TODO: 2019/3/11 判断当前图层是否为描点图层
+                     *   是：不做动作
+                     *   不是：移除当前图层，并添加一个描点图层，并且为图层添加点击监听
+                     *
                      */
+                    graphicsLayer.removeAll();
+                    type = TYPE_POINT;
+
+
                     break;
                 case R.id.rb_line:
-                    //
+                    // 画线
+                    /*
+                     * 判断当前操作类型是否为画线？
+                     *      是：不做动作
+                     *      不是：移除当前图层的所有内容，并且将当前操作类型更新为画线
+                     *            新建一个Polyline对象
+                     *            是否已设置起始点 更新为 未设置
+                     */
+                    graphicsLayer.removeAll();
+                    polyline = new Polyline();
+                    mIsSetStart = false;
+                    type = TYPE_LINE;
                     break;
                 case R.id.rb_polygon:
+                    /*
+                     * 判断当前图层是否为画面图层？
+                     *      是：不做动作
+                     *      不是：移除当前图层的所有内容，并且将当前操作类型更新为画面
+                     *              新建一个 Polygon 对象
+                     *              是否已设置起始点 更新为 未设置
+                     */
+                    graphicsLayer.removeAll();
+                    polygon1 = new Polygon();
+                    mIsSetStart = false;
+                    type = TYPE_POLYGON;
                     break;
                 default:
                     break;
@@ -78,6 +105,24 @@ public class MapActivity extends BaseActivity {
         setUpMap();
     }
 
+
+    private void drawPolygon(float x, float y) {
+        //是否设置了起点
+
+        if (polygon1 == null) {
+            polygon1 = new Polygon();
+        }
+        Point point = map.toMapPoint(x, y);
+        if (!mIsSetStart) {
+            polygon1.startPath(point);
+            mIsSetStart = true;
+        } else {
+            polygon1.lineTo(point);
+        }
+        SimpleFillSymbol sms = new SimpleFillSymbol(Color.BLUE, SimpleFillSymbol.STYLE.SOLID);
+        Graphic graphic = new Graphic(polygon1, sms);
+        graphicsLayer.addGraphic(graphic);
+    }
 
     private void setUpMap() {
         if (map != null) {
@@ -101,8 +146,24 @@ public class MapActivity extends BaseActivity {
                 public void onSingleTap(float x, float y) {
                     //x,y就是屏幕上点击的坐标
                     LogUtil.print("x = " + x + "   y = " + y);
-                    drawLine(x, y);
-                    markPoint(x, y);
+                    switch (type) {
+                        case TYPE_POINT:
+                            markPoint(x,y);
+                            break;
+                        case TYPE_LINE:
+                            markPoint(x,y);
+                            drawLine(x,y);
+                            break;
+                        case TYPE_POLYGON:
+                            markPoint(x,y);
+                            drawPolygon(x,y);
+                            break;
+                        default:
+                            break;
+                    }
+
+//                    drawLine(x, y);
+//                    markPoint(x, y);
 
                 }
             });
