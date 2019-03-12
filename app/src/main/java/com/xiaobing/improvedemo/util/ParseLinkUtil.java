@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.text.TextUtils;
 
 import com.xiaobing.improvedemo.R;
+import com.xiaobing.improvedemo.animation.AnimationMainActivity;
+import com.xiaobing.improvedemo.animation.OpenBookActivity;
 import com.xiaobing.improvedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.improvedemo.design.DesignActivity;
 import com.xiaobing.improvedemo.design.activity.ExpandListActivity;
@@ -18,6 +20,9 @@ import com.xiaobing.improvedemo.notification.NotificationActivity;
 import com.xiaobing.improvedemo.rx2.RxActivity;
 import com.xiaobing.improvedemo.span.SpanActivity;
 
+/**
+ * @author 常晓冰
+ */
 public class ParseLinkUtil {
 
 
@@ -74,6 +79,12 @@ public class ParseLinkUtil {
                     return true;
                 case UriAction.ACTION_MAP_ACTIVITY:
                     mContext.startActivity(new Intent(mContext, MapActivity.class));
+                    return true;
+                case UriAction.ACTION_ANIMATION_MAIN:
+                    mContext.startActivity(new Intent(mContext, AnimationMainActivity.class));
+                    return true;
+                case UriAction.ACTION_ANIMATION_OPEN_BOOK:
+                    mContext.startActivity(new Intent(mContext, OpenBookActivity.class));
                     return true;
                 default:
                     return false;

@@ -66,6 +66,8 @@
         <activity android:name=".io.IOActivity" />
         <activity android:name=".rx2.RxActivity" />
         <activity android:name=".map.MapActivity" />
+        <activity android:name=".animation.AnimationMainActivity" />
+        <activity android:name=".animation.OpenBookActivity" />
     </application>
 
 </manifest>

@@ -26,4 +26,6 @@
     <string name="ID_map_01_02">描点</string>
     <string name="ID_map_01_03">画线</string>
     <string name="ID_map_01_04">划面</string>
+    <string name="ID_animation_main_01">动画主页</string>
+    <string name="ID_animation_open_book">书籍打开动画</string>
 </resources>

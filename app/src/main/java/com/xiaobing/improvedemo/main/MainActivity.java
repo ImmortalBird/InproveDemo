@@ -8,6 +8,7 @@ import android.util.Log;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
+import com.xiaobing.improvedemo.base.BaseMainAdapter;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.network.retrofit.Api;
@@ -19,6 +20,10 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+/**
+ * @author 常晓冰
+ * @E-mail 471342365@qq.com
+ */
 public class MainActivity extends BaseActivity {
 
     private RecyclerView rvMain;
@@ -34,31 +39,37 @@ public class MainActivity extends BaseActivity {
     }
 
     private void getData() {
-        Log.e("getData","开始");
+        Log.e("getData", "开始");
         Api.getComApi().getData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        Log.e("getData","onCompleted");
+                        Log.e("getData", "onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("getData","onError = " + e.getMessage());
+                        Log.e("getData", "onError = " + e.getMessage());
                         e.printStackTrace();
                     }
 
                     @Override
                     public void onNext(String o) {
-                        Log.e("getData","onNext = " + o);
+                        Log.e("getData", "onNext = " + o);
                     }
                 });
     }
 
     private void initView() {
         rvMain.setLayoutManager(new LinearLayoutManager(this));
+        MainAdapter adapter = new MainAdapter(this, getMainBeans());
+        rvMain.setAdapter(adapter);
+
+    }
+
+    private ArrayList<MainBean> getMainBeans() {
         ArrayList<MainBean> data = new ArrayList<>();
         MainBean e = new MainBean();
         e.setName(UriAction.ACTION_DESIGN);
@@ -88,13 +99,10 @@ public class MainActivity extends BaseActivity {
         e.setName(UriAction.ACTION_MAP_ACTIVITY);
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_MAP_ACTIVITY));
         data.add(e);
-        MainAdapter adapter = new MainAdapter(this, data) {
-            @Override
-            protected void onClick(String link) {
-                ParseLinkUtil.parseLink(MainActivity.this,link);
-            }
-        };
-        rvMain.setAdapter(adapter);
-
+        data.add(new MainBean.Buidler()
+                .name(UriAction.ACTION_ANIMATION_MAIN)
+                .link(ParseLinkUtil.getLink(UriAction.ACTION_ANIMATION_MAIN))
+                .build());
+        return data;
     }
 }
