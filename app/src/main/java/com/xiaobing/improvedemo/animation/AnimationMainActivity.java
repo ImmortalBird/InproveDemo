@@ -3,8 +3,11 @@ package com.xiaobing.improvedemo.animation;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.animation.Animation;
 
 import com.xiaobing.improvedemo.R;
+import com.xiaobing.improvedemo.animation.adapter.BookAdapter;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.base.BaseMainAdapter;
@@ -22,7 +25,7 @@ import java.util.List;
  *
  * 用来收集一些酷炫的动画效果
  */
-public class AnimationMainActivity extends BaseActivity {
+public class AnimationMainActivity extends BaseActivity implements Animation.AnimationListener, BookAdapter.OnBookClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,5 +44,25 @@ public class AnimationMainActivity extends BaseActivity {
                 .link(ParseLinkUtil.getLink(UriAction.ACTION_ANIMATION_OPEN_BOOK))
                 .build());
         return data;
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
+
+    @Override
+    public void onItemClick(int pos, View view) {
+
     }
 }
