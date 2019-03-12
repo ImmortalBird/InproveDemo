@@ -12,9 +12,13 @@ import com.xiaobing.improvedemo.network.rr2.bean.DoubanFilm;
 import com.xiaobing.improvedemo.network.rr2.bean.Response;
 import com.xiaobing.improvedemo.util.LogUtil;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -23,14 +27,12 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class RxActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "XXXX";
-    private View tv01;
     private Disposable subscribe;
 
     @Override
@@ -38,12 +40,18 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_rx_main);
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.ID_rx_01_01));
-        tv01 = findViewById(R.id.tv_01);
+        View tv01 = findViewById(R.id.tv_01);
         findViewById(R.id.tv_02).setOnClickListener(this);
         findViewById(R.id.tv_03).setOnClickListener(this);
         findViewById(R.id.tv_04).setOnClickListener(this);
         findViewById(R.id.tv_05).setOnClickListener(this);
         findViewById(R.id.tv_06).setOnClickListener(this);
+        findViewById(R.id.tv_07).setOnClickListener(this);
+        findViewById(R.id.tv_08).setOnClickListener(this);
+        findViewById(R.id.tv_09).setOnClickListener(this);
+        findViewById(R.id.tv_10).setOnClickListener(this);
+        findViewById(R.id.tv_11).setOnClickListener(this);
+        findViewById(R.id.tv_12).setOnClickListener(this);
         tv01.setOnClickListener(this);
     }
 
@@ -240,6 +248,7 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        LogUtil.print("onClick : id:  "+view.getId());
         switch (view.getId()) {
             case R.id.tv_01:
                 test1();
@@ -259,7 +268,40 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
             case R.id.tv_06:
                 interval();
                 break;
+            case R.id.tv_07:
+                mapFlowable();
+                break;
+            case R.id.tv_08:
+                concatFlowable();
+                break;
+            case R.id.tv_09:
+                flatMapFlowable();
+                break;
+            case R.id.tv_10:
+                zipFlowable();
+                break;
+            case R.id.tv_11:
+                intervalFlowable();
+                break;
+            case R.id.tv_12:
+
+                break;
         }
+    }
+
+    private void mapFlowable() {
+
+
+    }
+
+    private void concatFlowable() {
+    }
+
+    private void flatMapFlowable() {
+
+    }
+
+    private void zipFlowable() {
     }
 
     private void flatMap() {
@@ -328,6 +370,48 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
                         if (aLong == 5 && subscribe != null && !subscribe.isDisposed())
                             subscribe.dispose();
 
+                    }
+                });
+    }
+
+    private void intervalFlowable(){
+        Subscriber<Long> s = new Subscriber<Long>() {
+            @Override
+            public void onSubscribe(Subscription s) {
+                LogUtil.print("onSubscribe ");
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+
+                LogUtil.print("onNext : value = " + aLong);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                LogUtil.print("onError : " + t.getMessage());
+
+            }
+
+            @Override
+            public void onComplete() {
+
+                LogUtil.print("onComplete");
+            }
+        };
+        Flowable.interval(1000L,1000L,TimeUnit.MILLISECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+                        LogUtil.print("doOnNext onNext : value = " + aLong);
+                    }
+                })
+                .subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+                        LogUtil.print("subscribe onNext : value = " + aLong);
                     }
                 });
     }

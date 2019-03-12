@@ -22,4 +22,10 @@
     <string name="ID_rx_01_05">操作符:flatMap</string>
     <string name="ID_rx_01_06">操作符:zip</string>
     <string name="ID_rx_01_07">操作符:interval</string>
+    <string name="ID_rx_01_08">操作符:Flowable  map </string>
+    <string name="ID_rx_01_09">操作符:Flowable concat</string>
+    <string name="ID_rx_01_10">操作符:Flowable flatMap</string>
+    <string name="ID_rx_01_11">操作符:Flowable zip</string>
+    <string name="ID_rx_01_12">操作符:Flowable interval</string>
+    <string name="ID_rx_01_13">操作符:interval</string>
 </resources>
