@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <include layout="@layout/head" />
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base3dp"
+            android:textSize="@dimen/base14sp"
+            android:button="@null"
+            android:checked="true"
+            android:background="@null"
+            android:textColor="@color/selector_radio_text"
+            android:text="@string/ID_map_01_02"
+            android:padding="@dimen/base5dp" />
+        <RadioButton
+            android:id="@+id/rb_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base3dp"
+            android:textSize="@dimen/base14sp"
+            android:button="@null"
+            android:background="@null"
+            android:textColor="@color/selector_radio_text"
+            android:text="@string/ID_map_01_03"
+            android:padding="@dimen/base5dp" />
+        <RadioButton
+            android:id="@+id/rb_polygon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base3dp"
+            android:textSize="@dimen/base14sp"
+            android:button="@null"
+            android:background="@null"
+            android:textColor="@color/selector_radio_text"
+            android:text="@string/ID_map_01_04"
+            android:padding="@dimen/base5dp" />
+    </RadioGroup>
+    <com.esri.android.map.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+</LinearLayout>

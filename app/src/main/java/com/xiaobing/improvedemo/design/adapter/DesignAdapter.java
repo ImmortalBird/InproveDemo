@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 
 import com.xiaobing.improvedemo.base.BaseAdapter;
 import com.xiaobing.improvedemo.design.bean.DesignBean;
-import com.xiaobing.improvedemo.main.adapter.MainAdapter;
+import com.xiaobing.improvedemo.base.BaseMainAdapter;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Administrator on 2018/9/2 0002.
  */
 
-public class DesignAdapter extends BaseAdapter<MainAdapter.MainHolder> {
+public class DesignAdapter extends BaseAdapter<BaseMainAdapter.MainHolder> {
 
     private List<DesignBean> data;
 
@@ -24,12 +24,12 @@ public class DesignAdapter extends BaseAdapter<MainAdapter.MainHolder> {
 
 
     @Override
-    protected MainAdapter.MainHolder createHolder(ViewGroup viewGroup, int type) {
+    protected BaseMainAdapter.MainHolder createHolder(ViewGroup viewGroup, int type) {
         return null;
     }
 
     @Override
-    protected void bindHold(MainAdapter.MainHolder viewHolder, int position) {
+    protected void bindHold(BaseMainAdapter.MainHolder viewHolder, int position) {
 
     }
 }

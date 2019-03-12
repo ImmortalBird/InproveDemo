@@ -1,6 +1,7 @@
 package com.xiaobing.improvedemo.main;
 
 import android.app.Application;
+import android.support.multidex.MultiDex;
 
 import com.xiaobing.improvedemo.network.rr2.NetworkManager;
 
@@ -32,6 +33,7 @@ public class IDApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        NetworkManager.getInstance().init();
+//        NetworkManager.getInstance().init();
+        MultiDex.install(this);
     }
 }

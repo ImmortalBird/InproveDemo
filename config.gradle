@@ -2,6 +2,7 @@ ext {
     retrofitVersion = "2.3.0"
     rxlifecycleVersion = "1.0"
     butter_knife_version = "10.1.0"
+    argis_version = '10.2.9'
 
     rxandroid                 = "io.reactivex:rxandroid:1.2.1"
     rxjava                    = "io.reactivex:rxjava:1.2.6"
@@ -17,4 +18,6 @@ ext {
 
     butter_knife = "com.jakewharton:butterknife:${butter_knife_version}"
     butter_knife_compiler = "com.jakewharton:butterknife-compiler:${butter_knife_version}"
+
+    arcgis = "com.esri.arcgis.android:arcgis-android:${argis_version}"
 }

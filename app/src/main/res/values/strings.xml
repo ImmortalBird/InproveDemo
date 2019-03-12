@@ -28,4 +28,10 @@
     <string name="ID_rx_01_11">操作符:Flowable zip</string>
     <string name="ID_rx_01_12">操作符:Flowable interval</string>
     <string name="ID_rx_01_13">操作符:interval</string>
+    <string name="ID_map_01_01">地图</string>
+    <string name="ID_map_01_02">描点</string>
+    <string name="ID_map_01_03">画线</string>
+    <string name="ID_map_01_04">划面</string>
+    <string name="ID_animation_main_01">动画主页</string>
+    <string name="ID_animation_open_book">书籍打开动画</string>
 </resources>

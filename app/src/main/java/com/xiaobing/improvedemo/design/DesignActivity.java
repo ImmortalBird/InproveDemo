@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
-import com.xiaobing.improvedemo.main.adapter.MainAdapter;
+import com.xiaobing.improvedemo.base.BaseMainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
@@ -45,7 +45,7 @@ public class DesignActivity extends BaseActivity {
         e.setName(getString(R.string.ID_design_02_03));
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_CLOSE_ACTIVITY));
         data.add(e);
-        MainAdapter adapter = new MainAdapter(this, data) {
+        BaseMainAdapter<RecyclerView.ViewHolder> adapter = new BaseMainAdapter<RecyclerView.ViewHolder>(this, data) {
             @Override
             protected void onClick(String link) {
                 ParseLinkUtil.parseLink(DesignActivity.this,link);
