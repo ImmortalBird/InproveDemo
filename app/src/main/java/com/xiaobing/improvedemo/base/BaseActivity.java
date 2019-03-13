@@ -1,6 +1,8 @@
 package com.xiaobing.improvedemo.base;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
@@ -8,7 +10,9 @@ import android.widget.TextView;
 import com.xiaobing.improvedemo.R;
 
 /**
- * Created by Administrator on 2018/8/29 0029.
+ *
+ * @author Administrator
+ * @date 2018/8/29 0029
  */
 
 public class BaseActivity extends Activity {
@@ -21,12 +25,17 @@ public class BaseActivity extends Activity {
         title = findViewById(R.id.tv_title);
     }
 
+    @Override
     public void setTitle(int resId){
-        if (title != null)
+        if (title != null){
             title.setText(getText(resId));
+
+        }
     }
     protected void setTitle(String t){
-        if (title != null)
+        if (title != null){
             title.setText(t);
+
+        }
     }
 }

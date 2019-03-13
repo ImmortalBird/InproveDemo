@@ -12,9 +12,20 @@ import android.widget.TextView;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseAdapter;
 
+/**
+ * @author 常晓冰
+ */
 public class BookAdapter extends BaseAdapter {
+    private OnBookClickListener listener;
+
+
     public BookAdapter(Context mContext) {
         super(mContext);
+    }
+
+
+    public void setListener(OnBookClickListener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -24,14 +35,18 @@ public class BookAdapter extends BaseAdapter {
 
     @Override
     protected void bindHold(RecyclerView.ViewHolder viewHolder, int position) {
-
-
+        BookHolder bookHolder = (BookHolder) viewHolder;
+        bookHolder.itemView.setOnClickListener(v->{
+            if (listener != null){
+                listener.onItemClick(position,bookHolder.book);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 40;
     }
 
     public interface OnBookClickListener {

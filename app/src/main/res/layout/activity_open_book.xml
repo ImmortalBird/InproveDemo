@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/head" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,22 +15,29 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clipChildren="false" />
 
         <ImageView
             android:id="@+id/img_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/base100dp"
+            android:layout_height="@dimen/base150dp"
+            android:layout_margin="@dimen/base8dp"
+            android:background="@color/gold"
             android:contentDescription="@string/app_name"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/img_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/base100dp"
+            android:layout_height="@dimen/base150dp"
+            android:layout_margin="@dimen/base8dp"
+            android:background="@color/colorAccent"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:visibility="visible" />
 
     </RelativeLayout>
 
