@@ -3,7 +3,6 @@ package com.xiaobing.improvedemo.animation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,8 +22,6 @@ import com.xiaobing.improvedemo.animation.anim.Rotate3DAnimation;
 import com.xiaobing.improvedemo.base.BaseActivity;
 
 import java.util.Arrays;
-
-import javax.net.ssl.SNIHostName;
 
 /**
  * @author 常晓冰
@@ -48,6 +45,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        transparentAndCoverStatusBar(this);
         setContentView(R.layout.activity_open_book);
         super.onCreate(savedInstanceState);
         setTitle(R.string.ID_animation_open_book);
@@ -62,7 +60,8 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
             //根据资源ID获取响应的尺寸值
-            statusHeight = getResources().getDimensionPixelSize(resourceId)
+            statusHeight = 0
+//                     + getResources().getDimensionPixelSize(resourceId)
 //                    + getResources().getDimensionPixelSize(R.dimen.base40dp)
             ;
         }
@@ -78,7 +77,8 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     @Override
     public void onItemClick(int pos, View view) {
 
-        int lastP = layoutManager.findLastCompletelyVisibleItemPosition();
+       /*
+       int lastP = layoutManager.findLastCompletelyVisibleItemPosition();
         int firstP = layoutManager.findFirstCompletelyVisibleItemPosition();
         if (lastP < pos  || firstP > pos) {
             recycle.smoothScrollToPosition(pos);
@@ -90,7 +90,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
             },200);
             return;
         }
-
+        */
 
         /*
          * 获取点击控件的宽高和位置
@@ -164,9 +164,9 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         // 计算缩放倍率
         float verScale = heightPixels / viewHeight;
         float horScale = widthPixels / viewWidth;
-        float scale = Math.nextUp(horScale > verScale ? horScale : verScale);
+        float scale = horScale > verScale ? horScale : verScale;
 
-        contentScale = new ContentScaleAnimation(location[0], location[1], scale, false);
+        contentScale = new ContentScaleAnimation(location[0], location[1], widthPixels, heightPixels, scale, false);
 
         contentScale.setInterpolator(new DecelerateInterpolator());
         int durationMillis = 1000;

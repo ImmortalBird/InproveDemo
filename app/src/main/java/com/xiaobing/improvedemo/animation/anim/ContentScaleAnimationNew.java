@@ -4,13 +4,10 @@ import android.graphics.Matrix;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-public class ContentScaleAnimation extends Animation {
+public class ContentScaleAnimationNew extends Animation {
     private float mPivotX;
     private float mPivotY;
-
-    private int mWindowWidth, mWindowHeight;
-
-    /**
+  /**
      * 控件左上角X
      */
     private float mPivotYValue;
@@ -18,22 +15,12 @@ public class ContentScaleAnimation extends Animation {
     private final float scaleTimes;
     private boolean mReverse;
 
-    public ContentScaleAnimation(float mPivotXValue, float mPivotYValue, float scaleTimes, boolean mReverse) {
+    public ContentScaleAnimationNew(float mPivotXValue, float mPivotYValue, float scaleTimes, boolean mReverse) {
 
         this.mPivotXValue = mPivotXValue;
         this.mPivotYValue = mPivotYValue;
         this.scaleTimes = scaleTimes;
         this.mReverse = mReverse;
-    }
-
-    public ContentScaleAnimation(float mPivotXValue, float mPivotYValue, float mWindowWidth, float mWindowHeight, float scaleTimes, boolean mReverse) {
-
-        this.mPivotXValue = mPivotXValue;
-        this.mPivotYValue = mPivotYValue;
-        this.scaleTimes = scaleTimes;
-        this.mReverse = mReverse;
-        this.mWindowWidth = Float.valueOf(mWindowWidth).intValue();
-        this.mWindowHeight =Float.valueOf(mWindowHeight).intValue();
     }
 
     @Override
@@ -50,8 +37,8 @@ public class ContentScaleAnimation extends Animation {
     @Override
     public void initialize(int width, int height, int parentWidth, int parentHeight) {
         super.initialize(width, height, parentWidth, parentHeight);
-        mPivotX = resolvePivotX(mPivotXValue, mWindowWidth, width);
-        mPivotY = resolvePivoY(mPivotYValue, mWindowHeight, height);
+        mPivotX = resolvePivotX(mPivotXValue, parentWidth, width);
+        mPivotY = resolvePivoY(mPivotYValue, parentHeight, height);
     }
     //缩放点坐标值   缩放点到自身左边距离/缩放点到父控件左边的距离=缩放点自身右侧距离/缩放点到父控件右边的距离
     private float resolvePivotX(float margingLeft, int parentWidth, int width) {
