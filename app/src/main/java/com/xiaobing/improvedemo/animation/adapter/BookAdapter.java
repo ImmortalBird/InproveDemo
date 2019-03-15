@@ -36,6 +36,7 @@ public class BookAdapter extends BaseAdapter {
     @Override
     protected void bindHold(RecyclerView.ViewHolder viewHolder, int position) {
         BookHolder bookHolder = (BookHolder) viewHolder;
+
         bookHolder.itemView.setOnClickListener(v->{
             if (listener != null){
                 listener.onItemClick(position,bookHolder.book);

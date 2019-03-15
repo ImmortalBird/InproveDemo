@@ -3,6 +3,7 @@ package com.xiaobing.improvedemo.animation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,11 @@ import com.xiaobing.improvedemo.animation.anim.Rotate3DAnimation;
 import com.xiaobing.improvedemo.base.BaseActivity;
 
 import java.util.Arrays;
+
+import rx.Single;
+import rx.SingleEmitter;
+import rx.Subscriber;
+import rx.Subscription;
 
 /**
  * @author 常晓冰
@@ -77,7 +83,8 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     @Override
     public void onItemClick(int pos, View view) {
 
-       /*
+       // 这段的作用是如果点击条目在屏幕中没有完全显示，就让它完全显示，延迟200毫秒后再执行动画
+       // 是为了解决底部item点击动画显示不全的问题
        int lastP = layoutManager.findLastCompletelyVisibleItemPosition();
         int firstP = layoutManager.findFirstCompletelyVisibleItemPosition();
         if (lastP < pos  || firstP > pos) {
@@ -90,7 +97,6 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
             },200);
             return;
         }
-        */
 
         /*
          * 获取点击控件的宽高和位置
