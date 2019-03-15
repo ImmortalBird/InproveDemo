@@ -1,8 +1,8 @@
 package com.xiaobing.improvedemo.util;
 
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.IntDef;
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntDef;
 import android.text.Spannable;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.CharacterStyle;
@@ -19,12 +19,12 @@ public class SpanUtil {
     public static final int INCLUD_MODE = Spannable.SPAN_INCLUSIVE_INCLUSIVE;
     public static final int EXCLUD_INCLUD_MODE = Spannable.SPAN_EXCLUSIVE_INCLUSIVE;
     public static final int INCLUD_EXCLUD_MODE = Spannable.SPAN_INCLUSIVE_EXCLUSIVE;
-    public static final byte TYPE_FOREGROUND = 1;       // 字体颜色
-    public static final byte TYPE_BACKGROUND = 2;       // 背景颜色
-    public static final byte TYPE_BOLD = 3;             // 加粗
-    public static final byte TYPE_ITALIC = 4;           // 斜体
-    public static final byte TYPE_DELETE_LINE = 5;      // 删除线
-    public static final byte TYPE_UNDERLINE = 6;       // 下划线
+    static final byte TYPE_FOREGROUND = 1;       // 字体颜色
+    static final byte TYPE_BACKGROUND = 2;       // 背景颜色
+    static final byte TYPE_BOLD = 3;             // 加粗
+    static final byte TYPE_ITALIC = 4;           // 斜体
+    static final byte TYPE_DELETE_LINE = 5;      // 删除线
+    static final byte TYPE_UNDERLINE = 6;       // 下划线
 
     public static void setSpan(TextView view, String text, int start, int end, @SpanConfig int spanType) {
         switch (spanType) {
@@ -69,7 +69,7 @@ public class SpanUtil {
      * @param color 颜色
      * @return span
      */
-    public static CharacterStyle getForegroundSpan(@ColorInt int color) {
+    private static CharacterStyle getForegroundSpan(@ColorInt int color) {
         return new ForegroundColorSpan(color);
     }
 

@@ -2,7 +2,7 @@ package com.xiaobing.improvedemo.map;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.RadioGroup;
 
 import com.esri.android.map.GraphicsLayer;

@@ -1,14 +1,13 @@
 package com.xiaobing.improvedemo.main;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
-import com.xiaobing.improvedemo.base.BaseMainAdapter;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.network.retrofit.Api;

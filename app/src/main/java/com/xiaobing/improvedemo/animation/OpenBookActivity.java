@@ -1,12 +1,10 @@
 package com.xiaobing.improvedemo.animation;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -24,11 +22,6 @@ import com.xiaobing.improvedemo.base.BaseActivity;
 
 import java.util.Arrays;
 
-import rx.Single;
-import rx.SingleEmitter;
-import rx.Subscriber;
-import rx.Subscription;
-
 /**
  * @author 常晓冰
  * @E-mail 471342365@qq.com
@@ -45,10 +38,6 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     private boolean isOpenBook = false;
     private GridLayoutManager layoutManager;
 
-    public static void startMe(Context context) {
-        context.startActivity(new Intent(context, OpenBookActivity.class));
-
-    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         transparentAndCoverStatusBar(this);
@@ -89,12 +78,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         int firstP = layoutManager.findFirstCompletelyVisibleItemPosition();
         if (lastP < pos  || firstP > pos) {
             recycle.smoothScrollToPosition(pos);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    onItemClick(pos,view);
-                }
-            },200);
+            new Handler().postDelayed(() -> onItemClick(pos,view),200);
             return;
         }
 

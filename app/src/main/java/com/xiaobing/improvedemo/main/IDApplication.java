@@ -1,9 +1,7 @@
 package com.xiaobing.improvedemo.main;
 
 import android.app.Application;
-import android.support.multidex.MultiDex;
-
-import com.xiaobing.improvedemo.network.rr2.NetworkManager;
+import androidx.multidex.MultiDex;
 
 
 /**

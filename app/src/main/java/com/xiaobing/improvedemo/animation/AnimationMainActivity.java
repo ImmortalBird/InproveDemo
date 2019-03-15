@@ -1,8 +1,8 @@
 package com.xiaobing.improvedemo.animation;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 
@@ -10,7 +10,6 @@ import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.adapter.BookAdapter;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
-import com.xiaobing.improvedemo.base.BaseMainAdapter;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.util.ParseLinkUtil;
