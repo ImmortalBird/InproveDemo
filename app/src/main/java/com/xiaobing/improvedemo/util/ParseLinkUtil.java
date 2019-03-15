@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.AnimationMainActivity;
+import com.xiaobing.improvedemo.animation.MatrixActivity;
 import com.xiaobing.improvedemo.animation.OpenBookActivity;
 import com.xiaobing.improvedemo.appcompat.AppCompatActivityDemo;
 import com.xiaobing.improvedemo.design.DesignActivity;
@@ -85,6 +86,9 @@ public class ParseLinkUtil {
                     return true;
                 case UriAction.ACTION_ANIMATION_OPEN_BOOK:
                     mContext.startActivity(new Intent(mContext, OpenBookActivity.class));
+                    return true;
+                case UriAction.ACTION_MATRIX:
+                    mContext.startActivity(new Intent(mContext, MatrixActivity.class));
                     return true;
                 default:
                     return false;

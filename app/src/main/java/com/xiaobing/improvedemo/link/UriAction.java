@@ -21,4 +21,5 @@ public class UriAction {
     public static final String ACTION_MAP_ACTIVITY = "MapActivity";
     public static final String ACTION_ANIMATION_MAIN = "AnimationMainActivity";
     public static final String ACTION_ANIMATION_OPEN_BOOK = "AnimationOpenBook";
+    public static final String ACTION_MATRIX = "MatrixActivity";
 }

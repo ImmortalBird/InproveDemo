@@ -42,6 +42,10 @@ public class AnimationMainActivity extends BaseActivity implements Animation.Ani
                 .name(UriAction.ACTION_ANIMATION_OPEN_BOOK)
                 .link(ParseLinkUtil.getLink(UriAction.ACTION_ANIMATION_OPEN_BOOK))
                 .build());
+        data.add(new MainBean.Buidler()
+                .name(UriAction.ACTION_MATRIX)
+                .link(ParseLinkUtil.getLink(UriAction.ACTION_MATRIX))
+                .build());
         return data;
     }
 
