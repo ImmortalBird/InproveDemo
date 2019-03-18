@@ -14,11 +14,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.adapter.BookAdapter;
 import com.xiaobing.improvedemo.animation.anim.ContentScaleAnimation;
 import com.xiaobing.improvedemo.animation.anim.Rotate3DAnimation;
 import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.util.LogUtil;
 
 import java.util.Arrays;
 
@@ -112,6 +114,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         params.leftMargin = location[0];
         params.topMargin = location[1] - statusHeight;
         // 将 params 设置到控件上
+        Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552907482285&di=ccf7054864be6b24b14a51843e0e1baf&imgtype=0&src=http%3A%2F%2Fa4.topitme.com%2Fl%2F201102%2F13%2F12975887687368.jpg").into(cover);
         cover.setLayoutParams(params);
         content.setLayoutParams(params);
         int[] ints = new int[2];
@@ -178,14 +181,16 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     protected void onRestart() {
         super.onRestart();
         // 当界面重新进入的时候进行合书的动画
-        if(isOpenBook) {
-            contentScale.reverse();
-            coverTrans.reverse();
-            cover.clearAnimation();
-            cover.startAnimation(coverTrans);
-            content.clearAnimation();
-            content.startAnimation(contentScale);
-        }
+        LogUtil.print("onRestart");
+        LogUtil.print("onRestart - isOpenBook = " + isOpenBook );
+//        if(isOpenBook) {
+//            contentScale.reverse();
+//            coverTrans.reverse();
+//            cover.clearAnimation();
+//            cover.startAnimation(coverTrans);
+//            content.clearAnimation();
+//            content.startAnimation(contentScale);
+//        }
     }
 
     @Override
@@ -213,5 +218,38 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     @Override
     public void onAnimationRepeat(Animation animation) {
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LogUtil.print("onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        LogUtil.print("onStop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LogUtil.print("onResume");
+        if(isOpenBook) {
+            contentScale.reverse();
+            coverTrans.reverse();
+            cover.clearAnimation();
+            cover.startAnimation(coverTrans);
+            content.clearAnimation();
+            content.startAnimation(contentScale);
+            isOpenBook = false;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LogUtil.print("onPause");
     }
 }

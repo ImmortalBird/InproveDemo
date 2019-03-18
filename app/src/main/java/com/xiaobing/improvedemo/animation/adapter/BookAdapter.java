@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseAdapter;
 
@@ -36,7 +37,7 @@ public class BookAdapter extends BaseAdapter {
     @Override
     protected void bindHold(RecyclerView.ViewHolder viewHolder, int position) {
         BookHolder bookHolder = (BookHolder) viewHolder;
-
+        Glide.with(mContext).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552907482285&di=ccf7054864be6b24b14a51843e0e1baf&imgtype=0&src=http%3A%2F%2Fa4.topitme.com%2Fl%2F201102%2F13%2F12975887687368.jpg").into(bookHolder.book);
         bookHolder.itemView.setOnClickListener(v->{
             if (listener != null){
                 listener.onItemClick(position,bookHolder.book);
