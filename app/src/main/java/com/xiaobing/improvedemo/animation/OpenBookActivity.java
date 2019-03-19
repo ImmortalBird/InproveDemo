@@ -2,9 +2,11 @@ package com.xiaobing.improvedemo.animation;
 
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +41,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     private Rotate3DAnimation coverTrans;
     private boolean isOpenBook = false;
     private GridLayoutManager layoutManager;
+    private boolean canGoBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,13 +77,13 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     @Override
     public void onItemClick(int pos, View view) {
 
-       // 这段的作用是如果点击条目在屏幕中没有完全显示，就让它完全显示，延迟200毫秒后再执行动画
-       // 是为了解决底部item点击动画显示不全的问题
-       int lastP = layoutManager.findLastCompletelyVisibleItemPosition();
+        // 这段的作用是如果点击条目在屏幕中没有完全显示，就让它完全显示，延迟200毫秒后再执行动画
+        // 是为了解决底部item点击动画显示不全的问题
+        int lastP = layoutManager.findLastCompletelyVisibleItemPosition();
         int firstP = layoutManager.findFirstCompletelyVisibleItemPosition();
-        if (lastP < pos  || firstP > pos) {
+        if (lastP < pos || firstP > pos) {
             recycle.smoothScrollToPosition(pos);
-            new Handler().postDelayed(() -> onItemClick(pos,view),200);
+            new Handler().postDelayed(() -> onItemClick(pos, view), 200);
             return;
         }
 
@@ -174,7 +177,6 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         coverTrans.setFillAfter(true);
 
 
-
     }
 
     @Override
@@ -182,25 +184,26 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         super.onRestart();
         // 当界面重新进入的时候进行合书的动画
         LogUtil.print("onRestart");
-        LogUtil.print("onRestart - isOpenBook = " + isOpenBook );
-//        if(isOpenBook) {
-//            contentScale.reverse();
-//            coverTrans.reverse();
-//            cover.clearAnimation();
-//            cover.startAnimation(coverTrans);
-//            content.clearAnimation();
-//            content.startAnimation(contentScale);
-//        }
+        LogUtil.print("onRestart - isOpenBook = " + isOpenBook);
+        if (isOpenBook) {
+            contentScale.reverse();
+            coverTrans.reverse();
+            cover.clearAnimation();
+            cover.startAnimation(coverTrans);
+            content.clearAnimation();
+            content.startAnimation(contentScale);
+        }
     }
 
     @Override
     public void onAnimationStart(Animation animation) {
-
+        canGoBack = false;
     }
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        if(contentScale.hasEnded() && coverTrans.hasEnded()) {
+        if (contentScale.hasEnded() && coverTrans.hasEnded()) {
+            canGoBack = true;
             // 两个动画都结束的时候再处理后续操作
             if (!isOpenBook) {
                 isOpenBook = true;
@@ -212,6 +215,13 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
                 cover.setVisibility(View.GONE);
                 content.setVisibility(View.GONE);
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (canGoBack) {
+            super.onBackPressed();
         }
     }
 
@@ -236,15 +246,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     protected void onResume() {
         super.onResume();
         LogUtil.print("onResume");
-        if(isOpenBook) {
-            contentScale.reverse();
-            coverTrans.reverse();
-            cover.clearAnimation();
-            cover.startAnimation(coverTrans);
-            content.clearAnimation();
-            content.startAnimation(contentScale);
-            isOpenBook = false;
-        }
+
     }
 
     @Override

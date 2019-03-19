@@ -3,6 +3,10 @@ package com.xiaobing.improvedemo.animation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.KeyEvent;
+
 import androidx.annotation.Nullable;
 
 import com.xiaobing.improvedemo.R;
@@ -29,6 +33,27 @@ public class BookActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.book_in,R.anim.book_out);
         transparentAndCoverStatusBar(this);
+
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new MyHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                BookActivity.super.onBackPressed();
+            }
+        },200);
+
+
+    }
+
+    private static class MyHandler extends Handler{
 
     }
 }
