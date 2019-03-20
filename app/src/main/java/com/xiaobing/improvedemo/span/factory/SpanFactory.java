@@ -1,4 +1,4 @@
-package com.xiaobing.improvedemo.util;
+package com.xiaobing.improvedemo.span.factory;
 
 import android.text.style.BackgroundColorSpan;
 import android.text.style.CharacterStyle;

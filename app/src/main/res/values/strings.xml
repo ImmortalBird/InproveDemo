@@ -34,4 +34,24 @@
     <string name="ID_map_01_04">划面</string>
     <string name="ID_animation_main_01">动画主页</string>
     <string name="ID_animation_open_book">书籍打开动画</string>
+    <string name="ID_span_title">Span富文本</string>
+    <string name="ID_span_hint">请输入文字</string>
+    <string name="ID_span_01">ForegroundColorSpan</string>
+    <string name="ID_span_02">BackgroundColorSpan</string>
+    <string name="ID_span_03">ClickableSpan</string>
+    <string name="ID_span_04">MaskFilterSpan</string>
+    <string name="ID_span_05">StrikethroughSpan</string>
+    <string name="ID_span_06">UnderlineSpan</string>
+    <string name="ID_span_07">AbsoluteSizeSpan</string>
+    <string name="ID_span_08">DynamicDrawableSpan</string>
+    <string name="ID_span_09">ImageSpan</string>
+    <string name="ID_span_10">RelativeSizeSpan</string>
+    <string name="ID_span_11">ScaleXSpan</string>
+    <string name="ID_span_12">StyleSpan</string>
+    <string name="ID_span_13">SubscriptSpan</string>
+    <string name="ID_span_14">TextAppearanceSpan</string>
+    <string name="ID_span_15">TypefaceSpan</string>
+    <string name="ID_span_16">URLSpan</string>
+    <string name="ID_span_17">SubscriptSpan</string>
+
 </resources>
