@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <include layout="@layout/head" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/base200dp"
-            android:hint="@string/ID_span_hint">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/base16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,204 +17,229 @@
 
             <TextView
                 android:id="@+id/bt_span"
-               android:layout_width="@dimen/base114dp"
+                android:layout_width="@dimen/base114dp"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_01"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span1"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
-                android:background="@drawable/shape_8dp"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
+                android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_02"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span2"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_03"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span3"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_04"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span4"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_05"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span5"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_06"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span6"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_07"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span7"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_08"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span8"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_09"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span9"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_10"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span10"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_11"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span11"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_12"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span12"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_13"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
 
             <TextView
                 android:id="@+id/bt_span13"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_14"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
+
             <TextView
                 android:id="@+id/bt_span14"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_15"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
+
             <TextView
                 android:id="@+id/bt_span15"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_16"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
+
             <TextView
                 android:id="@+id/bt_span16"
-              android:layout_width="@dimen/base114dp"
-               android:layout_height="wrap_content"
-                android:textSize="@dimen/base12sp"
-                android:padding="@dimen/base3dp"
-                android:gravity="center"
+                android:layout_width="@dimen/base114dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base3dp"
                 android:background="@drawable/shape_8dp"
+                android:gravity="center"
+                android:padding="@dimen/base3dp"
                 android:text="@string/ID_span_17"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="@dimen/base12sp" />
         </GridLayout>
+        <!--<com.google.android.material.textfield.TextInputLayout-->
+            <!--android:id="@+id/til"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/base200dp"-->
+            <!--android:hint="@string/ID_span_hint">-->
+
+            <!--<com.google.android.material.textfield.TextInputEditText-->
+                <!--android:id="@+id/et_content"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:textColor="@color/colorPrimaryDark"-->
+                <!--android:textSize="@dimen/base20sp" />-->
+        <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+
+        <TextView
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/base20sp" />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

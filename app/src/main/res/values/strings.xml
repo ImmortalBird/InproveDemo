@@ -48,7 +48,7 @@
     <string name="ID_span_10">RelativeSizeSpan</string>
     <string name="ID_span_11">ScaleXSpan</string>
     <string name="ID_span_12">StyleSpan</string>
-    <string name="ID_span_13">SubscriptSpan</string>
+    <string name="ID_span_13">SuperscriptSpan</string>
     <string name="ID_span_14">TextAppearanceSpan</string>
     <string name="ID_span_15">TypefaceSpan</string>
     <string name="ID_span_16">URLSpan</string>

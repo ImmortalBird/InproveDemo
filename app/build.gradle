@@ -12,10 +12,10 @@ android {
     }
     signingConfigs {
         sign {
-            keyAlias 'greatKey'
-            keyPassword 'keyixiugai'
-            storeFile file('src/main/sign.jks')
-            storePassword 'buyaoxiugai'
+            keyAlias 'improve'
+            keyPassword 'huangshangjiadao'
+            storeFile file('src/main/main.jks')
+            storePassword 'huangshangjiadao'
         }
     }
     buildTypes {
@@ -27,7 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "HOST", RELEASE_BASE_URL
             buildConfigField "String", "DOUBAN_HOST", DOUBAN_HOST
-            //            signingConfig signingConfigs.sign
+            signingConfig signingConfigs.sign
         }
         debug {
             def enabled = false
@@ -39,7 +39,7 @@ android {
             buildConfigField "String", "DOUBAN_HOST", DOUBAN_HOST
 //            buildConfigField "String", "PUSH_HOST", TEST_PUSH_URL
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.sign
+            signingConfig signingConfigs.sign
         }
     }
     compileOptions {
