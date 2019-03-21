@@ -42,7 +42,9 @@ import butterknife.OnClick;
 /**
  * 主要作用是
  * 展示各种span的显示效果
- * todo 未完成
+ * 基础部分已完成
+ * <p>
+ * TODO: 2019/3/21 需要添加更多的进阶用法
  */
 public class SpanActivity extends BaseActivity {
     @BindView(R.id.et_content)
@@ -182,7 +184,7 @@ public class SpanActivity extends BaseActivity {
                 sb.append("--图片  ImageSpan");
                 Drawable drawable = getResources().getDrawable(R.mipmap.tutu);
                 // 刚才没加这句话，图片不显示
-                drawable.setBounds(0,0,100,100);
+                drawable.setBounds(0, 0, 100, 100);
                 ImageSpan imageSpan = new ImageSpan(drawable);
                 sb.setSpan(imageSpan, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -198,7 +200,7 @@ public class SpanActivity extends BaseActivity {
 //                文字横向缩放
                 sb.append(" --- 文字横向缩放  ScaleXSpan");
                 ScaleXSpan scaleXSpan = new ScaleXSpan(1.2F);
-                sb.setSpan(scaleXSpan,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(scaleXSpan, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 break;
             case R.id.bt_span11:
 //                文字粗体斜体等效果
@@ -208,10 +210,10 @@ public class SpanActivity extends BaseActivity {
                 StyleSpan ss3 = new StyleSpan(Typeface.BOLD);
                 StyleSpan ss4 = new StyleSpan(Typeface.NORMAL);
 
-                sb.setSpan(ss1,0,3,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                sb.setSpan(ss2,4,5,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                sb.setSpan(ss3,6,7,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                sb.setSpan(ss4,8,9,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ss1, 0, 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ss2, 4, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ss3, 6, 7, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ss4, 8, 9, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                 etContent.setHighlightColor(Color.parseColor("#36969696"));
                 // 这种方式设置斜体在 使用 TextView.append(sb) 时无效，在 TextView.setText()时有效
                 etContent.setText(sb);
@@ -222,34 +224,34 @@ public class SpanActivity extends BaseActivity {
                 sb.append("--- 上标  SuperscriptSpan");
 
                 SuperscriptSpan ss = new SuperscriptSpan();
-                sb.setSpan(ss,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ss, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 break;
             case R.id.bt_span13:
 //                字体、大小、样式和颜色
                 sb.append(" --- 字体、大小、样式、颜色 -- TextAppearanceSpan");
                 TextAppearanceSpan tas = new TextAppearanceSpan(this, android.R.style.TextAppearance_Holo_Large);
-                sb.setSpan(tas,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(tas, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 break;
             case R.id.bt_span14:
 //                字体
                 sb.append(" --- 字体 TypefaceSpan ");
 //                Typeface typeface = new Typeface();
                 TypefaceSpan ts = new TypefaceSpan("serif");
-                sb.setSpan(ts,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ts, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                 break;
             case R.id.bt_span15:
 //                超链接
                 sb.append(" --- 超链接  UrlSpan");
                 URLSpan us = new URLSpan("http://www.baidu.com");
-                sb.setSpan(us,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(us, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 etContent.setMovementMethod(LinkMovementMethod.getInstance());
                 break;
             case R.id.bt_span16:
 //                下标
                 sb.append(" --- 下标  ");
                 SubscriptSpan sSpan = new SubscriptSpan();
-                sb.setSpan(sSpan,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(sSpan, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                 break;
             default:
