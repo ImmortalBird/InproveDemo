@@ -193,8 +193,6 @@ public class SpanActivity extends BaseActivity {
                 sb.append(" --- 文字字号相对大小 RelativeSizeSpan");
                 RelativeSizeSpan rss = new RelativeSizeSpan(1.6f);
                 sb.setSpan(rss, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-
                 break;
             case R.id.bt_span10:
 //                文字横向缩放
@@ -210,10 +208,14 @@ public class SpanActivity extends BaseActivity {
                 StyleSpan ss3 = new StyleSpan(Typeface.BOLD);
                 StyleSpan ss4 = new StyleSpan(Typeface.NORMAL);
 
-                sb.setSpan(ss1,0,3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                sb.setSpan(ss1,0,3,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                 sb.setSpan(ss2,4,5,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                 sb.setSpan(ss3,6,7,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                 sb.setSpan(ss4,8,9,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                etContent.setHighlightColor(Color.parseColor("#36969696"));
+                // 这种方式设置斜体在 使用 TextView.append(sb) 时无效，在 TextView.setText()时有效
+                etContent.setText(sb);
+                etContent.append("\n");
                 break;
             case R.id.bt_span12:
 //                上标
