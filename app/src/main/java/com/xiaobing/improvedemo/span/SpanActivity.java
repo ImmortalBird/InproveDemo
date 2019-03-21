@@ -31,7 +31,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 
