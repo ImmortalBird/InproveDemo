@@ -64,7 +64,7 @@ public class TransformView extends View {
         */
 
 
-        int left = 0, top = left, right = 400, bottom = right, half = (left + right) / 2;
+        int left = 0, top = left, right = 200, bottom = right, half = (left + right) / 2;
 
 /*
 
@@ -95,21 +95,17 @@ public class TransformView extends View {
         }
 
 */
-/*
         // 旋转操作
-        canvas.translate(800,800);
+        canvas.translate(800, 800);
         canvas.drawRect(0, 0, right, bottom, mPaint);
         mPaint.setColor(Color.BLUE);
 
         for (int i = 0; i < 23; i++) {
-            *//*
-               正数为顺时针； 负数为逆时针
-             *//*
+//               正数为顺时针； 负数为逆时针
             canvas.rotate(15f);
             canvas.drawRect(0, 0, right, bottom, mPaint);
         }
 
-*/
 /*
 
         // 倾斜操作
@@ -146,13 +142,13 @@ public class TransformView extends View {
         canvas.translate(getWidth() / 2f, getHeight() / 2f);
         canvas.drawRect(left, top, right, bottom, mPaint);
 
+
+        matrix.setRotate(15);
         matrix.setTranslate(getWidth() / 2f, getHeight() / 2f);
-//        matrix.setRotate(15);
         canvas.setMatrix(matrix);
 
         mPaint.setColor(Color.GRAY);
-        canvas.drawRect(left,top,right,bottom,mPaint);
-
+        canvas.drawRect(left, top, right, bottom, mPaint);
 
 
     }
