@@ -89,10 +89,13 @@ public class SpanActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_span_main);
-
         super.onCreate(savedInstanceState);
         setTitle(R.string.ID_span_title);
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_span_main;
     }
 
     @OnClick({R.id.bt_span, R.id.bt_span1, R.id.bt_span2, R.id.bt_span3, R.id.bt_span4, R.id.bt_span5, R.id.bt_span6, R.id.bt_span7, R.id.bt_span8, R.id.bt_span9, R.id.bt_span10, R.id.bt_span11, R.id.bt_span12, R.id.bt_span13, R.id.bt_span14, R.id.bt_span15, R.id.bt_span16})

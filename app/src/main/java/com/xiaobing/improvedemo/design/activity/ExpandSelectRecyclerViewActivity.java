@@ -19,13 +19,17 @@ public class ExpandSelectRecyclerViewActivity extends BaseActivity {
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_expand_rv);
         super.onCreate(savedInstanceState);
         rv = findViewById(R.id.rv);
         setTitle(getString(R.string.ID_design_02_01));
         setData();
         rv.setAdapter(new ExpandSelectAdapter(mobileOSes,this));
         rv.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_expand_rv;
     }
 
     private void setData() {

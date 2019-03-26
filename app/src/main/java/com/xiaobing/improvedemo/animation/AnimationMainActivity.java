@@ -28,12 +28,16 @@ public class AnimationMainActivity extends BaseActivity implements Animation.Ani
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_animation_main);
         super.onCreate(savedInstanceState);
         setTitle(R.string.ID_animation_main_01);
         RecyclerView content = findViewById(R.id.rv_content);
         MainAdapter adapter = new MainAdapter(this, getMainBeans());
         content.setAdapter(adapter);
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_animation_main;
     }
 
     private List<MainBean> getMainBeans() {

@@ -22,16 +22,25 @@ import com.xiaobing.improvedemo.R;
  * @date 2018/8/29 0029
  */
 
-public class BaseActivity extends Activity {
+public abstract class BaseActivity extends Activity {
 
     private TextView title;
+
+    private int layoutId = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        layoutId = setLayoutId();
+        if (layoutId == -1)
+            throw new RuntimeException("请先设置 layoutId");
+        setContentView(layoutId);
         title = findViewById(R.id.tv_title);
         ButterKnife.bind(this);
     }
+
+    protected abstract int setLayoutId();
+
 
     @Override
     public void setTitle(int resId){

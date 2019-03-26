@@ -29,12 +29,16 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
         rvMain = findViewById(R.id.rv_main);
         setTitle(getString(R.string.ID_01_01));
         initView();
 //        getData();
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_main;
     }
 
     private void getData() {

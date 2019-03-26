@@ -18,13 +18,17 @@ public class ExpandCloseActivity extends BaseActivity {
     private ArrayList<ExpandableGroup> mobileOSes = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_expand_rv);
         super.onCreate(savedInstanceState);
         RecyclerView rv = findViewById(R.id.rv);
         setTitle(getString(R.string.ID_design_02_03));
         setData();
         rv.setAdapter(new ExpandCloseAdapter(mobileOSes));
         rv.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_expand_rv;
     }
 
     private void setData() {

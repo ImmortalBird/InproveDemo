@@ -46,7 +46,6 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         transparentAndCoverStatusBar(this);
-        setContentView(R.layout.activity_open_book);
         super.onCreate(savedInstanceState);
         setTitle(R.string.ID_animation_open_book);
 
@@ -72,6 +71,11 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         content = findViewById(R.id.img_content);
         cover = findViewById(R.id.img_first);
         adapter.setListener(this);
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_open_book;
     }
 
     @Override

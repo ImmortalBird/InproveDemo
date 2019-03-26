@@ -18,13 +18,17 @@ public class ExpandListActivity extends BaseActivity {
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_expand_rv);
         super.onCreate(savedInstanceState);
         RecyclerView rv = findViewById(R.id.rv);
         setTitle(getString(R.string.ID_design_02_02));
         setData();
         rv.setAdapter(new ExpandAdapter(mobileOSes,this));
         rv.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_expand_rv;
     }
 
     private void setData() {

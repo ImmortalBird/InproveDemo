@@ -46,7 +46,6 @@ public class MapActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_map);
         super.onCreate(savedInstanceState);
         // 声明一个 map 对象
         map = findViewById(R.id.map);
@@ -103,6 +102,11 @@ public class MapActivity extends BaseActivity {
             }
         });
         setUpMap();
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_map;
     }
 
 

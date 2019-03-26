@@ -24,7 +24,6 @@ public class NotificationActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_notification);
         super.onCreate(savedInstanceState);
 
         View normal = findViewById(R.id.tv_normal);
@@ -34,6 +33,11 @@ public class NotificationActivity extends BaseActivity implements View.OnClickLi
         expand.setOnClickListener(this);
         hang.setOnClickListener(this);
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_notification;
     }
 
     @Override

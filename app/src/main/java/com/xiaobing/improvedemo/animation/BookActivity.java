@@ -29,11 +29,15 @@ public class BookActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_book);
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.book_in,R.anim.book_out);
         transparentAndCoverStatusBar(this);
 
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_book;
     }
 
     @Override

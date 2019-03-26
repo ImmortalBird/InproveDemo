@@ -37,7 +37,6 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_rx_main);
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.ID_rx_01_01));
         View tv01 = findViewById(R.id.tv_01);
@@ -53,6 +52,11 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.tv_11).setOnClickListener(this);
         findViewById(R.id.tv_12).setOnClickListener(this);
         tv01.setOnClickListener(this);
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_rx_main;
     }
 
     private void test1() {

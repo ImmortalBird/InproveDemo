@@ -20,12 +20,17 @@ public class DesignActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setContentView(R.layout.activity_design);
         super.onCreate(savedInstanceState);
         rvDesign = findViewById(R.id.rv_design);
         setTitle(getString(R.string.ID_design_01));
         initView();
     }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_design;
+    }
+
     private void initView() {
         rvDesign.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<MainBean> data = new ArrayList<>();

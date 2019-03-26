@@ -40,9 +40,7 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matrix);
         ButterKnife.bind(this);
         rg.setOnCheckedChangeListener(this);
         matrix = image.getMatrix();
@@ -57,6 +55,11 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
                 image.getWidth(), image.getHeight() - 200,  // 右下
                 0, image.getHeight()};                      // 左下
 
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_matrix;
     }
 
     @Override
