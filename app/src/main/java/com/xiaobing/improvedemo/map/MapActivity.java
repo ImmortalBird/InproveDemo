@@ -1,8 +1,6 @@
 package com.xiaobing.improvedemo.map;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.widget.RadioGroup;
 
 import com.esri.android.map.GraphicsLayer;
@@ -45,8 +43,7 @@ public class MapActivity extends BaseActivity {
     private static final int TYPE_POLYGON = 3;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         // 声明一个 map 对象
         map = findViewById(R.id.map);
         RadioGroup rg = findViewById(R.id.rg);

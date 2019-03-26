@@ -2,12 +2,8 @@ package com.xiaobing.improvedemo.animation;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.view.KeyEvent;
-
-import androidx.annotation.Nullable;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
@@ -22,17 +18,13 @@ public class BookActivity extends BaseActivity {
 
     public static void startMe(Context context) {
         context.startActivity(new Intent(context, BookActivity.class));
-
-
     }
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        overridePendingTransition(R.anim.book_in,R.anim.book_out);
+    protected void initView() {
+        overridePendingTransition(R.anim.book_in, R.anim.book_out);
         transparentAndCoverStatusBar(this);
-
     }
 
     @Override
@@ -52,12 +44,12 @@ public class BookActivity extends BaseActivity {
             public void run() {
                 BookActivity.super.onBackPressed();
             }
-        },200);
+        }, 200);
 
 
     }
 
-    private static class MyHandler extends Handler{
+    private static class MyHandler extends Handler {
 
     }
 }

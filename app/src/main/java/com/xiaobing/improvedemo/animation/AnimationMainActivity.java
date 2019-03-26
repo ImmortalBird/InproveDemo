@@ -1,8 +1,6 @@
 package com.xiaobing.improvedemo.animation;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 
@@ -17,6 +15,9 @@ import com.xiaobing.improvedemo.util.ParseLinkUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * @author 常晓冰
  * @E-mail 471342365@qq.com
@@ -29,6 +30,11 @@ public class AnimationMainActivity extends BaseActivity implements Animation.Ani
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    protected void initView() {
         setTitle(R.string.ID_animation_main_01);
         RecyclerView content = findViewById(R.id.rv_content);
         MainAdapter adapter = new MainAdapter(this, getMainBeans());

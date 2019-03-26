@@ -1,7 +1,6 @@
 package com.xiaobing.improvedemo.rx2;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
@@ -18,6 +17,7 @@ import org.reactivestreams.Subscription;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.Nullable;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -38,6 +38,10 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void initView() {
         setTitle(getString(R.string.ID_rx_01_01));
         View tv01 = findViewById(R.id.tv_01);
         findViewById(R.id.tv_02).setOnClickListener(this);
@@ -252,7 +256,7 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        LogUtil.print("onClick : id:  "+view.getId());
+        LogUtil.print("onClick : id:  " + view.getId());
         switch (view.getId()) {
             case R.id.tv_01:
                 test1();
@@ -361,9 +365,10 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(LogUtil::print, throwable -> {
 
-        });
+                });
     }
-    private void interval(){
+
+    private void interval() {
         subscribe = Observable.interval(1000, 2000, TimeUnit.MILLISECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -378,7 +383,7 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
                 });
     }
 
-    private void intervalFlowable(){
+    private void intervalFlowable() {
         Subscriber<Long> s = new Subscriber<Long>() {
             @Override
             public void onSubscribe(Subscription s) {
@@ -403,7 +408,7 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
                 LogUtil.print("onComplete");
             }
         };
-        Flowable.interval(1000L,1000L,TimeUnit.MILLISECONDS)
+        Flowable.interval(1000L, 1000L, TimeUnit.MILLISECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(new Consumer<Long>() {

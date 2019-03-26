@@ -37,17 +37,24 @@ public abstract class BaseActivity extends Activity {
         setContentView(layoutId);
         title = findViewById(R.id.tv_title);
         ButterKnife.bind(this);
+        initView();
     }
 
+    /**
+     * 初始化
+     */
+    protected abstract void initView();
+
+    /**
+     * 设置当前 activity 的布局id
+     * @return 布局id
+     */
     protected abstract int setLayoutId();
 
 
     @Override
     public void setTitle(int resId){
-        if (title != null){
-            title.setText(getText(resId));
-
-        }
+        setTitle(getString(resId));
     }
     protected void setTitle(String t){
         if (title != null){

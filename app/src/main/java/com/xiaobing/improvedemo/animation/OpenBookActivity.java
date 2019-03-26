@@ -2,11 +2,6 @@ package com.xiaobing.improvedemo.animation;
 
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +20,10 @@ import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.util.LogUtil;
 
 import java.util.Arrays;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author 常晓冰
@@ -47,6 +46,10 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         transparentAndCoverStatusBar(this);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void initView() {
         setTitle(R.string.ID_animation_open_book);
 
         recycle = findViewById(R.id.recycle);

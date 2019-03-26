@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.MaskFilter;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -35,7 +34,6 @@ import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -88,8 +86,7 @@ public class SpanActivity extends BaseActivity {
     String content = "预祝党的十九大完美谢慕";
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         setTitle(R.string.ID_span_title);
     }
 

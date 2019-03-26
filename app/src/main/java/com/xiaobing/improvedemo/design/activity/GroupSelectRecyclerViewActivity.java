@@ -1,10 +1,5 @@
 package com.xiaobing.improvedemo.design.activity;
 
-import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.design.adapter.GroupSelectAdapter;
@@ -13,15 +8,16 @@ import com.xiaobing.improvedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class GroupSelectRecyclerViewActivity extends BaseActivity {
 
-    private RecyclerView rv;
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         setTitle(getString(R.string.ID_design_01_02));
-        rv = findViewById(R.id.rv);
+        RecyclerView rv = findViewById(R.id.rv);
         setData();
         rv.setAdapter(new GroupSelectAdapter(mobileOSes,this));
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -33,15 +29,15 @@ public class GroupSelectRecyclerViewActivity extends BaseActivity {
     }
 
     private void setData() {
-        ArrayList<ChildText> iphones = new ArrayList<>();
-        iphones.add(new ChildText("苹果"));
-        iphones.add(new ChildText("橘子"));
-        iphones.add(new ChildText("芒果"));
-        iphones.add(new ChildText("香蕉"));
-        iphones.add(new ChildText("火龙果"));
-        iphones.add(new ChildText("草莓"));
-        iphones.add(new ChildText("柚子"));
-        iphones.add(new ChildText("哈密瓜"));
+        ArrayList<ChildText> iPhones = new ArrayList<>();
+        iPhones.add(new ChildText("苹果"));
+        iPhones.add(new ChildText("橘子"));
+        iPhones.add(new ChildText("芒果"));
+        iPhones.add(new ChildText("香蕉"));
+        iPhones.add(new ChildText("火龙果"));
+        iPhones.add(new ChildText("草莓"));
+        iPhones.add(new ChildText("柚子"));
+        iPhones.add(new ChildText("哈密瓜"));
 
         ArrayList<ChildText> nexus = new ArrayList<>();
         nexus.add(new ChildText("足球"));
@@ -60,7 +56,7 @@ public class GroupSelectRecyclerViewActivity extends BaseActivity {
         windowPhones.add(new ChildText("小游戏"));
         windowPhones.add(new ChildText("手游"));
 
-        mobileOSes.add(new GroupBean("水果", iphones));
+        mobileOSes.add(new GroupBean("水果", iPhones));
         mobileOSes.add(new GroupBean("球类", nexus));
         mobileOSes.add(new GroupBean("游戏", windowPhones));
     }

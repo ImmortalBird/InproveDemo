@@ -1,8 +1,6 @@
 package com.xiaobing.improvedemo.animation;
 
 import android.graphics.Matrix;
-import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -10,9 +8,7 @@ import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.view.SetPolyToPoly;
 import com.xiaobing.improvedemo.base.BaseActivity;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author 常晓冰
@@ -34,27 +30,21 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
     RadioButton rb4;
     @BindView(R.id.rg)
     RadioGroup rg;
-    private Matrix matrix;
-    private float[] src;
-    private float[] dst;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
+    protected void initView() {
         rg.setOnCheckedChangeListener(this);
-        matrix = image.getMatrix();
+        Matrix matrix = image.getMatrix();
 
-        src = new float[]{0, 0,                         // 左上
+        float[] src = new float[]{0, 0,                         // 左上
                 image.getWidth(), 0,                    // 右上
                 image.getWidth(), image.getHeight(),    // 右下
-                0, image.getHeight()};                  // 左下
+                0, image.getHeight()};
 
-        dst = new float[]{0, 0,                             // 左上
+        float[] dst = new float[]{0, 0,                             // 左上
                 image.getWidth(), 400,                      // 右上
                 image.getWidth(), image.getHeight() - 200,  // 右下
-                0, image.getHeight()};                      // 左下
-
+                0, image.getHeight()};
     }
 
     @Override

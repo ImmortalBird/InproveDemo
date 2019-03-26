@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
 
 import com.xiaobing.improvedemo.R;
@@ -18,21 +17,20 @@ import com.xiaobing.improvedemo.base.BaseActivity;
 
 public class NotificationActivity extends BaseActivity implements View.OnClickListener {
 
-    private View expand;
-    private View hang;
     private NotificationManager notificationManager;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
 
         View normal = findViewById(R.id.tv_normal);
-        expand = findViewById(R.id.tv_expand);
-        hang = findViewById(R.id.tv_hang);
+        View expand = findViewById(R.id.tv_expand);
+        View hang = findViewById(R.id.tv_hang);
         normal.setOnClickListener(this);
         expand.setOnClickListener(this);
         hang.setOnClickListener(this);
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
     }
 
     @Override

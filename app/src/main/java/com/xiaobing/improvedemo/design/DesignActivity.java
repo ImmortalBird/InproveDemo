@@ -1,37 +1,28 @@
 package com.xiaobing.improvedemo.design;
 
-import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
-import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.base.BaseMainAdapter;
+import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
 import java.util.ArrayList;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class DesignActivity extends BaseActivity {
-
-    private RecyclerView rvDesign;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        rvDesign = findViewById(R.id.rv_design);
-        setTitle(getString(R.string.ID_design_01));
-        initView();
-    }
 
     @Override
     protected int setLayoutId() {
         return R.layout.activity_design;
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
+        RecyclerView rvDesign = findViewById(R.id.rv_design);
+        setTitle(getString(R.string.ID_design_01));
         rvDesign.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<MainBean> data = new ArrayList<>();
         MainBean e = new MainBean();

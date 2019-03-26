@@ -1,10 +1,5 @@
 package com.xiaobing.improvedemo.design.activity;
 
-import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.design.adapter.ExpandAdapter;
@@ -13,12 +8,17 @@ import com.xiaobing.improvedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ExpandListActivity extends BaseActivity {
 
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
+
+
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         RecyclerView rv = findViewById(R.id.rv);
         setTitle(getString(R.string.ID_design_02_02));
         setData();

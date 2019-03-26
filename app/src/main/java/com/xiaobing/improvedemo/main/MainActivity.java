@@ -1,8 +1,5 @@
 package com.xiaobing.improvedemo.main;
 
-import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 import com.xiaobing.improvedemo.R;
@@ -15,6 +12,8 @@ import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
 import java.util.ArrayList;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -24,17 +23,6 @@ import rx.schedulers.Schedulers;
  * @E-mail 471342365@qq.com
  */
 public class MainActivity extends BaseActivity {
-
-    private RecyclerView rvMain;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        rvMain = findViewById(R.id.rv_main);
-        setTitle(getString(R.string.ID_01_01));
-        initView();
-//        getData();
-    }
 
     @Override
     protected int setLayoutId() {
@@ -65,7 +53,10 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
+        RecyclerView rvMain = findViewById(R.id.rv_main);
+        setTitle(getString(R.string.ID_01_01));
         rvMain.setLayoutManager(new LinearLayoutManager(this));
         MainAdapter adapter = new MainAdapter(this, getMainBeans());
         rvMain.setAdapter(adapter);
