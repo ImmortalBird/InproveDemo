@@ -53,5 +53,6 @@
     <string name="ID_span_15">TypefaceSpan</string>
     <string name="ID_span_16">URLSpan</string>
     <string name="ID_span_17">SubscriptSpan</string>
+    <string name="ID_custom_view_main">自定义控件</string>
 
 </resources>

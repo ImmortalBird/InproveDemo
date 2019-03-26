@@ -10,6 +10,7 @@ import com.xiaobing.improvedemo.animation.AnimationMainActivity;
 import com.xiaobing.improvedemo.animation.MatrixActivity;
 import com.xiaobing.improvedemo.animation.OpenBookActivity;
 import com.xiaobing.improvedemo.appcompat.AppCompatActivityDemo;
+import com.xiaobing.improvedemo.custom.CustomViewMainActivity;
 import com.xiaobing.improvedemo.design.DesignActivity;
 import com.xiaobing.improvedemo.design.activity.ExpandListActivity;
 import com.xiaobing.improvedemo.design.activity.GroupSelectRecyclerViewActivity;
@@ -89,6 +90,9 @@ public class ParseLinkUtil {
                     return true;
                 case UriAction.ACTION_MATRIX:
                     mContext.startActivity(new Intent(mContext, MatrixActivity.class));
+                    return true;
+                case UriAction.ACTION_CUSTOM_VIEW_MAIN:
+                    mContext.startActivity(new Intent(mContext, CustomViewMainActivity.class));
                     return true;
                 default:
                     return false;

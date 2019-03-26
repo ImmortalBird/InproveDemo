@@ -65,38 +65,15 @@ public class MainActivity extends BaseActivity {
 
     private ArrayList<MainBean> getMainBeans() {
         ArrayList<MainBean> data = new ArrayList<>();
-        MainBean e = new MainBean();
-        e.setName(UriAction.ACTION_DESIGN);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_DESIGN));
-        data.add(e);
-        e = new MainBean();
-        e.setName(UriAction.ACTION_APP_COMPAT_ACTIVITY);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_APP_COMPAT_ACTIVITY));
-        data.add(e);
-        e = new MainBean();
-        e.setName(UriAction.ACTION_NOTIFICATION_ACTIVITY);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_NOTIFICATION_ACTIVITY));
-        data.add(e);
-        e = new MainBean();
-        e.setName(UriAction.ACTION_SPAN_ACTIVITY);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_SPAN_ACTIVITY));
-        data.add(e);
-        e = new MainBean();
-        e.setName(UriAction.ACTION_IO_ACTIVITY);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_IO_ACTIVITY));
-        data.add(e);
-        e = new MainBean();
-        e.setName(UriAction.ACTION_RX_ACTIVITY);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_RX_ACTIVITY));
-        data.add(e);
-        e = new MainBean();
-        e.setName(UriAction.ACTION_MAP_ACTIVITY);
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_MAP_ACTIVITY));
-        data.add(e);
-        data.add(new MainBean.Buidler()
-                .name(UriAction.ACTION_ANIMATION_MAIN)
-                .link(ParseLinkUtil.getLink(UriAction.ACTION_ANIMATION_MAIN))
-                .build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_DESIGN).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_APP_COMPAT_ACTIVITY).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_NOTIFICATION_ACTIVITY).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_SPAN_ACTIVITY).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_IO_ACTIVITY).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_RX_ACTIVITY).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_MAP_ACTIVITY).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_ANIMATION_MAIN).build());
+        data.add(new MainBean.Buidler().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
         return data;
     }
 }
