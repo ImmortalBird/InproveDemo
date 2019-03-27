@@ -39,6 +39,7 @@ public class SplitView extends View {
 
     private void init() {
         mPaint = new Paint();
+        setLayerType(LAYER_TYPE_SOFTWARE, null);//对单独的View在运行时阶段禁用硬件加速
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.beauty);
         for (int i = 0; i < mBitmap.getWidth(); i++) {
             for (int j = 0; j < mBitmap.getHeight(); j++) {
