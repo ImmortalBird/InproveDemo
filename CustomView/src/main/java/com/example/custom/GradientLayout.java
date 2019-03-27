@@ -1,43 +1,28 @@
-package com.example.custom.view.lession_1_2_1;
+package com.example.custom;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
-import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ComposeShader;
-import android.graphics.LightingColorFilter;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.graphics.SweepGradient;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 
 import com.example.custom.R;
-
-import java.util.Random;
 
 public class GradientLayout extends View {
 
     private Paint mPaint;
-    private Paint mPaint2;
-    private Shader mShader;
     private Bitmap mBitmap;
-    private Paint mPaint3;
-    private Random random;
-    private ValueAnimator mAnimator;
+    private Shader mShader;
     public GradientLayout(Context context) {
         this(context, null);
     }
@@ -53,11 +38,10 @@ public class GradientLayout extends View {
 
     private void init() {
         setBackgroundColor(Color.parseColor("#000000"));
+        // 初始化画笔
         mPaint = new Paint();
-        mPaint2 = new Paint();
-        // 设置画笔线条宽度
-        mPaint.setStrokeWidth(10F);
-        mPaint2.setStrokeWidth(5F);
+       // 设置画笔线条宽度
+        mPaint.setStrokeWidth(50F);
         // 设置抗锯齿
         mPaint.setAntiAlias(true);
 //        mPaint2.setAntiAlias(true);
@@ -66,32 +50,31 @@ public class GradientLayout extends View {
 //        mPaint.setStyle(Paint.Style.FILL);
         // 设置填充方式为描边
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint2.setStyle(Paint.Style.STROKE);
         // 设置填充方式为 填充加描边
 //        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         // 设置画笔颜色
 //        mPaint.setColor(Color.RED);
         mPaint.setColor(Color.parseColor("#ACEDDD"));
-        mPaint2.setColor(Color.parseColor("#EDFDFD"));
         // 设置画笔颜色 argb
 //        mPaint.setARGB(100,100,100,100);
         // 设置 alpha 不透明度 0-255， 0：完全透明；255：完全不透明；默认255
 //        mPaint.setAlpha(10);
-        // 设置线条两端样式
-        // 线条两端为圆角
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
-        // 线条两段样式为默认样式
-        mPaint.setStrokeCap(Paint.Cap.BUTT);
-        // 线条两端样式为矩形
-        mPaint.setStrokeCap(Paint.Cap.SQUARE);
+        ///  2019/3/27 没有出现圆角效果
+        // 设置画笔线条两端的样式
+//        // 圆形
+//        mPaint.setStrokeCap(Paint.Cap.ROUND);
+//        // 常规 默认
+//        mPaint.setStrokeCap(Paint.Cap.BUTT);
+//        // 方形
+//        mPaint.setStrokeCap(Paint.Cap.SQUARE);
 
-        // 设置三种拐角风格
-// 两线交汇样式为锐角
+        // TODO: 2019/3/27 三种拐角风格各自的表现样式 是什么？
+        // 两线交汇样式为锐角
         mPaint.setStrokeJoin(Paint.Join.MITER);
-// 两线交汇样式为平角
+        // 两线交汇样式为平角
         mPaint.setStrokeJoin(Paint.Join.BEVEL);
-// 两线交汇样式为圆角
+        // 两线交汇样式为圆角
         mPaint.setStrokeJoin(Paint.Join.ROUND);
 
         // 设置环形渲染器
@@ -105,7 +88,6 @@ public class GradientLayout extends View {
         //
 //        mPaint.setMaskFilter(new BlurMaskFilter(50,BlurMaskFilter.Blur.OUTER));
 //        mPaint2.setMaskFilter(new BlurMaskFilter(30,BlurMaskFilter.Blur.SOLID));
-        mPaint2.setMaskFilter(new BlurMaskFilter(20,BlurMaskFilter.Blur.NORMAL));
 
         // 解析一个map对象
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tutu);
@@ -208,21 +190,6 @@ public class GradientLayout extends View {
 //                PorterDuff.Mode.LIGHTEN
 //                PorterDuff.Mode.OVERLAY
         );
-        mPaint3 = new Paint();
-        mPaint3.setColor(Color.BLACK);
-        mPaint3.setStyle(Paint.Style.FILL);
-        random = new Random();
-        mAnimator = ValueAnimator.ofFloat(0,1);
-        mAnimator.setRepeatCount(-1);
-        mAnimator.setDuration(2000);
-        mAnimator.setInterpolator(new LinearInterpolator());
-        mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-
-                invalidate();
-            }
-        });
     }
 
 
@@ -235,28 +202,15 @@ public class GradientLayout extends View {
         // 设置滤镜
 //        mPaint.setShader(mShader);
 //        canvas.drawRect(0, 0, 500, 500, mPaint);
-//        canvas.drawCircle(500,500,200,mPaint);
-//        canvas.drawCircle(500,500,200,mPaint2);
-//        canvas.drawOval(300,300,700,500,mPaint2);
-        int s= 72;
-        canvas.translate(500,500);
-        int radius = 200;
-        canvas.drawCircle(0,0, radius,mPaint);
 
-            int bound = 20;
-        for (int i = 0; i < 4; i++) {
-            canvas.save();
-            canvas.rotate(s * i + s);
-            canvas.drawOval(-(random.nextInt(bound) + radius + 10),
-                    -(random.nextInt(bound) + radius - 10),
-                    (random.nextInt(bound) + radius - 10),
-                    (random.nextInt(bound) + radius + 10),
-                    mPaint2);
-            canvas.restore();
-        }
-//        canvas.drawCircle(0,0,196,mPaint3);
-//        canvas.drawBitmap(mBitmap,50,50,mPaint);
 
+        canvas.drawLine(100,100,200,100,mPaint);
+        mPaint.setStrokeCap(Paint.Cap.BUTT);
+        canvas.drawLine(100,200,200,200,mPaint);
+        mPaint.setStrokeCap(Paint.Cap.SQUARE);
+        canvas.drawLine(100,300,200,300,mPaint);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        canvas.drawLine(100,400,200,400,mPaint);
         // 回收掉
 //        mBitmap.recycle();
     }
@@ -264,13 +218,5 @@ public class GradientLayout extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-    }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN){
-            //执行动画
-            mAnimator.start();
-        }
-        return super.onTouchEvent(event);
     }
 }
