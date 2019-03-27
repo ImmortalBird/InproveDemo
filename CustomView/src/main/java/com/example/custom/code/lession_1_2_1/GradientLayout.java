@@ -123,7 +123,7 @@ public class GradientLayout extends View {
 ////        canvas.drawCircle(250, 250, 250, mPaint);
 
 
-        /**
+        /*
          * 组合渲染，
          * ComposeShader(@NonNull Shader shaderA, @NonNull Shader shaderB, Xfermode mode)
          * ComposeShader(@NonNull Shader shaderA, @NonNull Shader shaderB, PorterDuff.Mode mode)
