@@ -37,15 +37,15 @@ public class SplitView extends View {
         init();
     }
 
-    private void init(){
+    private void init() {
         mPaint = new Paint();
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tutu);
         for (int i = 0; i < mBitmap.getWidth(); i++) {
             for (int j = 0; j < mBitmap.getHeight(); j++) {
                 Ball ball = new Ball();
-                ball.color = mBitmap.getPixel(i,j);
-                ball.x = i * d + d/ 2;
-                ball.y = j * d + d/ 2;
+                ball.color = mBitmap.getPixel(i, j);
+                ball.x = i * d + d / 2;
+                ball.y = j * d + d / 2;
                 ball.r = d / 2;
 
                 //速度(-20,20)
@@ -59,7 +59,7 @@ public class SplitView extends View {
             }
         }
 
-        mAnimator = ValueAnimator.ofFloat(0,1);
+        mAnimator = ValueAnimator.ofFloat(0, 1);
         mAnimator.setRepeatCount(-1);
         mAnimator.setDuration(2000);
         mAnimator.setInterpolator(new LinearInterpolator());
@@ -96,7 +96,7 @@ public class SplitView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.translate(500,500);
+        canvas.translate(500, 500);
         for (Ball ball : mBalls) {
             mPaint.setColor(ball.color);
             canvas.drawCircle(ball.x, ball.y, ball.r, mPaint);
@@ -106,7 +106,7 @@ public class SplitView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN){
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
             //执行动画
             mAnimator.start();
         }
