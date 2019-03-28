@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(new SaveRestoreView(this));
 //        setContentView(new GradientLayout(this));
 //        setContentView(new GradientLayout(this));
-        setContentView(new ColorFilterView(this));
+//        setContentView(new ColorFilterView(this));
+
+        setContentView(R.layout.activity_main_1_2_4);
 
 
     }
