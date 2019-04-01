@@ -1,12 +1,16 @@
 package com.example.custom;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+//import com.example.custom.code.lession_1_2_6.PathMeasureView;
 
 import com.example.custom.custom.vp.ClipPagerAdapter;
 import com.example.custom.custom.vp.TestViewPager;
 import com.example.custom.custom.vp.ScalePageTransformer;
+import com.example.custom.view.lession_1_2_6.PathMeasureView;
 
 import java.util.ArrayList;
 
@@ -22,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(new GradientLayout(this));
 //        setContentView(new GradientLayout(this));
 //        setContentView(new ColorFilterView(this));
-        setContentView(R.layout.activity_main_1_2_4);
+//        setContentView(R.layout.activity_main_1_2_4);
 
+        setContentView(new PathMeasureView(this));
 //        setContentView(R.layout.activity_main_vp);
 //
 //        final TestViewPager cvp = findViewById(R.id.cvp);
@@ -44,5 +49,42 @@ public class MainActivity extends AppCompatActivity {
 //        adapter.notifyDataSetChanged();
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("MainActivity", "onStart");
+//        finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e("MainActivity", "onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("MainActivity", "onResume");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e("MainActivity", "onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e("MainActivity", "onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("MainActivity", "onDestroy");
     }
 }
