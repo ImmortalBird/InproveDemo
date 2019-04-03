@@ -136,7 +136,7 @@ public class DragBubbleView extends View {
      * 气泡爆炸的图片id数组
      */
     private int[] mBurstDrawablesArray = {
-//            R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5
+            R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5
     };
 
     public DragBubbleView(Context context) {

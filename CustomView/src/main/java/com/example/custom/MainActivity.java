@@ -7,6 +7,7 @@ import android.view.View;
 
 //import com.example.custom.code.lession_1_2_6.PathMeasureView;
 
+import com.example.custom.code.lession_1_2_5.DragBubbleView;
 import com.example.custom.custom.vp.ClipPagerAdapter;
 import com.example.custom.custom.vp.TestViewPager;
 import com.example.custom.custom.vp.ScalePageTransformer;
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_main_1_2_4);
 
 //        setContentView(new PathMeasureView(this));
-        setContentView(new PathView(this));
+//        setContentView(new PathView(this));
+//        setContentView(new DragBubbleView(this));
 //        setContentView(R.layout.activity_main_vp);
+        setContentView(R.layout.activity_main_1_2_5);
 //
 //        final TestViewPager cvp = findViewById(R.id.cvp);
 //
