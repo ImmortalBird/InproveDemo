@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.custom.custom.vp.ClipPagerAdapter;
 import com.example.custom.custom.vp.TestViewPager;
 import com.example.custom.custom.vp.ScalePageTransformer;
+import com.example.custom.view.lession_1_2_5.PathView;
 import com.example.custom.view.lession_1_2_6.PathMeasureView;
 
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(new ColorFilterView(this));
 //        setContentView(R.layout.activity_main_1_2_4);
 
-        setContentView(new PathMeasureView(this));
+//        setContentView(new PathMeasureView(this));
+        setContentView(new PathView(this));
 //        setContentView(R.layout.activity_main_vp);
 //
 //        final TestViewPager cvp = findViewById(R.id.cvp);
