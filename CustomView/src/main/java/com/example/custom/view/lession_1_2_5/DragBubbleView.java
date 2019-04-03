@@ -14,7 +14,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
+//import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +22,8 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 import com.example.custom.R;
+
+import androidx.annotation.Nullable;
 
 /**
  * QQ气泡效果
@@ -115,7 +117,7 @@ public class DragBubbleView extends View {
     /**
      * 手指触摸偏移量
      */
-    private final float MOVE_OFFSET;
+//    private final float MOVE_OFFSET;
 
     /**
      * 气泡爆炸的bitmap数组
@@ -134,7 +136,9 @@ public class DragBubbleView extends View {
     /**
      * 气泡爆炸的图片id数组
      */
-    private int[] mBurstDrawablesArray = {R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5};
+    private int[] mBurstDrawablesArray = {
+//            R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5
+    };
 
     public DragBubbleView(Context context) {
         this(context, null);
@@ -145,48 +149,44 @@ public class DragBubbleView extends View {
     }
 
     public DragBubbleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
-    }
-
-    public DragBubbleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.DragBubbleView, defStyleAttr, 0);
-        mBubbleRadius = array.getDimension(R.styleable.DragBubbleView_bubble_radius, mBubbleRadius);
-        mBubbleColor = array.getColor(R.styleable.DragBubbleView_bubble_color, Color.RED);
-        mTextStr = array.getString(R.styleable.DragBubbleView_bubble_text);
-        mTextSize = array.getDimension(R.styleable.DragBubbleView_bubble_textSize, mTextSize);
-        mTextColor = array.getColor(R.styleable.DragBubbleView_bubble_textColor, Color.WHITE);
-        array.recycle();
-
-        //两个圆半径大小一致
-        mBubFixedRadius = mBubbleRadius;
-        mBubMovableRadius = mBubFixedRadius;
-        mMaxDist = 8 * mBubbleRadius;
-
-        MOVE_OFFSET = mMaxDist / 4;
-
-        //抗锯齿
-        mBubblePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mBubblePaint.setColor(mBubbleColor);
-        mBubblePaint.setStyle(Paint.Style.FILL);
-        mBezierPath = new Path();
-
-        //文本画笔
-        mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTextPaint.setColor(mTextColor);
-        mTextPaint.setTextSize(mTextSize);
-        mTextRect = new Rect();
-
-        //爆炸画笔
-        mBurstPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mBurstPaint.setFilterBitmap(true);
-        mBurstRect = new Rect();
-        mBurstBitmapsArray = new Bitmap[mBurstDrawablesArray.length];
-        for (int i = 0; i < mBurstDrawablesArray.length; i++) {
-            //将气泡爆炸的drawable转为bitmap
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mBurstDrawablesArray[i]);
-            mBurstBitmapsArray[i] = bitmap;
-        }
+        super(context, attrs, defStyleAttr);
+//                TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.DragBubbleView, defStyleAttr, 0);
+//        mBubbleRadius = array.getDimension(R.styleable.DragBubbleView_bubble_radius, mBubbleRadius);
+//        mBubbleColor = array.getColor(R.styleable.DragBubbleView_bubble_color, Color.RED);
+//        mTextStr = array.getString(R.styleable.DragBubbleView_bubble_text);
+//        mTextSize = array.getDimension(R.styleable.DragBubbleView_bubble_textSize, mTextSize);
+//        mTextColor = array.getColor(R.styleable.DragBubbleView_bubble_textColor, Color.WHITE);
+//        array.recycle();
+//
+//        //两个圆半径大小一致
+//        mBubFixedRadius = mBubbleRadius;
+//        mBubMovableRadius = mBubFixedRadius;
+//        mMaxDist = 8 * mBubbleRadius;
+//
+//        MOVE_OFFSET = mMaxDist / 4;
+//
+//        //抗锯齿
+//        mBubblePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//        mBubblePaint.setColor(mBubbleColor);
+//        mBubblePaint.setStyle(Paint.Style.FILL);
+//        mBezierPath = new Path();
+//
+//        //文本画笔
+//        mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//        mTextPaint.setColor(mTextColor);
+//        mTextPaint.setTextSize(mTextSize);
+//        mTextRect = new Rect();
+//
+//        //爆炸画笔
+//        mBurstPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//        mBurstPaint.setFilterBitmap(true);
+//        mBurstRect = new Rect();
+//        mBurstBitmapsArray = new Bitmap[mBurstDrawablesArray.length];
+//        for (int i = 0; i < mBurstDrawablesArray.length; i++) {
+//            //将气泡爆炸的drawable转为bitmap
+//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mBurstDrawablesArray[i]);
+//            mBurstBitmapsArray[i] = bitmap;
+//        }
     }
 
     @Override
@@ -277,48 +277,48 @@ public class DragBubbleView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                if (mBubbleState != BUBBLE_STATE_DISMISS) {
-                    mDist = (float) Math.hypot(event.getX() - mBubFixedCenter.x, event.getY() - mBubFixedCenter.y);
-                    if (mDist < mBubbleRadius + MOVE_OFFSET) {
-                        //加上MOVE_OFFSET是为了方便拖拽
-                        mBubbleState = BUBBLE_STATE_CONNECT;
-                    } else {
-                        mBubbleState = BUBBLE_STATE_DEFAULT;
-                    }
-                }
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if (mBubbleState != BUBBLE_STATE_DEFAULT) {
-                    mDist = (float) Math.hypot(event.getX() - mBubFixedCenter.x, event.getY() - mBubFixedCenter.y);
-                    mBubMovableCenter.x = event.getX();
-                    mBubMovableCenter.y = event.getY();
-                    if (mBubbleState == BUBBLE_STATE_CONNECT) {
-                        if (mDist < mMaxDist - MOVE_OFFSET) {
-                            mBubFixedRadius = mBubbleRadius - mDist / 8;
-                        } else {
-                            mBubbleState = BUBBLE_STATE_APART;
-                        }
-                    }
-                    invalidate();
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                if (mBubbleState == BUBBLE_STATE_CONNECT) {
-                    // 橡皮筋动画
-                    startBubbleRestAnim();
-                } else if (mBubbleState == BUBBLE_STATE_APART) {
-                    if (mDist < 2 * mBubbleRadius){
-                        //反弹动画
-                        startBubbleRestAnim();
-                    }else{
-                        // 爆炸动画
-                        startBubbleBurstAnim();
-                    }
-                }
-                break;
-        }
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                if (mBubbleState != BUBBLE_STATE_DISMISS) {
+//                    mDist = (float) Math.hypot(event.getX() - mBubFixedCenter.x, event.getY() - mBubFixedCenter.y);
+//                    if (mDist < mBubbleRadius + MOVE_OFFSET) {
+//                        //加上MOVE_OFFSET是为了方便拖拽
+//                        mBubbleState = BUBBLE_STATE_CONNECT;
+//                    } else {
+//                        mBubbleState = BUBBLE_STATE_DEFAULT;
+//                    }
+//                }
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                if (mBubbleState != BUBBLE_STATE_DEFAULT) {
+//                    mDist = (float) Math.hypot(event.getX() - mBubFixedCenter.x, event.getY() - mBubFixedCenter.y);
+//                    mBubMovableCenter.x = event.getX();
+//                    mBubMovableCenter.y = event.getY();
+//                    if (mBubbleState == BUBBLE_STATE_CONNECT) {
+//                        if (mDist < mMaxDist - MOVE_OFFSET) {
+//                            mBubFixedRadius = mBubbleRadius - mDist / 8;
+//                        } else {
+//                            mBubbleState = BUBBLE_STATE_APART;
+//                        }
+//                    }
+//                    invalidate();
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                if (mBubbleState == BUBBLE_STATE_CONNECT) {
+//                    // 橡皮筋动画
+//                    startBubbleRestAnim();
+//                } else if (mBubbleState == BUBBLE_STATE_APART) {
+//                    if (mDist < 2 * mBubbleRadius){
+//                        //反弹动画
+//                        startBubbleRestAnim();
+//                    }else{
+//                        // 爆炸动画
+//                        startBubbleBurstAnim();
+//                    }
+//                }
+//                break;
+//        }
         return true;
     }
 

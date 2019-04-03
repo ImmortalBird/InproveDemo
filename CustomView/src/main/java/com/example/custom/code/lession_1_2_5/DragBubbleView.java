@@ -14,13 +14,15 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
+
+import com.example.custom.R;
+
+import androidx.annotation.Nullable;
 
 /**
  * QQ气泡效果
@@ -133,7 +135,9 @@ public class DragBubbleView extends View {
     /**
      * 气泡爆炸的图片id数组
      */
-    private int[] mBurstDrawablesArray = {R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5};
+    private int[] mBurstDrawablesArray = {
+//            R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5
+    };
 
     public DragBubbleView(Context context) {
         this(context, null);
@@ -144,11 +148,7 @@ public class DragBubbleView extends View {
     }
 
     public DragBubbleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
-    }
-
-    public DragBubbleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.DragBubbleView, defStyleAttr, 0);
         mBubbleRadius = array.getDimension(R.styleable.DragBubbleView_bubble_radius, mBubbleRadius);
         mBubbleColor = array.getColor(R.styleable.DragBubbleView_bubble_color, Color.RED);
@@ -187,6 +187,7 @@ public class DragBubbleView extends View {
             mBurstBitmapsArray[i] = bitmap;
         }
     }
+
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
