@@ -9,13 +9,12 @@
         android:id="@+id/splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#666666"
+        android:background="#0000"
         app:bubble_radius="18dp"
         app:bubble_color="#ff3300"
-        app:bubble_text="13"
+        app:bubble_text="53"
         app:bubble_textSize="18sp"
         app:bubble_textColor="#00ddff"
-
         />
 
 </FrameLayout>

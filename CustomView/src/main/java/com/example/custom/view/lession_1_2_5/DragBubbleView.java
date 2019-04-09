@@ -14,16 +14,19 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
-//import android.support.annotation.Nullable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 import com.example.custom.R;
 
 import androidx.annotation.Nullable;
+
+//import android.support.annotation.Nullable;
 
 /**
  * QQ气泡效果
@@ -140,6 +143,7 @@ public class DragBubbleView extends View {
             R.mipmap.burst_1, R.mipmap.burst_2, R.mipmap.burst_3, R.mipmap.burst_4, R.mipmap.burst_5
     };
 
+
     public DragBubbleView(Context context) {
         this(context, null);
     }
@@ -177,6 +181,7 @@ public class DragBubbleView extends View {
         mTextPaint.setColor(mTextColor);
         mTextPaint.setTextSize(mTextSize);
         mTextRect = new Rect();
+        mTextPaint.getTextBounds(mTextStr, 0, mTextStr.length(), mTextRect);
 
         // 爆炸画笔
         mBurstPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -218,7 +223,7 @@ public class DragBubbleView extends View {
         super.onDraw(canvas);
         switch (mBubbleState) {
             case BUBBLE_STATE_APART:
-
+                drawMovable(canvas);
                 break;
             case BUBBLE_STATE_CONNECT:
                 // 绘制静止的气泡
@@ -235,27 +240,39 @@ public class DragBubbleView extends View {
                 float iBubFixedStartY = mBubFixedCenter.y + mBubFixedRadius * cosTheta;
                 // C
                 float iBubMovableEndX = mBubMovableCenter.x - mBubMovableRadius * sinTheta;
-                float iBubMovabelEndY = mBubMovableCenter.y + mBubFixedRadius * cosTheta;
+                float iBubMovableEndY = mBubMovableCenter.y + mBubFixedRadius * cosTheta;
                 // A
-                float iBubFixedEndY = mBubFixedCenter.x + mBubFixedRadius * sinTheta;
-                float iBubFixedEndX = mBubFixedCenter.y - mBubFixedRadius * cosTheta;
+                float iBubFixedEndX = mBubFixedCenter.x + mBubFixedRadius * sinTheta;
+                float iBubFixedEndY = mBubFixedCenter.y - mBubFixedRadius * cosTheta;
                 // B
                 float iBubMovableStartX = mBubMovableCenter.x + mBubMovableRadius * sinTheta;
                 float iBunMovableStartY = mBubMovableCenter.y - mBubMovableRadius * cosTheta;
 
                 mBezierPath.reset();
-                mBezierPath.moveTo(iBubFixedStartX,iBubFixedStartY);
-                mBezierPath.quadTo(iAnchorX,iAnchorY,iBubFixedEndX,iBubFixedEndY);
-                mBezierPath.lineTo(iBubMovableStartX,iBunMovableStartY);
-                mBezierPath.quadTo(iAnchorX,iAnchorY,iBubMovableEndX,iBubMovabelEndY);
+                mBezierPath.moveTo(iBubFixedStartX, iBubFixedStartY);
+                mBezierPath.quadTo(iAnchorX, iAnchorY, iBubMovableEndX, iBubMovableEndY);
+                mBezierPath.lineTo(iBubMovableStartX, iBunMovableStartY);
+                mBezierPath.quadTo(iAnchorX, iAnchorY, iBubFixedEndX, iBubFixedEndY);
                 mBezierPath.close();
                 canvas.drawPath(mBezierPath, mBubblePaint);
-
-
+                drawMovable(canvas);
                 break;
             case BUBBLE_STATE_DEFAULT:
+                // 绘制静止的气泡
+                canvas.drawCircle(mBubFixedCenter.x, mBubFixedCenter.y, mBubFixedRadius, mBubblePaint);
+                drawMovable(canvas);
                 break;
             case BUBBLE_STATE_DISMISS:
+                if (mCurDrawableIndex < mBurstBitmapsArray.length) {
+                    mBurstRect.set(
+                            (int) (mBubMovableCenter.x - mBubMovableRadius),
+                            (int) (mBubMovableCenter.y - mBubMovableRadius),
+                            (int) (mBubMovableCenter.x + mBubMovableRadius),
+                            (int) (mBubMovableCenter.y + mBubMovableRadius));
+                    canvas.drawBitmap(mBurstBitmapsArray[mCurDrawableIndex],null,mBurstRect, mBurstPaint);
+
+                }
+
                 break;
             default:
                 break;
@@ -263,18 +280,23 @@ public class DragBubbleView extends View {
 
     }
 
+    private void drawMovable(Canvas canvas) {
+        canvas.drawCircle(mBubMovableCenter.x, mBubMovableCenter.y, mBubbleRadius, mBubblePaint);
+        canvas.drawText(mTextStr, mBubMovableCenter.x - mTextRect.width() / 2f - mTextRect.left, mBubMovableCenter.y + mTextRect.height() / 2f, mTextPaint);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (performClick()) {
+            startBubbleBurstAnim();
+            return true;
+        }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (mBubbleState != BUBBLE_STATE_DISMISS) {
                     mDist = (float) Math.hypot(event.getX() - mBubFixedCenter.x, event.getY() - mBubFixedCenter.y);
-                    if (mDist < mBubbleRadius + MOVE_OFFSET) {
-                        //加上MOVE_OFFSET是为了方便拖拽
-                        mBubbleState = BUBBLE_STATE_CONNECT;
-                    } else {
-                        mBubbleState = BUBBLE_STATE_DEFAULT;
-                    }
+                    mBubbleState = mDist < mBubbleRadius + MOVE_OFFSET ?
+                            BUBBLE_STATE_CONNECT : BUBBLE_STATE_DEFAULT;
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -294,36 +316,133 @@ public class DragBubbleView extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 if (mBubbleState == BUBBLE_STATE_CONNECT) {
-                    // 橡皮筋动画
-                    startBubbleRestAnim();
+                    startBubbleRestAnim(event.getX(), event.getY());
                 } else if (mBubbleState == BUBBLE_STATE_APART) {
-                    if (mDist < 2 * mBubbleRadius){
-                        //反弹动画
-                        startBubbleRestAnim();
-                    }else{
-                        // 爆炸动画
+                    if (mDist < 2 * mBubbleRadius) {
+                        startBubbleRestAnim(event.getX(), event.getY());
+                    } else {
                         startBubbleBurstAnim();
                     }
+
                 }
+
                 break;
         }
         return true;
     }
 
+    @Override
+    public boolean performClick() {
+        return super.performClick();
+    }
+
     /**
      * 连接状态下松开手指，执行类似橡皮筋动画
+     *
+     * @param x Up 事件触发是的手指位置 X 坐标
+     *
+     * @param y Up 事件触发时的手指位置 Y 坐标
      */
-    private void startBubbleRestAnim() {
+    private void startBubbleRestAnim(final float x, final float y) {
+        ValueAnimator animator;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            animator = ValueAnimator.ofObject(new PointFEvaluator(),
+                    mBubMovableCenter, mBubFixedCenter)
+                    .setDuration(500L);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    mBubMovableCenter = (PointF) animation.getAnimatedValue();
+                    invalidate();
+                }
+            });
+        } else {
+            animator = ValueAnimator.ofFloat(1, 0)
+                    .setDuration(500L);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float f = (float) animation.getAnimatedValue();
+                    mBubMovableCenter.x = mBubFixedCenter.x + (x - mBubMovableCenter.x) * f;
+                    mBubMovableCenter.y = mBubFixedCenter.y + (y - mBubMovableCenter.y) * f;
+                    invalidate();
+                }
+            });
+        }
+
+        animator.setInterpolator(new OvershootInterpolator(1f));
+
+        animator.start();
+
     }
 
     /**
      * 爆炸动画
      */
     private void startBubbleBurstAnim() {
+        mBubbleState = BUBBLE_STATE_DISMISS;
+        ValueAnimator animator = ValueAnimator.ofInt(0, mBurstBitmapsArray.length)
+                .setDuration(500);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mCurDrawableIndex = (int) animation.getAnimatedValue();
+                invalidate();
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation, boolean isReverse) {
+                mIsBurstAnimStart = true;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                super.onAnimationCancel(animation);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                onBurstFinished();
+
+            }
+        });
+        animator.start();
+
+    }
+
+    private void onBurstFinished() {
+        mIsBurstAnimStart = false;
+        ViewGroup parent = (ViewGroup) getParent();
+        if (parent != null) {
+            parent.removeView(this);
+        }
     }
 
     public void init() {
     }
 
+    public void setmTextStr(String mTextStr) {
+        this.mTextStr = mTextStr;
+        mTextPaint.getTextBounds(mTextStr, 0, mTextStr.length(), mTextRect);
+        invalidate();
+    }
 
+    public int getmBubbleColor() {
+        return mBubbleColor;
+    }
+
+    public void setmBubbleColor(int mBubbleColor) {
+        this.mBubbleColor = mBubbleColor;
+    }
+
+    public int getmTextColor() {
+        return mTextColor;
+    }
+
+    public void setmTextColor(int mTextColor) {
+        this.mTextColor = mTextColor;
+    }
 }
