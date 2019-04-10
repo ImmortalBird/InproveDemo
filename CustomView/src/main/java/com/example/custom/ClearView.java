@@ -66,47 +66,54 @@ public class ClearView extends BaseView {
         mTopPaint.setDither(true);
 //        setLayerType(View.LAYER_TYPE_SOFTWARE,mTopPaint);
         mTopPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        bottom = BitmapFactory.decodeResource(getResources(), R.drawable.girl);
+        bottom = BitmapFactory.decodeResource(getResources(), R.drawable.bottom);
         top = BitmapFactory.decodeResource(getResources(), R.drawable.top);
         path = new Path();
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tutu);
+
 //        mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        mBitmap = Bitmap.createBitmap(bottom.getWidth(), bottom.getHeight(), Bitmap.Config.ARGB_8888);
+        mBitmap = Bitmap.createBitmap(bottom.getWidth(), bottom.getHeight() , Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
 //        mCanvas.drawColor(Color.parseColor("#c0c0c0"));
-        mCanvas.drawBitmap(bitmap,0,0,null);
+
 
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.e("ClearView","onMeasure--getHeight() = " + getHeight());
-        Log.e("ClearView","onMeasure--getMeasuredHeight() = " + getMeasuredHeight());
-        Log.e("ClearView","onMeasure--getWidth() = " + getWidth());
-        Log.e("ClearView","onMeasure--getMeasuredWidth() = " + getMeasuredWidth());
+        Log.e("ClearView", "onMeasure--getHeight() = " + getHeight());
+        Log.e("ClearView", "onMeasure--getMeasuredHeight() = " + getMeasuredHeight());
+        Log.e("ClearView", "onMeasure--getWidth() = " + getWidth());
+        Log.e("ClearView", "onMeasure--getMeasuredWidth() = " + getMeasuredWidth());
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        Log.e("ClearView","onLayout--getHeight() = " + getHeight());
-        Log.e("ClearView","onLayout--getMeasuredHeight() = " + getMeasuredHeight());
-        Log.e("ClearView","onLayout--getWidth() = " + getWidth());
-        Log.e("ClearView","onLayout--getMeasuredWidth() = " + getMeasuredWidth());
+        Log.e("ClearView", "onLayout--getHeight() = " + getHeight());
+        Log.e("ClearView", "onLayout--getMeasuredHeight() = " + getMeasuredHeight());
+        Log.e("ClearView", "onLayout--getWidth() = " + getWidth());
+        Log.e("ClearView", "onLayout--getMeasuredWidth() = " + getMeasuredWidth());
         super.onLayout(changed, left, top, right, bottom);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.e("ClearView","onDraw--getHeight() = " + getHeight());
-        Log.e("ClearView","onDraw--getMeasuredHeight() = " + getMeasuredHeight());
-        Log.e("ClearView","onDraw--getWidth() = " + getWidth());
-        Log.e("ClearView","onDraw--getMeasuredWidth() = " + getMeasuredWidth());
+        Log.e("ClearView", "onDraw--getHeight() = " + getHeight());
+        Log.e("ClearView", "onDraw--getMeasuredHeight() = " + getMeasuredHeight());
+        Log.e("ClearView", "onDraw--getWidth() = " + getWidth());
+        Log.e("ClearView", "onDraw--getMeasuredWidth() = " + getMeasuredWidth());
         super.onDraw(canvas);
-        canvas.drawBitmap(bottom, 0, 0, null);
-        mCanvas.drawPath(path,mTopPaint);
-        canvas.drawBitmap(mBitmap, 0, 0, null);
+//        canvas.translate(getWidth() / 2f, getHeight() / 2f);
+//        canvas.scale(2f, 2f, 0, 0);
+//        mCanvas.translate(getWidth() / 2f, getHeight() / 2f);
+//        mCanvas.scale(2f,2f,0,0);
+        canvas.drawBitmap(bottom, 0,0, null);
+
+
+        mCanvas.drawBitmap(top, 0,0,null);
+        mCanvas.drawPath(path, mTopPaint);
+        canvas.drawBitmap(mBitmap, 0,0,null);
     }
 
     private int mLastX;
@@ -126,9 +133,9 @@ public class ClearView extends BaseView {
         int x = (int) event.getX();
         int y = (int) event.getY();
 
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                path.moveTo(event.getX(),event.getY());
+                path.moveTo(event.getX(), event.getY());
                 break;
             case MotionEvent.ACTION_MOVE:
             case MotionEvent.ACTION_UP:
@@ -143,7 +150,7 @@ public class ClearView extends BaseView {
                 mLastY = y;
                 break;
             default:
-                path.lineTo(event.getX(),event.getY());
+                path.lineTo(event.getX(), event.getY());
                 break;
         }
         invalidate();
