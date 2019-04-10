@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
 //        setContentView(new PathMeasureView(this));
 //        setContentView(new PathView(this));
+        setContentView(new ClearView(this));
 //        setContentView(new DragBubbleView(this));
 //        setContentView(R.layout.activity_main_vp);
-        setContentView(R.layout.activity_main_1_2_5);
+//        setContentView(R.layout.activity_main_1_2_5);
 //
 //        final TestViewPager cvp = findViewById(R.id.cvp);
 //
