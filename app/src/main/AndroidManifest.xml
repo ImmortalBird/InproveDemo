@@ -18,6 +18,8 @@
 
     <!--
       下面这两个标签一起使用，  appComponentFactory设置任意字符，但是不能为空，否则高本版有问题
+      测试机型：华为 mate 10 pro  系统9.0
+      测试表现：无法安装，解析安装包失败
       android:appComponentFactory="1231321"
       tools:replace="android:appComponentFactory"
 
