@@ -8,7 +8,6 @@ import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.network.retrofit.Api;
-import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
 import java.util.ArrayList;
 
@@ -65,15 +64,15 @@ public class MainActivity extends BaseActivity {
 
     private ArrayList<MainBean> getMainBeans() {
         ArrayList<MainBean> data = new ArrayList<>();
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_DESIGN).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_APP_COMPAT_ACTIVITY).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_NOTIFICATION_ACTIVITY).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_SPAN_ACTIVITY).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_IO_ACTIVITY).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_RX_ACTIVITY).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_MAP_ACTIVITY).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_ANIMATION_MAIN).build());
-        data.add(new MainBean.Buidler().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_DESIGN).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_APP_COMPAT_ACTIVITY).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_NOTIFICATION_ACTIVITY).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_SPAN_ACTIVITY).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_IO_ACTIVITY).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_RX_ACTIVITY).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_MAP_ACTIVITY).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_ANIMATION_MAIN).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
         return data;
     }
 }

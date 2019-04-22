@@ -10,7 +10,6 @@ import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;
-import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +47,11 @@ public class AnimationMainActivity extends BaseActivity implements Animation.Ani
 
     private List<MainBean> getMainBeans() {
         ArrayList<MainBean> data = new ArrayList<>();
-        data.add(new MainBean.Buidler()
+        data.add(new MainBean.Builder()
                 .name(UriAction.ACTION_ANIMATION_OPEN_BOOK)
-                .link(ParseLinkUtil.getLink(UriAction.ACTION_ANIMATION_OPEN_BOOK))
                 .build());
-        data.add(new MainBean.Buidler()
+        data.add(new MainBean.Builder()
                 .name(UriAction.ACTION_MATRIX)
-                .link(ParseLinkUtil.getLink(UriAction.ACTION_MATRIX))
                 .build());
         return data;
     }

@@ -26,12 +26,10 @@ public abstract class BaseActivity extends Activity {
 
     private TextView title;
 
-    private int layoutId = -1;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        layoutId = setLayoutId();
+        int layoutId = setLayoutId();
         if (layoutId == -1)
             throw new RuntimeException("请先设置 layoutId");
         setContentView(layoutId);
@@ -64,7 +62,7 @@ public abstract class BaseActivity extends Activity {
     }
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public static void transparentAndCoverStatusBar(Activity activity) {
-        //FLAG_LAYOUT_NO_LIMITS这个千万别用，带虚拟按键的机型会有特别多问题
+        //FLAG_LAYOUT_NO_LIMITS 这个千万别用，带虚拟按键的机型会有特别多问题
 
 //        //FLAG_TRANSLUCENT_STATUS要求API大于19
 //        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

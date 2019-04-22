@@ -1,7 +1,6 @@
 package com.xiaobing.improvedemo.main.bean;
 
 
-import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.util.ParseLinkUtil;
 
 /**
@@ -32,15 +31,15 @@ public class MainBean implements Cloneable{
         return this;
     }
 
-    public static class Buidler{
+    public static class Builder {
         private MainBean bean = new MainBean();
 
-        public Buidler name(String name){
+        public Builder name(String name){
             bean.name = name;
-            return link(ParseLinkUtil.getLink(UriAction.ACTION_CUSTOM_VIEW_MAIN));
+            return link(ParseLinkUtil.getLink(name));
         }
 
-        public Buidler link(String link){
+        public Builder link(String link){
             bean.link = link;
             return this;
         }
