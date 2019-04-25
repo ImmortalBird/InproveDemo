@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.xiaobing.improvedemo.R;
+import com.xiaobing.improvedemo.util.LogUtil;
 
 /**
  *
@@ -85,5 +86,28 @@ public abstract class BaseActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LogUtil.print(getClass().getName(),"onStart");
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        LogUtil.print(getClass().getName(),"onStop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LogUtil.print(getClass().getName(),"onResume");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LogUtil.print(getClass().getName(),"onPause");
+    }
 }

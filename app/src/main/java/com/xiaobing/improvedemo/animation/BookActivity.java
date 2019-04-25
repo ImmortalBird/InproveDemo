@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.util.LogUtil;
 
 /**
  * @author 常晓冰
@@ -15,6 +16,7 @@ import com.xiaobing.improvedemo.base.BaseActivity;
  */
 public class BookActivity extends BaseActivity {
 
+    private boolean isPressedBack = false;
 
     public static void startMe(Context context) {
         context.startActivity(new Intent(context, BookActivity.class));
@@ -39,12 +41,10 @@ public class BookActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        new MyHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                BookActivity.super.onBackPressed();
-            }
-        }, 200);
+        if (!isPressedBack) {
+            isPressedBack = true;
+            new MyHandler().postDelayed(BookActivity.super::onBackPressed, 200);
+        }
 
 
     }

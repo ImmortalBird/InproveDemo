@@ -42,10 +42,6 @@ android {
             signingConfig signingConfigs.sign
         }
     }
-    compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
-    }
     packagingOptions {
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/DEPENDENCIES.txt'
@@ -63,6 +59,10 @@ android {
     }
     buildToolsVersion '28.0.3'
     sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {

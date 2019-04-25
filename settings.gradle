@@ -1,1 +1,1 @@
-include ':app', ':CustomView', ':屏幕适配-自定义像素适配', ':屏幕适配-百分比布局适配', ':屏幕适配-density适配', ':屏幕适配-刘海屏适配'
+include ':app', ':设计模式','CustomView'

@@ -210,7 +210,6 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
     @Override
     public void onAnimationEnd(Animation animation) {
         if (contentScale.hasEnded() && coverTrans.hasEnded()) {
-            canGoBack = true;
             // 两个动画都结束的时候再处理后续操作
             if (!isOpenBook) {
                 isOpenBook = true;
@@ -222,6 +221,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
                 cover.setVisibility(View.GONE);
                 content.setVisibility(View.GONE);
             }
+            canGoBack = true;
         }
     }
 
@@ -237,28 +237,4 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        LogUtil.print("onStart");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        LogUtil.print("onStop");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        LogUtil.print("onResume");
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        LogUtil.print("onPause");
-    }
 }
