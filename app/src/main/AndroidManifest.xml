@@ -78,7 +78,6 @@
             android:hardwareAccelerated="false" />
         <activity android:name=".io.IOActivity" />
         <activity android:name=".rx2.RxActivity" />
-        <activity android:name=".map.MapActivity" />
         <activity android:name=".animation.AnimationMainActivity" />
         <activity android:name=".animation.OpenBookActivity" />
         <activity android:name=".animation.BookActivity"
@@ -86,6 +85,7 @@
             />
         <activity android:name=".animation.MatrixActivity" />
         <activity android:name=".custom.CustomViewMainActivity" />
+        <activity android:name=".setting.SettingActivity" />
     </application>
 
 </manifest>

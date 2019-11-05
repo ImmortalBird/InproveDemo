@@ -54,5 +54,6 @@
     <string name="ID_span_16">URLSpan</string>
     <string name="ID_span_17">SubscriptSpan</string>
     <string name="ID_custom_view_main">自定义控件</string>
+    <string name="ID_setting_main">跳转系统设置</string>
 
 </resources>

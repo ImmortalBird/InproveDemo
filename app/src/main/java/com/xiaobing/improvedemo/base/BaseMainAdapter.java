@@ -33,7 +33,7 @@ public abstract class BaseMainAdapter<M extends RecyclerView.ViewHolder> extends
     }
 
     @Override
-    protected void bindHold(MainHolder mHolder, int i) {
+    protected void bindHolder(MainHolder mHolder, int i) {
         mHolder.tvName.setText(data.get(i).getName());
         mHolder.tvName.setOnClickListener(v->onClick(data.get(i).getLink()));
     }

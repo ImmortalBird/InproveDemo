@@ -23,4 +23,5 @@ public class UriAction {
     public static final String ACTION_ANIMATION_OPEN_BOOK = "AnimationOpenBook";
     public static final String ACTION_MATRIX = "MatrixActivity";
     public static final String ACTION_CUSTOM_VIEW_MAIN = "CustomViewMainActivity";
+    public static final String ACTION_SETTING_MAIN = "SettingActivity";
 }

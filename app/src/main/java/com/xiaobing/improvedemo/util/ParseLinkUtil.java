@@ -17,9 +17,9 @@ import com.xiaobing.improvedemo.design.activity.GroupSelectRecyclerViewActivity;
 import com.xiaobing.improvedemo.design.activity.ExpandSelectRecyclerViewActivity;
 import com.xiaobing.improvedemo.io.IOActivity;
 import com.xiaobing.improvedemo.link.UriAction;
-import com.xiaobing.improvedemo.map.MapActivity;
 import com.xiaobing.improvedemo.notification.NotificationActivity;
 import com.xiaobing.improvedemo.rx2.RxActivity;
+import com.xiaobing.improvedemo.setting.SettingActivity;
 import com.xiaobing.improvedemo.span.SpanActivity;
 
 /**
@@ -79,9 +79,6 @@ public class ParseLinkUtil {
                 case UriAction.ACTION_RX_ACTIVITY:
                     mContext.startActivity(new Intent(mContext, RxActivity.class));
                     return true;
-                case UriAction.ACTION_MAP_ACTIVITY:
-                    mContext.startActivity(new Intent(mContext, MapActivity.class));
-                    return true;
                 case UriAction.ACTION_ANIMATION_MAIN:
                     mContext.startActivity(new Intent(mContext, AnimationMainActivity.class));
                     return true;
@@ -93,6 +90,9 @@ public class ParseLinkUtil {
                     return true;
                 case UriAction.ACTION_CUSTOM_VIEW_MAIN:
                     mContext.startActivity(new Intent(mContext, CustomViewMainActivity.class));
+                    return true;
+                case UriAction.ACTION_SETTING_MAIN:
+                    mContext.startActivity(new Intent(mContext, SettingActivity.class));
                     return true;
                 default:
                     return false;

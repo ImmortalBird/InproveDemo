@@ -37,7 +37,6 @@ android {
             shrinkResources enabled
             buildConfigField "String", "HOST", DEBUG_BASE_URL
             buildConfigField "String", "DOUBAN_HOST", DOUBAN_HOST
-//            buildConfigField "String", "PUSH_HOST", TEST_PUSH_URL
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.sign
         }
@@ -92,8 +91,8 @@ dependencies {
     implementation retrofit_converter_gson
     implementation retrofit_adapter_rxjava
     implementation retrofit_adapter_rxjava2
-    //    implementation butter_knife
-    //    annotationProcessor butter_knife_compiler
+    implementation butter_knife
+    annotationProcessor butter_knife_compiler
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'

@@ -34,7 +34,7 @@ public abstract class BaseAdapter<T extends RecyclerView.ViewHolder> extends Rec
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-            bindHold((T) viewHolder, i);
+            bindHolder((T) viewHolder, i);
     }
 
     @Override
@@ -53,5 +53,5 @@ public abstract class BaseAdapter<T extends RecyclerView.ViewHolder> extends Rec
      * @param viewHolder holder
      * @param position   对应条目的索引值
      */
-    protected abstract void bindHold(T viewHolder, int position);
+    protected abstract void bindHolder(T viewHolder, int position);
 }

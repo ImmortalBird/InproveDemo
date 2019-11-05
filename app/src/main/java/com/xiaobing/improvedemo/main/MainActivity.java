@@ -70,9 +70,10 @@ public class MainActivity extends BaseActivity {
         data.add(new MainBean.Builder().name(UriAction.ACTION_SPAN_ACTIVITY).build());
         data.add(new MainBean.Builder().name(UriAction.ACTION_IO_ACTIVITY).build());
         data.add(new MainBean.Builder().name(UriAction.ACTION_RX_ACTIVITY).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_MAP_ACTIVITY).build());
         data.add(new MainBean.Builder().name(UriAction.ACTION_ANIMATION_MAIN).build());
         data.add(new MainBean.Builder().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_SETTING_MAIN).build());
         return data;
     }
 }

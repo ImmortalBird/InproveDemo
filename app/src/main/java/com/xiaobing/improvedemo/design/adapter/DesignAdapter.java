@@ -29,7 +29,7 @@ public class DesignAdapter extends BaseAdapter<BaseMainAdapter.MainHolder> {
     }
 
     @Override
-    protected void bindHold(BaseMainAdapter.MainHolder viewHolder, int position) {
+    protected void bindHolder(BaseMainAdapter.MainHolder viewHolder, int position) {
 
     }
 }
