@@ -1,1 +1,1 @@
-include ':app', ':设计模式','CustomView'
+include ':app', 'CustomView'
