@@ -2,7 +2,10 @@ package com.xiaobing.improvedemo.base;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +37,8 @@ public abstract class BaseMainAdapter<M extends RecyclerView.ViewHolder> extends
 
     @Override
     protected void bindHolder(MainHolder mHolder, int i) {
+        Typeface typeface = ResourcesCompat.getFont(mContext, R.font.mao);
+        mHolder.tvName.setTypeface(typeface);
         mHolder.tvName.setText(data.get(i).getName());
         mHolder.tvName.setOnClickListener(v->onClick(data.get(i).getLink()));
     }

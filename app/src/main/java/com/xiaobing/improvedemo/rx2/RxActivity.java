@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.network.rr2.NetworkManager;
@@ -17,10 +19,8 @@ import org.reactivestreams.Subscription;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.Nullable;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
@@ -43,7 +43,7 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initView() {
         setTitle(getString(R.string.ID_rx_01_01));
-        View tv01 = findViewById(R.id.tv_01);
+        findViewById(R.id.tv_01).setOnClickListener(this);
         findViewById(R.id.tv_02).setOnClickListener(this);
         findViewById(R.id.tv_03).setOnClickListener(this);
         findViewById(R.id.tv_04).setOnClickListener(this);
@@ -55,7 +55,6 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.tv_10).setOnClickListener(this);
         findViewById(R.id.tv_11).setOnClickListener(this);
         findViewById(R.id.tv_12).setOnClickListener(this);
-        tv01.setOnClickListener(this);
     }
 
     @Override
@@ -64,19 +63,17 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void test1() {
-        Observable.create(new ObservableOnSubscribe<Integer>() { // 第一步：初始化Observable
-            @Override
-            public void subscribe(@NonNull ObservableEmitter<Integer> e) {
-                Log.e(TAG, "Observable emit 1" + "\n");
-                e.onNext(1);
-                Log.e(TAG, "Observable emit 2" + "\n");
-                e.onNext(2);
-                Log.e(TAG, "Observable emit 3" + "\n");
-                e.onNext(3);
-                e.onComplete();
-                Log.e(TAG, "Observable emit 4" + "\n");
-                e.onNext(4);
-            }
+        // 第一步：初始化Observable
+        Observable.create((ObservableOnSubscribe<Integer>) e -> {
+            Log.e(TAG, "Observable emit 1" + "\n");
+            e.onNext(1);
+            Log.e(TAG, "Observable emit 2" + "\n");
+            e.onNext(2);
+            Log.e(TAG, "Observable emit 3" + "\n");
+            e.onNext(3);
+            e.onComplete();
+            Log.e(TAG, "Observable emit 4" + "\n");
+            e.onNext(4);
         }).subscribe(new Observer<Integer>() { // 第三步：订阅
 
             // 第二步：初始化Observer

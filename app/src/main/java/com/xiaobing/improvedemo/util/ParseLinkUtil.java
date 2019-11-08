@@ -15,6 +15,7 @@ import com.xiaobing.improvedemo.design.DesignActivity;
 import com.xiaobing.improvedemo.design.activity.ExpandListActivity;
 import com.xiaobing.improvedemo.design.activity.GroupSelectRecyclerViewActivity;
 import com.xiaobing.improvedemo.design.activity.ExpandSelectRecyclerViewActivity;
+import com.xiaobing.improvedemo.font.FontActivity;
 import com.xiaobing.improvedemo.io.IOActivity;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.notification.NotificationActivity;
@@ -93,6 +94,9 @@ public class ParseLinkUtil {
                     return true;
                 case UriAction.ACTION_SETTING_MAIN:
                     mContext.startActivity(new Intent(mContext, SettingActivity.class));
+                    return true;
+                case UriAction.ACTION_FONT_MAIN:
+                    mContext.startActivity(new Intent(mContext, FontActivity.class));
                     return true;
                 default:
                     return false;

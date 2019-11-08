@@ -74,6 +74,7 @@ public class MainActivity extends BaseActivity {
         data.add(new MainBean.Builder().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
         data.add(new MainBean.Builder().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
         data.add(new MainBean.Builder().name(UriAction.ACTION_SETTING_MAIN).build());
+        data.add(new MainBean.Builder().name(UriAction.ACTION_FONT_MAIN).build());
         return data;
     }
 }
