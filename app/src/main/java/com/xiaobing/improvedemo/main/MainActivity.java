@@ -30,7 +30,8 @@ public class MainActivity extends BaseActivity {
 
     private void getData() {
         Log.e("getData", "开始");
-        Api.getComApi().getData()
+        Api.getComApi()
+                .getData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<String>() {
@@ -59,6 +60,7 @@ public class MainActivity extends BaseActivity {
         rvMain.setLayoutManager(new LinearLayoutManager(this));
         MainAdapter adapter = new MainAdapter(this, getMainBeans());
         rvMain.setAdapter(adapter);
+        getData();
 
     }
 

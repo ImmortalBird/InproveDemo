@@ -1,1 +1,2 @@
-include ':app', 'CustomView'
+include ':test'
+include ':app', ':common', ':customView'
