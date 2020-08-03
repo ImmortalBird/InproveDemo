@@ -15,10 +15,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class SpanUtil {
-    public static final int EXCLUD_MODE = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE;
-    public static final int INCLUD_MODE = Spannable.SPAN_INCLUSIVE_INCLUSIVE;
-    public static final int EXCLUD_INCLUD_MODE = Spannable.SPAN_EXCLUSIVE_INCLUSIVE;
-    public static final int INCLUD_EXCLUD_MODE = Spannable.SPAN_INCLUSIVE_EXCLUSIVE;
+    public static final int EXCLUDE_MODE = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE;
+    public static final int INCLUDE_MODE = Spannable.SPAN_INCLUSIVE_INCLUSIVE;
+    public static final int EXCLUDE_INCLUDE_MODE = Spannable.SPAN_EXCLUSIVE_INCLUSIVE;
+    public static final int INCLUDE_EXCLUDE_MODE = Spannable.SPAN_INCLUSIVE_EXCLUSIVE;
     static final byte TYPE_FOREGROUND = 1;       // 字体颜色
     static final byte TYPE_BACKGROUND = 2;       // 背景颜色
     static final byte TYPE_BOLD = 3;             // 加粗
@@ -49,7 +49,7 @@ public class SpanUtil {
             case TYPE_FOREGROUND:
                 return getForegroundSpan(Color.RED);
             case TYPE_BACKGROUND:
-                return getForegroundSpan(Color.RED);
+                return getBackgroundSpan(Color.RED);
             case TYPE_BOLD:
                 break;
             case TYPE_ITALIC:
@@ -87,7 +87,7 @@ public class SpanUtil {
      * 获取一个删除线span
      * @return span
      */
-    public static CharacterStyle getStrikethroughSpan(){
+    public static CharacterStyle getStrikeThroughSpan(){
         return new StrikethroughSpan();
     }
     /**
