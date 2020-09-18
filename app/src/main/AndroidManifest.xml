@@ -34,9 +34,11 @@
         android:appComponentFactory="1231321"
         tools:replace="android:appComponentFactory"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.LauncherTheme"
+        tools:targetApi="p">
         <activity
             android:name=".main.MainActivity"
+            android:theme="@style/AppTheme.LauncherTheme"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

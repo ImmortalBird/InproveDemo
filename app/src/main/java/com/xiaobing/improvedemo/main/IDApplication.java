@@ -32,6 +32,11 @@ public class IDApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        NetworkManager.getInstance().init();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         MultiDex.install(this);
     }
 }

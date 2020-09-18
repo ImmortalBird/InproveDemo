@@ -1,56 +1,63 @@
 package com.xiaobing.test;
 
-import android.app.admin.SystemUpdateInfo;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Locale;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    TextView mSuspensionBar;
+    int mSuspensionHeight;
+    int mCurrentPosition = 0;
+    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mSuspensionBar = findViewById(R.id.tvHead);
+        RecyclerView rv = findViewById(R.id.rv);
 
-        TextView tv = findViewById(R.id.tv);
 
-        String text = "Build.ID = " + Build.ID + "\n";
-        tv.setText(text);
+        linearLayoutManager = (LinearLayoutManager) rv.getLayoutManager();
+        rv.setAdapter(new MyAdapter());
+        rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                tv.append("Build.getSerial1 = " + Build.getSerial() + "\n");
-//            }else{
-//                tv.append("Build.getSerial2 = " + Build.SERIAL + "\n");
-//            }
-//            return;
-//        }
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                mSuspensionHeight = mSuspensionBar.getHeight();
+            }
 
-        tv.append("getLanguage = " + Locale.getDefault().getLanguage() + "\n");
-        tv.append("androidId = " + Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID) + "\n");
-        tv.append("Build.BOARD = " + Build.BOARD + "\n");
-        tv.append("Build.BOOTLOADER = " + Build.BOOTLOADER + "\n");
-        tv.append("Build.BRAND = " + Build.BRAND + "\n");
-        tv.append("Build.DEVICE = " + Build.DEVICE + "\n");
-        tv.append("Build.DISPLAY = " + Build.DISPLAY + "\n");
-        tv.append("Build.FINGERPRINT = " + Build.FINGERPRINT + "\n");
-        tv.append("Build.HARDWARE = " + Build.HARDWARE + "\n");
-        tv.append("Build.HOST = " + Build.HOST + "\n");
-        tv.append("Build.ID = " + Build.ID + "\n");
-        tv.append("Build.MANUFACTURER = " + Build.MANUFACTURER + "\n");
-        tv.append("Build.MODEL = " + Build.MODEL + "\n");
-        tv.append("Build.PRODUCT = " + Build.PRODUCT + "\n");
-        tv.append("Build.TAGS = " + Build.TAGS+ "\n");
-        tv.append("Build.TYPE = " + Build.TYPE + "\n");
-        tv.append("Build.TIME = " + Build.TIME + "\n");
-        tv.append("Build.SUPPORTED_32_BIT_ABIS = " + Build.SUPPORTED_32_BIT_ABIS + "\n");
-        tv.append("Build.SUPPORTED_64_BIT_ABIS = " + Build.SUPPORTED_64_BIT_ABIS + "\n");
-        tv.append("Build.SUPPORTED_ABIS = " + Build.SUPPORTED_ABIS + "\n");
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                View view = linearLayoutManager.findViewByPosition(mCurrentPosition + 1);
+                if (view != null) {
+                    if (view.getTop() <= mSuspensionHeight) {
+                        mSuspensionBar.setY(-(mSuspensionHeight - view.getTop()));
+                    } else {
+                        mSuspensionBar.setY(0);
+                    }
+                }
+                if (mCurrentPosition != linearLayoutManager.findFirstVisibleItemPosition()) {
+                    mCurrentPosition = linearLayoutManager.findFirstVisibleItemPosition();
+
+                    mSuspensionBar.setY(0);
+                    updateSuspensionBar(((TextView)linearLayoutManager.findViewByPosition(mCurrentPosition).findViewById(R.id.tvHead)).getText());
+                }
+            }
+        });
     }
+
+    private void updateSuspensionBar(CharSequence position) {
+        mSuspensionBar.setText(position);
+    }
+
 }

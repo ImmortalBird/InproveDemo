@@ -5,7 +5,45 @@
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/mao_ze_dong</item>
     </style>
-    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
+
+    <style name="customFontStyle" parent="@android:style/TextAppearance.Small">
         <item name="android:fontFamily">@font/mao_ze_dong</item>
+    </style>
+
+    <!--  启动页的Theme  -->
+    <style name="AppTheme.LauncherTheme">
+        <!--    设置应用全屏
+                系统状态栏将会自动隐藏，用可以手动从屏幕边缘划出
+           -->
+        <item name="android:windowFullscreen">true</item>
+        <!--    为预览窗体设置一个可见背景    -->
+        <item name="android:windowBackground">@drawable/ic_launcher_background</item>
+        <!--    设置标题不可见    -->
+        <item name="android:windowNoTitle">true</item>
+
+        <!--    下面两种方式不推荐    -->
+        <!--    安卓系统为了优化App启动体验，会为每个冷启动的App创建一个预览窗口，
+                用户点击App图标后就会创建一个进程，同时在页面上显示一个白色的预览窗口，
+                在App的第一个Activity加载完之后会替换掉预览窗口，这样不至于让用户等待时间过长。
+
+                虽然预览窗口减少了用户等待时间，但是预览窗口是一个白屏，体验并不是很好。
+            -->
+        <!--    取消系统预览窗口
+            取消预览窗口，用户点击App图标后等到App的第一个Activity启动完毕才能看到界面，
+            治标不治本
+           -->
+        <!--        <item name="android:windowDisablePreview">true</item>-->
+        <!--
+            设置预览窗口为透明色
+            效果等同于取消预览窗口
+        -->
+
+        <!--        <item name="android:windowIsTranslucent">true</item>-->
+
+    </style>
+
+    <!--  应用Activity的Theme  -->
+    <style name="AppTheme.ActivityTheme">
+        <item name="android:windowFullscreen">false</item>
     </style>
 </resources>

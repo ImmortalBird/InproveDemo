@@ -1,5 +1,6 @@
 package com.xiaobing.improvedemo.main;
 
+import android.os.Bundle;
 import android.util.Log;
 
 import com.xiaobing.improvedemo.R;
@@ -11,6 +12,7 @@ import com.xiaobing.improvedemo.network.retrofit.Api;
 
 import java.util.ArrayList;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import rx.Subscriber;
@@ -26,6 +28,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int setLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_ActivityTheme);
+        super.onCreate(savedInstanceState);
     }
 
     private void getData() {

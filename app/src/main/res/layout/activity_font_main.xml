@@ -24,7 +24,7 @@
         android:background="@drawable/shape_8dp"
         android:gravity="center"
         android:fontFamily="@font/mao_ze_dong"
-        android:textAppearance="@style/customfontstyle"
+        android:textAppearance="@style/customFontStyle"
         android:text="@string/ID_rx_01_03"
         android:padding="@dimen/base5dp"/>
     <TextView
