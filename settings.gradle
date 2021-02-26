@@ -1,3 +1,4 @@
+include ':vaptest'
 include ':test2'
 include ':app-kotlin'
 include ':test'
