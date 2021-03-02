@@ -1,3 +1,4 @@
+include ':slidmenu'
 include ':vaptest'
 include ':test2'
 include ':app-kotlin'
