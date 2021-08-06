@@ -71,7 +71,7 @@ class SlidMenu : HorizontalScrollView {
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-//        return false
+        return false
         return super.onInterceptTouchEvent(ev)
     }
 }

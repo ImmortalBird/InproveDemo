@@ -34,7 +34,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
 
     private RecyclerView recycle;
     private ImageView cover, content;
-    private int[] location = new int[2];
+    private final int[] location = new int[2];
     private int statusHeight;
     private ContentScaleAnimation contentScale;
     private Rotate3DAnimation coverTrans;
@@ -124,7 +124,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         params.leftMargin = location[0];
         params.topMargin = location[1] - statusHeight;
         // 将 params 设置到控件上
-        Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552907482285&di=ccf7054864be6b24b14a51843e0e1baf&imgtype=0&src=http%3A%2F%2Fa4.topitme.com%2Fl%2F201102%2F13%2F12975887687368.jpg").into(cover);
+        Glide.with(this).load("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201512%2F17%2F20151217004156_iyuzG.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630825841&t=7d4c4ae429440fee81f345eb30ea48c2").into(cover);
         cover.setLayoutParams(params);
         content.setLayoutParams(params);
         int[] ints = new int[2];
@@ -167,7 +167,7 @@ public class OpenBookActivity extends BaseActivity implements BookAdapter.OnBook
         // 计算缩放倍率
         float verScale = heightPixels / viewHeight;
         float horScale = widthPixels / viewWidth;
-        float scale = horScale > verScale ? horScale : verScale;
+        float scale = Math.max(horScale, verScale);
 
         contentScale = new ContentScaleAnimation(location[0], location[1], widthPixels, heightPixels, scale, false);
 

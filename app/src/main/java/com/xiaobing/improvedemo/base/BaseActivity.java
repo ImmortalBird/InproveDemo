@@ -6,13 +6,12 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import butterknife.ButterKnife;
-
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.util.LogUtil;
@@ -35,7 +34,6 @@ public abstract class BaseActivity extends Activity {
             throw new RuntimeException("请先设置 layoutId");
         setContentView(layoutId);
         title = findViewById(R.id.tv_title);
-        ButterKnife.bind(this);
         initView();
     }
 

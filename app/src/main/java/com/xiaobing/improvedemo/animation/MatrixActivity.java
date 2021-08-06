@@ -1,14 +1,12 @@
 package com.xiaobing.improvedemo.animation;
 
 import android.graphics.Matrix;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.animation.view.SetPolyToPoly;
 import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.databinding.ActivityMatrixBinding;
 
-import butterknife.BindView;
 
 /**
  * @author 常晓冰
@@ -16,35 +14,24 @@ import butterknife.BindView;
  * @date Created on 2019/3/15
  */
 public class MatrixActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
-    @BindView(R.id.image)
-    SetPolyToPoly  image;
-    @BindView(R.id.rb0)
-    RadioButton rb0;
-    @BindView(R.id.rb1)
-    RadioButton rb1;
-    @BindView(R.id.rb2)
-    RadioButton rb2;
-    @BindView(R.id.rb3)
-    RadioButton rb3;
-    @BindView(R.id.rb4)
-    RadioButton rb4;
-    @BindView(R.id.rg)
-    RadioGroup rg;
+
+    private ActivityMatrixBinding binding;
 
     @Override
     protected void initView() {
-        rg.setOnCheckedChangeListener(this);
-        Matrix matrix = image.getMatrix();
+        binding = ActivityMatrixBinding.inflate(getLayoutInflater());
+        binding.rg.setOnCheckedChangeListener(this);
+        Matrix matrix = binding.image.getMatrix();
 
         float[] src = new float[]{0, 0,                         // 左上
-                image.getWidth(), 0,                    // 右上
-                image.getWidth(), image.getHeight(),    // 右下
-                0, image.getHeight()};
+                binding.image.getWidth(), 0,                    // 右上
+                binding.image.getWidth(), binding.image.getHeight(),    // 右下
+                0, binding.image.getHeight()};
 
         float[] dst = new float[]{0, 0,                             // 左上
-                image.getWidth(), 400,                      // 右上
-                image.getWidth(), image.getHeight() - 200,  // 右下
-                0, image.getHeight()};
+                binding.image.getWidth(), 400,                      // 右上
+                binding.image.getWidth(), binding.image.getHeight() - 200,  // 右下
+                0, binding.image.getHeight()};
     }
 
     @Override
@@ -57,7 +44,7 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
         int count;
         switch (checkedId) {
             case R.id.rb0:
-               count = 0;
+                count = 0;
                 break;
             case R.id.rb1:
                 count = 1;
@@ -75,6 +62,6 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
                 count = 0;
                 break;
         }
-       image.setTestPoint(count);
+        binding.image.setTestPoint(count);
     }
 }

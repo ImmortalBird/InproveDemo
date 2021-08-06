@@ -16,8 +16,8 @@ ext {
     retrofit_adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
 
 
-    butter_knife = "com.jakewharton:butterknife:${butter_knife_version}"
-    butter_knife_compiler = "com.jakewharton:butterknife-compiler:${butter_knife_version}"
+//    butter_knife = "com.jakewharton:butterknife:${butter_knife_version}"
+//    butter_knife_compiler = "com.jakewharton:butterknife-compiler:${butter_knife_version}"
 
 
 }

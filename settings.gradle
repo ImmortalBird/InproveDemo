@@ -1,3 +1,4 @@
+include ':emotionkeyboard'
 include ':slidmenu'
 include ':vaptest'
 include ':test2'
