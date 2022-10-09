@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/base8dp"
-        android:fontFamily="@font/ye_gen_you_xing"
         android:textSize="@dimen/base20sp"
         tools:text="1231312" />
 </androidx.cardview.widget.CardView>

@@ -1,6 +1,8 @@
 package com.xiaobing.improvedemo.animation;
 
 import android.graphics.Matrix;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.RadioGroup;
 
 import com.xiaobing.improvedemo.R;
@@ -20,6 +22,7 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
     @Override
     protected void initView() {
         binding = ActivityMatrixBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         binding.rg.setOnCheckedChangeListener(this);
         Matrix matrix = binding.image.getMatrix();
 

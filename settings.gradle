@@ -1,7 +1,7 @@
 include ':emotionkeyboard'
 include ':slidmenu'
 include ':vaptest'
-include ':myapplication'
 include ':app-kotlin'
 include ':test'
 include ':app', ':common', ':customView'
+include ':myapplication'

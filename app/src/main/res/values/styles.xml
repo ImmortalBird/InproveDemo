@@ -3,11 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/mao_ze_dong</item>
+<!--        <item name="android:fontFamily">@font/mao_ze_dong</item>-->
     </style>
 
     <style name="customFontStyle" parent="@android:style/TextAppearance.Small">
-        <item name="android:fontFamily">@font/mao_ze_dong</item>
+<!--        <item name="android:fontFamily">@font/mao_ze_dong</item>-->
     </style>
 
     <!--  启动页的Theme  -->
@@ -17,7 +17,7 @@
            -->
         <item name="android:windowFullscreen">true</item>
         <!--    为预览窗体设置一个可见背景    -->
-        <item name="android:windowBackground">@drawable/ic_launcher_background</item>
+        <item name="android:windowBackground">@android:color/white</item>
         <!--    设置标题不可见    -->
         <item name="android:windowNoTitle">true</item>
 

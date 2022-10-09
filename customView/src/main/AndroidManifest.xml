@@ -14,11 +14,15 @@
         <activity android:name="com.xiaobing.custom.MainActivity"
             android:hardwareAccelerated="false"
             >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.lession_1_2_2.ColorFilterActivity">
+
         </activity>
     </application>
 

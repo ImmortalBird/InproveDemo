@@ -3,13 +3,18 @@ apply from: "config.gradle"
 //apply plugin: 'com.android.library'
 //apply plugin: 'com.jakewharton.butterknife'
 buildscript {
-    ext.kotlin_version = "1.5.0"
-
+    // kotlin版本
+    ext.kotlin_version = "1.6.0"
+    // kotlin Gradle Plugin 版本
+    ext.kotlin_gradle_plugin_version = "1.6.0"
 
     
     repositories {
         // 使用阿里的国内仓库
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
         google()
         mavenCentral()
     }
@@ -19,14 +24,29 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_gradle_plugin_version"
     }
 }
 
 allprojects {
     repositories {
         // 使用阿里的国内仓库
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+//        maven{
+//            allowInsecureProtocol = true
+//            url "http://10.60.0.100:8081/repository/okayrom_snapshot/"}
+//        maven{
+//            allowInsecureProtocol = true
+//            url "http://10.60.0.100:8081/repository/okayrom/" }
+//        maven{
+//            allowInsecureProtocol = true
+//            url "http://10.60.0.100:8081/repository/okayclient_snapshot/"}
+//        maven{
+//            allowInsecureProtocol = true
+//            url "http://10.60.0.100:8081/repository/okayclient/"}
         google()
         mavenCentral()
     }

@@ -57,17 +57,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".design.DesignActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-                <data
-                    android:host="www.improve.com"
-                    android:pathPrefix="/go"
-                    android:scheme="improve" />
-            </intent-filter>
+<!--                <data-->
+<!--                    android:host="www.improve.com"-->
+<!--                    android:pathPrefix="/go"-->
+<!--                    android:scheme="improve" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".appcompat.AppCompatActivityDemo" />
         <activity android:name=".design.activity.GroupSelectRecyclerViewActivity" />

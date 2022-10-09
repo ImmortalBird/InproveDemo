@@ -6,8 +6,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import com.secoo.app_kotlin.ui.main.SectionsPagerAdapter
 
 class MainActivity : AppCompatActivity() {

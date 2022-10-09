@@ -37,8 +37,8 @@ public abstract class BaseMainAdapter<M extends RecyclerView.ViewHolder> extends
 
     @Override
     protected void bindHolder(MainHolder mHolder, int i) {
-        Typeface typeface = ResourcesCompat.getFont(mContext, R.font.mao);
-        mHolder.tvName.setTypeface(typeface);
+//        Typeface typeface = ResourcesCompat.getFont(mContext, R.font.mao);
+//        mHolder.tvName.setTypeface(typeface);
         mHolder.tvName.setText(data.get(i).getName());
         mHolder.tvName.setOnClickListener(v->onClick(data.get(i).getLink()));
     }

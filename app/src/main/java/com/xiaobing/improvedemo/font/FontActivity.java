@@ -17,7 +17,7 @@ public class FontActivity extends BaseActivity{
         TextView tv03 = findViewById(R.id.tv_03);
         TextView tv04 = findViewById(R.id.tv_04);
         TextView tv05 = findViewById(R.id.tv_05);
-        tv01.setTypeface( ResourcesCompat.getFont(this, R.font.mao));
+//        tv01.setTypeface( ResourcesCompat.getFont(this, R.font.mao));
         tv02.setTypeface( ResourcesCompat.getFont(this, R.font.mao_ze_dong));
         tv03.setTypeface( ResourcesCompat.getFont(this, R.font.ye_gen_you_xing));
 //        tv04.setTypeface( ResourcesCompat.getFont(this, R.font.jin_mei_mao_xing_shu));

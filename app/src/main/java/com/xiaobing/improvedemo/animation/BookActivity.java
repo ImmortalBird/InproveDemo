@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Handler;
 import android.view.KeyEvent;
 
+import androidx.collection.LruCache;
+
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.BaseActivity;
 import com.xiaobing.improvedemo.util.LogUtil;
