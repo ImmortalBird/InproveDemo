@@ -1,8 +1,6 @@
 package com.xiaobing.improvedemo.animation;
 
-import android.graphics.Matrix;
-import android.view.MotionEvent;
-import android.view.View;
+import android.annotation.SuppressLint;
 import android.widget.RadioGroup;
 
 import com.xiaobing.improvedemo.R;
@@ -24,17 +22,18 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
         binding = ActivityMatrixBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.rg.setOnCheckedChangeListener(this);
-        Matrix matrix = binding.image.getMatrix();
-
-        float[] src = new float[]{0, 0,                         // 左上
-                binding.image.getWidth(), 0,                    // 右上
-                binding.image.getWidth(), binding.image.getHeight(),    // 右下
-                0, binding.image.getHeight()};
-
-        float[] dst = new float[]{0, 0,                             // 左上
-                binding.image.getWidth(), 400,                      // 右上
-                binding.image.getWidth(), binding.image.getHeight() - 200,  // 右下
-                0, binding.image.getHeight()};
+//        Matrix matrix = binding.image.getMatrix();
+//
+//        float[] src = new float[]{0, 0,                         // 左上
+//                binding.image.getWidth(), 0,                    // 右上
+//                binding.image.getWidth(), binding.image.getHeight(),    // 右下
+//                0, binding.image.getHeight()};
+//
+//        float[] dst = new float[]{0, 0,
+//                // 左上
+//                binding.image.getWidth(), 400,                      // 右上
+//                binding.image.getWidth(), binding.image.getHeight() - 200,  // 右下
+//                0, binding.image.getHeight()};
     }
 
     @Override
@@ -42,13 +41,11 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
         return R.layout.activity_matrix;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         int count;
         switch (checkedId) {
-            case R.id.rb0:
-                count = 0;
-                break;
             case R.id.rb1:
                 count = 1;
                 break;
@@ -62,6 +59,7 @@ public class MatrixActivity extends BaseActivity implements RadioGroup.OnChecked
                 count = 4;
                 break;
             default:
+                //  include R.id.rb0:
                 count = 0;
                 break;
         }

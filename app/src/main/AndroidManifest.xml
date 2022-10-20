@@ -83,7 +83,6 @@
         <activity android:name=".animation.AnimationMainActivity" />
         <activity android:name=".animation.OpenBookActivity" />
         <activity android:name=".animation.BookActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             />
         <activity android:name=".animation.MatrixActivity" />
         <activity android:name=".custom.CustomViewMainActivity" />

@@ -28,6 +28,7 @@ public abstract class BaseActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        transparentAndCoverStatusBar(this);
         super.onCreate(savedInstanceState);
         int layoutId = setLayoutId();
         if (layoutId == -1)

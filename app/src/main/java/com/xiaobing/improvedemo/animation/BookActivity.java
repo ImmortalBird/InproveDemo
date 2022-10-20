@@ -28,7 +28,6 @@ public class BookActivity extends BaseActivity {
     @Override
     protected void initView() {
         overridePendingTransition(R.anim.book_in, R.anim.book_out);
-        transparentAndCoverStatusBar(this);
     }
 
     @Override
