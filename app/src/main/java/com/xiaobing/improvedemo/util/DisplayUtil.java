@@ -17,15 +17,22 @@ import java.lang.reflect.Method;
  * @Description: 屏幕尺寸相关的工具类
  */
 public class DisplayUtil {
+
+    public static  void  init(Context context){
+        if (dm == null) {
+            dm = context.getResources().getDisplayMetrics();
+        }
+    }
+
     private volatile static DisplayMetrics dm;
 
     public synchronized static DisplayMetrics getDisplayMetrics() {
-        if (dm == null) {
-            synchronized (DisplayUtil.class) {
-                if (dm == null)
-                    dm = IDApplication.getInstance().getApplicationContext().getResources().getDisplayMetrics();
-            }
-        }
+//        if (dm == null) {
+//            synchronized (DisplayUtil.class) {
+//                if (dm == null)
+//                    dm = IDApplication.getInstance().getResources().getDisplayMetrics();
+//            }
+//        }
         return dm;
     }
 
@@ -105,9 +112,9 @@ public class DisplayUtil {
      * @return 返回虚拟功能键的高度
      *
      */
-    public static int getVirtualBarHeight() {
+    public static int getVirtualBarHeight(Context context) {
         int vh = 0;
-        WindowManager windowManager = (WindowManager) IDApplication.getInstance().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
         if (windowManager == null)
             return vh;
         Display display = windowManager.getDefaultDisplay();

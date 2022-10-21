@@ -4,6 +4,8 @@ import android.app.Application;
 import androidx.multidex.MultiDex;
 
 import com.xiaobing.improvedemo.network.rr2.NetworkManager;
+import com.xiaobing.improvedemo.util.DisplayUtil;
+import com.xiaobing.improvedemo.util.SPUtil;
 
 
 /**
@@ -35,5 +37,7 @@ public class IDApplication extends Application {
         super.onCreate();
         NetworkManager.getInstance().init();
         MultiDex.install(this);
+        DisplayUtil.init(this);
+        SPUtil.init(this);
     }
 }

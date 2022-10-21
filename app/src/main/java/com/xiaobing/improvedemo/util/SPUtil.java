@@ -7,7 +7,13 @@ import com.xiaobing.improvedemo.main.IDApplication;
 
 public class SPUtil {
     private static final String DEFAULT = "config";
-    private static SharedPreferences sharedPreferences = IDApplication.getInstance().getSharedPreferences(DEFAULT, Context.MODE_PRIVATE);
+    public static  void  init(Context context){
+        if (sharedPreferences == null) {
+            sharedPreferences = context.getSharedPreferences(DEFAULT, Context.MODE_PRIVATE);
+        }
+    }
+
+    private static SharedPreferences sharedPreferences;
 
     public static void saveString(String key,String value){
         getEditor().putString(key,value).apply();
