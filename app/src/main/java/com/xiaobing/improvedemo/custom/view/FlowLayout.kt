@@ -119,10 +119,14 @@ class FlowLayout : ViewGroup {
         for (line in 0 until mBreakLineIndexList.size - 1) {
             for (i in mBreakLineIndexList[line] until mBreakLineIndexList[line + 1]) {
                 val child = getChildAt(i)
+                child.layout(curL, curT, curL + child.measuredWidth, child.measuredHeight + curT)
                 curL += (child.measuredWidth + mHorizontalSpace)
             }
             curT += (linesHeight[0] + mVerticalSpace)
             curL = paddingStart
         }
+
+        val child = getChildAt(childCount-1)
+        child.layout(curL, curT, curL + child.measuredWidth, child.measuredHeight + curT)
     }
 }

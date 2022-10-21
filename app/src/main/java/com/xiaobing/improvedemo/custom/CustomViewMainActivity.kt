@@ -22,13 +22,13 @@ class CustomViewMainActivity : BaseActivity() {
         find.addView(getTextView("12312312312321312312"))
         find.addView(getTextView("123"))
         find.addView(getTextView("123"))
+        find.addView(getTextView("456"))
+        find.addView(getTextView("789"))
         find.addView(getTextView("123"))
         find.addView(getTextView("123"))
         find.addView(getTextView("123"))
         find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
+        find.addView(getTextView("110"))
     }
 
     fun getTextView(content:String) :TextView{
@@ -36,10 +36,7 @@ class CustomViewMainActivity : BaseActivity() {
             text = content
             setTextColor(Color.YELLOW)
             textSize = 20f
-//            height = 50
-//            width = 100
-            layoutParams.height =ViewGroup.LayoutParams.WRAP_CONTENT
-            layoutParams.width =ViewGroup.LayoutParams.WRAP_CONTENT
+            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT)
         }
     }
     override fun setLayoutId(): Int {
