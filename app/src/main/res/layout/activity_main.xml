@@ -7,6 +7,36 @@
 
     <include layout="@layout/head" />
 
+    <TextView
+        android:id="@+id/bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绑定服务"
+        />
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start服务"
+        />
+    <TextView
+        android:id="@+id/thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开启子进程"
+        />
+    <TextView
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add"
+        />
+    <TextView
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="send"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_main"
         android:layout_width="match_parent"

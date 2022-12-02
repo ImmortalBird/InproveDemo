@@ -1,7 +1,7 @@
 package com.xiaobing.improvedemo.design;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.base.BaseMainAdapter;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.main.bean.MainBean;

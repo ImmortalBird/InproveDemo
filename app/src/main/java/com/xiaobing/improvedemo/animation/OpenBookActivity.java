@@ -16,7 +16,7 @@ import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.adapter.BookAdapter;
 import com.xiaobing.improvedemo.animation.anim.ContentScaleAnimation;
 import com.xiaobing.improvedemo.animation.anim.Rotate3DAnimation;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.util.LogUtil;
 
 import java.util.Arrays;

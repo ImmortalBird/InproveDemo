@@ -1,12 +1,11 @@
 package com.xiaobing.improvedemo.custom
 
-import android.app.ActionBar
-import android.graphics.Color
-import android.view.ViewGroup
-import android.widget.TextView
-import com.xiaobing.improvedemo.R
-import com.xiaobing.improvedemo.base.BaseActivity
-import com.xiaobing.improvedemo.custom.view.FlowLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import com.xiaobing.improvedemo.base.activity.BaseMvvmActivity
+import com.xiaobing.improvedemo.base.activity.BaseViewBindingActivity
+import com.xiaobing.improvedemo.custom.viewModel.CustomViewViewModel
+import com.xiaobing.improvedemo.custom.viewModel.FragmentBean
+import com.xiaobing.improvedemo.databinding.ActivityCustomViewMainBinding
 
 /**
  * @author 常晓冰
@@ -15,31 +14,20 @@ import com.xiaobing.improvedemo.custom.view.FlowLayout
  *
  * 自定义控件的总入口 activity
  */
-class CustomViewMainActivity : BaseActivity() {
+class CustomViewMainActivity : BaseMvvmActivity<CustomViewViewModel,ActivityCustomViewMainBinding>() {
     override fun initView() {
-        setTitle(R.string.ID_animation_open_book)
-        val find = findViewById<FlowLayout>(R.id.fl)
-        find.addView(getTextView("12312312312321312312"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("456"))
-        find.addView(getTextView("789"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("123"))
-        find.addView(getTextView("110"))
-    }
-
-    fun getTextView(content:String) :TextView{
-        return TextView(this).apply {
-            text = content
-            setTextColor(Color.YELLOW)
-            textSize = 20f
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+        mViewModel?.list?.add(FragmentBean(0,"流式布局"))
+        mViewModel?.list?.add(FragmentBean(0,"流式布局"))
+        mViewModel?.list?.add(FragmentBean(0,"流式布局"))
+        mViewModel?.list?.add(FragmentBean(0,"流式布局"))
+        mBinding.apply {
+            val data = mViewModel?.list ?:  return
+            viewPager.adapter = ViewPagerAdapter(this@CustomViewMainActivity , data)
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = data[position].desc
+            }.attach()
         }
     }
-    override fun setLayoutId(): Int {
-        return R.layout.activity_custom_view_main
-    }
+
+
 }

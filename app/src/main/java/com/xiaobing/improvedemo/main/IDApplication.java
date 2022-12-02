@@ -13,7 +13,8 @@ import com.xiaobing.improvedemo.util.SPUtil;
  */
 
 public class IDApplication extends Application {
-    private static volatile IDApplication instance;
+    public static volatile IDApplication instance;
+
     public static IDApplication getInstance(){
         if (instance == null){
             synchronized(IDApplication.class){
@@ -35,6 +36,7 @@ public class IDApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         NetworkManager.getInstance().init();
         MultiDex.install(this);
         DisplayUtil.init(this);

@@ -6,7 +6,7 @@ import android.view.animation.Animation;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.adapter.BookAdapter;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
 import com.xiaobing.improvedemo.main.bean.MainBean;

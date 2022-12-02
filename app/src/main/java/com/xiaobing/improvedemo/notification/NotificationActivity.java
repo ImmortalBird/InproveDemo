@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.view.View;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 
 /**
  * Created by Administrator on 2018/8/29 0029.

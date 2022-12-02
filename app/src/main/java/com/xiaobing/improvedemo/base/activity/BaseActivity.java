@@ -1,4 +1,4 @@
-package com.xiaobing.improvedemo.base;
+package com.xiaobing.improvedemo.base.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -12,9 +12,13 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.util.LogUtil;
+
+import java.lang.reflect.Proxy;
+import java.util.HashMap;
 
 /**
  *
@@ -22,7 +26,7 @@ import com.xiaobing.improvedemo.util.LogUtil;
  * @date 2018/8/29 0029
  */
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
 
     private TextView title;
 
@@ -30,14 +34,18 @@ public abstract class BaseActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         transparentAndCoverStatusBar(this);
         super.onCreate(savedInstanceState);
+        onCreate();
+        initView();
+    }
+
+    protected void  onCreate(){
         int layoutId = setLayoutId();
         if (layoutId == -1)
             throw new RuntimeException("请先设置 layoutId");
         setContentView(layoutId);
         title = findViewById(R.id.tv_title);
-        initView();
-    }
 
+    }
     /**
      * 初始化
      */
@@ -83,6 +91,12 @@ public abstract class BaseActivity extends Activity {
             window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        LogUtil.print(getClass().getName(),"onRestart");
     }
 
     @Override

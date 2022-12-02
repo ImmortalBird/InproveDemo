@@ -14,7 +14,7 @@ import android.text.style.*
 import android.view.View
 import android.widget.Toast
 import com.xiaobing.improvedemo.R
-import com.xiaobing.improvedemo.base.BaseViewBindingActivity
+import com.xiaobing.improvedemo.base.activity.BaseViewBindingActivity
 import com.xiaobing.improvedemo.databinding.ActivitySpanMainBinding
 
 /**
@@ -25,27 +25,27 @@ import com.xiaobing.improvedemo.databinding.ActivitySpanMainBinding
  *
  * TODO: 2019/3/21 需要添加更多的进阶用法
  */
-class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding?>(), View.OnClickListener {
+class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding>(), View.OnClickListener {
     var content = "预祝党的十九大完美谢慕"
     override fun initView() {
         setTitle(R.string.ID_span_title)
-        binding?.btSpan?.setOnClickListener(this)
-        binding?.btSpan1?.setOnClickListener(this)
-        binding?.btSpan2?.setOnClickListener(this)
-        binding?.btSpan3?.setOnClickListener(this)
-        binding?.btSpan4?.setOnClickListener(this)
-        binding?.btSpan5?.setOnClickListener(this)
-        binding?.btSpan6?.setOnClickListener(this)
-        binding?.btSpan7?.setOnClickListener(this)
-        binding?.btSpan8?.setOnClickListener(this)
-        binding?.btSpan9?.setOnClickListener(this)
-        binding?.btSpan10?.setOnClickListener(this)
-        binding?.btSpan11?.setOnClickListener(this)
-        binding?.btSpan12?.setOnClickListener(this)
-        binding?.btSpan13?.setOnClickListener(this)
-        binding?.btSpan14?.setOnClickListener(this)
-        binding?.btSpan15?.setOnClickListener(this)
-        binding?.btSpan16?.setOnClickListener(this)
+        mBinding.btSpan.setOnClickListener(this)
+        mBinding.btSpan1.setOnClickListener(this)
+        mBinding.btSpan2.setOnClickListener(this)
+        mBinding.btSpan3.setOnClickListener(this)
+        mBinding.btSpan4.setOnClickListener(this)
+        mBinding.btSpan5.setOnClickListener(this)
+        mBinding.btSpan6.setOnClickListener(this)
+        mBinding.btSpan7.setOnClickListener(this)
+        mBinding.btSpan8.setOnClickListener(this)
+        mBinding.btSpan9.setOnClickListener(this)
+        mBinding.btSpan10.setOnClickListener(this)
+        mBinding.btSpan11.setOnClickListener(this)
+        mBinding.btSpan12.setOnClickListener(this)
+        mBinding.btSpan13.setOnClickListener(this)
+        mBinding.btSpan14.setOnClickListener(this)
+        mBinding.btSpan15.setOnClickListener(this)
+        mBinding.btSpan16.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -84,7 +84,7 @@ class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding?>(), View.O
                 //文本可点击，有点击事件
                 sb.setSpan(clickableSpan, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 // 设置此方法后，点击事件才能生效
-                binding!!.etContent.movementMethod = LinkMovementMethod.getInstance()
+                mBinding.etContent.movementMethod = LinkMovementMethod.getInstance()
             }
             R.id.bt_span3 -> {
                 // 模糊效果
@@ -158,10 +158,10 @@ class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding?>(), View.O
                 sb.setSpan(ss2, 4, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                 sb.setSpan(ss3, 6, 7, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                 sb.setSpan(ss4, 8, 9, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-                binding!!.etContent.highlightColor = Color.parseColor("#36969696")
+                mBinding.etContent.highlightColor = Color.parseColor("#36969696")
                 // 这种方式设置斜体在 使用 TextView.append(sb) 时无效，在 TextView.setText()时有效
-                binding!!.etContent.text = sb
-                binding!!.etContent.append("\n")
+                mBinding.etContent.text = sb
+                mBinding.etContent.append("\n")
             }
             R.id.bt_span12 -> {
                 //                上标
@@ -187,7 +187,7 @@ class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding?>(), View.O
                 sb.append(" --- 超链接  UrlSpan")
                 val us = URLSpan("http://www.baidu.com")
                 sb.setSpan(us, 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                binding!!.etContent.movementMethod = LinkMovementMethod.getInstance()
+                mBinding.etContent.movementMethod = LinkMovementMethod.getInstance()
             }
             R.id.bt_span16 -> {
                 //                下标
@@ -197,8 +197,8 @@ class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding?>(), View.O
             }
             else -> return
         }
-        binding!!.etContent.append(sb)
-        binding!!.etContent.append("\n")
-        binding!!.etContent.append("\n")
+        mBinding.etContent.append(sb)
+        mBinding.etContent.append("\n")
+        mBinding.etContent.append("\n")
     }
 }

@@ -4,9 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xiaobing.improvedemo.custom.view.FlowLayout
-        android:id="@+id/fl"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorAccent" />
+        android:layout_height="@dimen/base30dp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

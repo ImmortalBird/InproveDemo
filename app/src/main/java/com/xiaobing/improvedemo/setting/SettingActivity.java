@@ -5,7 +5,7 @@ import android.provider.Settings;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.setting.bean.SettingBean;
 
 import java.util.ArrayList;

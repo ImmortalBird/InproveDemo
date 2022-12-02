@@ -1,12 +1,11 @@
 package com.xiaobing.improvedemo.font;
 
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 
 public class FontActivity extends BaseActivity{
     @Override

@@ -1,7 +1,7 @@
 package com.xiaobing.improvedemo.design.activity;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.design.adapter.ExpandCloseAdapter;
 import com.xiaobing.improvedemo.design.bean.ChildText;
 import com.xiaobing.improvedemo.design.recycler.expand.bean.ExpandableGroup;

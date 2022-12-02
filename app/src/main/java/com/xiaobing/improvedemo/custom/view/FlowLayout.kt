@@ -2,9 +2,14 @@ package com.xiaobing.improvedemo.custom.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup
 import com.xiaobing.improvedemo.util.DisplayUtil
 import com.xiaobing.improvedemo.util.LogUtil
+import java.io.File
+import java.lang.reflect.Field
+import java.util.ArrayList
+import java.util.zip.ZipFile
 
 class FlowLayout : ViewGroup {
     constructor(context: Context?) : this(context, null)
@@ -32,7 +37,8 @@ class FlowLayout : ViewGroup {
     /**
      * 行数
      */
-    var lineCount = 0
+    var lineCount = linesHeight.size
+        private set
 
     /**
      * 每次触发换行的索引
@@ -40,10 +46,17 @@ class FlowLayout : ViewGroup {
     val mBreakLineIndexList = mutableListOf<Int>()
 
 
+    /**
+     * 水平方向和竖直方向的间距
+     */
     val mHorizontalSpace = DisplayUtil.dip2px(16F)
     val mVerticalSpace = DisplayUtil.dip2px(16F)
 
-    fun resetList() {
+    /**
+     * Joker: 2022/12/2
+     * 重置 行高集合 和 换行index集合
+     */
+    private fun resetList() {
         linesHeight.clear()
         mBreakLineIndexList.clear()
     }
@@ -63,7 +76,7 @@ class FlowLayout : ViewGroup {
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
 
         var parentNeedWidth = 0
-        var parentNeedHeight = mVerticalSpace
+        var parentNeedHeight = 0
 
         for (i in 0 until childCount) {
             val child = getChildAt(i)
@@ -96,7 +109,7 @@ class FlowLayout : ViewGroup {
                 linesHeight.add(lineHeight)
                 mBreakLineIndexList.add(i)
                 parentNeedWidth = lineWidthUsed.coerceAtLeast(parentNeedWidth)
-                parentNeedHeight += lineHeight + mVerticalSpace
+                parentNeedHeight += lineHeight
             }
         }
 
@@ -114,19 +127,21 @@ class FlowLayout : ViewGroup {
             child.layout(curL, curT, curL + child.measuredWidth, child.measuredHeight + curT)
             curL += (child.measuredWidth + mHorizontalSpace)
         }
-        curT += (linesHeight[0] + mVerticalSpace)
-        curL = paddingStart
         for (line in 0 until mBreakLineIndexList.size - 1) {
+            curT += (linesHeight[0] + mVerticalSpace)
+            curL = paddingStart
             for (i in mBreakLineIndexList[line] until mBreakLineIndexList[line + 1]) {
                 val child = getChildAt(i)
                 child.layout(curL, curT, curL + child.measuredWidth, child.measuredHeight + curT)
                 curL += (child.measuredWidth + mHorizontalSpace)
             }
-            curT += (linesHeight[0] + mVerticalSpace)
-            curL = paddingStart
         }
 
-        val child = getChildAt(childCount-1)
-        child.layout(curL, curT, curL + child.measuredWidth, child.measuredHeight + curT)
+        if (mBreakLineIndexList[mBreakLineIndexList.size - 1] < childCount) {
+            for (i in mBreakLineIndexList[mBreakLineIndexList.size - 1] until childCount) {
+                val child = getChildAt(i)
+                child.layout(curL, curT, curL + child.measuredWidth, child.measuredHeight + curT)
+            }
+        }
     }
 }

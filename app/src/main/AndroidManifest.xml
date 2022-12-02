@@ -88,6 +88,10 @@
         <activity android:name=".custom.CustomViewMainActivity" />
         <activity android:name=".setting.SettingActivity" />
         <activity android:name=".font.FontActivity" />
+
+        <service android:name=".service.RemoteService"
+            android:process=":remote"
+            />
     </application>
 
 </manifest>

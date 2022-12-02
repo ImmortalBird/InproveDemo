@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.network.rr2.NetworkManager;
 import com.xiaobing.improvedemo.network.rr2.bean.DoubanFilm;
 import com.xiaobing.improvedemo.network.rr2.bean.Response;

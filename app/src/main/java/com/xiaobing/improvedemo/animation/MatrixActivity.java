@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.widget.RadioGroup;
 
 import com.xiaobing.improvedemo.R;
-import com.xiaobing.improvedemo.base.BaseActivity;
+import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.databinding.ActivityMatrixBinding;
 
 
