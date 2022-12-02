@@ -37,10 +37,10 @@ public class DesignActivity extends BaseActivity {
         e.setName(getString(R.string.ID_design_02_02));
         e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_RECYCLER_VIEW_ACTIVITY));
         data.add(e);
-        e = new MainBean();
-        e.setName(getString(R.string.ID_design_02_03));
-        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_CLOSE_ACTIVITY));
-        data.add(e);
+//        e = new MainBean();
+//        e.setName(getString(R.string.ID_design_02_03));
+//        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_CLOSE_ACTIVITY));
+//        data.add(e);
         BaseMainAdapter<RecyclerView.ViewHolder> adapter = new BaseMainAdapter<RecyclerView.ViewHolder>(this, data) {
             @Override
             protected void onClick(String link) {

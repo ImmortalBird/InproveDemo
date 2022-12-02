@@ -14,15 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ExpandListActivity extends BaseActivity {
 
     private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
-
-
-
     @Override
     protected void initView() {
         RecyclerView rv = findViewById(R.id.rv);
         setTitle(getString(R.string.ID_design_02_02));
         setData();
-        rv.setAdapter(new ExpandAdapter(mobileOSes,this));
+        rv.setAdapter(new ExpandAdapter(mobileOSes));
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 

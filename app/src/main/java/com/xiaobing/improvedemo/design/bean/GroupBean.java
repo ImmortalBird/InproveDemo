@@ -1,6 +1,7 @@
 package com.xiaobing.improvedemo.design.bean;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class GroupBean {
 
@@ -14,9 +15,20 @@ public class GroupBean {
         isSelected = selected;
     }
 
+    public void setSelectedForAll(boolean selected) {
+        setSelected(selected);
+        for (int i = 0; i < children.size(); i++) {
+            children.get(i).setSelected(selected);
+        }
+    }
+
     private boolean isSelected;
     private boolean isExpand;
+
     private ArrayList<ChildText> children;
+
+
+    public int position;
 
     public boolean isExpand() {
         return isExpand;
@@ -52,5 +64,16 @@ public class GroupBean {
 
     public void setChildren(ArrayList<ChildText> children) {
         this.children = children;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupBean{" +
+                "title='" + title + '\'' +
+                ", isSelected=" + isSelected +
+                ", isExpand=" + isExpand +
+                ", children=" + children +
+                ", position=" + position +
+                '}';
     }
 }

@@ -26,4 +26,12 @@ public class ChildText {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "ChildText{" +
+                "text='" + text + '\'' +
+                ", isSelected=" + isSelected +
+                '}';
+    }
 }
