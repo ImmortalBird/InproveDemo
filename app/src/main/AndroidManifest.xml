@@ -39,7 +39,7 @@
         <activity
             android:name=".main.MainActivity"
             android:theme="@style/AppTheme.LauncherTheme"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -88,6 +88,7 @@
         <activity android:name=".custom.CustomViewMainActivity" />
         <activity android:name=".setting.SettingActivity" />
         <activity android:name=".font.FontActivity" />
+        <activity android:name=".service.AIDLActivity" />
 
         <service android:name=".service.RemoteService"
             android:process=":remote"

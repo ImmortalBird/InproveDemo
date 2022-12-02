@@ -24,4 +24,5 @@ public class UriAction {
     public static final String ACTION_CUSTOM_VIEW_MAIN = "CustomViewMainActivity";
     public static final String ACTION_SETTING_MAIN = "SettingActivity";
     public static final String ACTION_FONT_MAIN = "FontActivity";
+    public static final String ACTION_AIDL = "AIDLActivity";
 }

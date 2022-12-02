@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseViewBindingActivity<Binding : ViewBinding> : FragmentActivity() {
+open class BaseViewBindingActivity<Binding : ViewBinding> : FragmentActivity() {
     /**
      * 默认的ViewBinding
      */
@@ -24,10 +24,11 @@ abstract class BaseViewBindingActivity<Binding : ViewBinding> : FragmentActivity
         }
     }
 
-    protected  abstract fun  initView()
+    protected open fun  initView(){}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(mBinding.root)
+        initView()
     }
 
 

@@ -20,6 +20,7 @@ import com.xiaobing.improvedemo.io.IOActivity;
 import com.xiaobing.improvedemo.link.UriAction;
 import com.xiaobing.improvedemo.notification.NotificationActivity;
 import com.xiaobing.improvedemo.rx2.RxActivity;
+import com.xiaobing.improvedemo.service.AIDLActivity;
 import com.xiaobing.improvedemo.setting.SettingActivity;
 import com.xiaobing.improvedemo.span.SpanActivity;
 
@@ -97,6 +98,9 @@ public class ParseLinkUtil {
                     return true;
                 case UriAction.ACTION_FONT_MAIN:
                     mContext.startActivity(new Intent(mContext, FontActivity.class));
+                    return true;
+                case UriAction.ACTION_AIDL:
+                    mContext.startActivity(new Intent(mContext, AIDLActivity.class));
                     return true;
                 default:
                     return false;

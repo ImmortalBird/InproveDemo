@@ -1,6 +1,10 @@
 package com.xiaobing.common.mvp.base.bean;
 
 
+/**
+ * 网络请求返回Response基类
+ * @param <T>
+ */
 public class Response<T> {
     private int code;
     private String msg;

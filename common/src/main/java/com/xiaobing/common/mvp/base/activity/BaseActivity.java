@@ -14,6 +14,11 @@ import com.xiaobing.common.mvp.base.presenter.BasePresenter;
 import com.xiaobing.common.mvp.base.view.BaseView;
 
 
+/**
+ * 基于 MVP 架构的BaseActivity
+ * @param <P>           presenter
+ * @param <CONTRACT>    接口约束
+ */
 public abstract class BaseActivity<P extends BasePresenter, CONTRACT>
         extends AppCompatActivity
         implements BaseView<P, CONTRACT> {
