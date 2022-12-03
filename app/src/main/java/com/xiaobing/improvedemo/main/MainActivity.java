@@ -81,6 +81,10 @@ public class MainActivity extends BaseActivity {
         super.onRestart();
     }
 
+    /**
+     * 这些东西不需要手写，可以使用APT生成
+     * @return 主页的内容列表
+     */
     private ArrayList<MainBean> getMainBeans() {
         ArrayList<MainBean> data = new ArrayList<>();
         data.add(new MainBean.Builder().name(UriAction.ACTION_DESIGN).build());
