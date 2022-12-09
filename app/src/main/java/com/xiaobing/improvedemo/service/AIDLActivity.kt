@@ -6,10 +6,15 @@ import android.content.ServiceConnection
 import android.os.IBinder
 import android.os.RemoteException
 import android.util.Log
+import com.joker.annotation.MainEnter
 import com.joker.common.ITest
 import com.xiaobing.improvedemo.base.activity.BaseViewBindingActivity
 import com.xiaobing.improvedemo.databinding.ActivityAidlBinding
 
+/**
+ * AIDL样例
+ */
+@MainEnter(name = "AIDL")
 class AIDLActivity : BaseViewBindingActivity<ActivityAidlBinding>() {
     var proxy: ITest? = null
     override fun initView() {

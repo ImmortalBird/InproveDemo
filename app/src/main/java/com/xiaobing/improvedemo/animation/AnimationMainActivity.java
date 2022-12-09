@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 
+import com.joker.annotation.MainEnter;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.animation.adapter.BookAdapter;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
@@ -24,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
  *
  * 用来收集一些酷炫的动画效果
  */
+@MainEnter(name = "动画")
 public class AnimationMainActivity extends BaseActivity implements Animation.AnimationListener, BookAdapter.OnBookClickListener {
 
     @Override

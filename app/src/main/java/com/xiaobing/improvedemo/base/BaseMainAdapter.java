@@ -1,15 +1,14 @@
 package com.xiaobing.improvedemo.base;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.graphics.Typeface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.main.bean.MainBean;
@@ -19,10 +18,10 @@ import java.util.List;
 /**
  * @author 常晓冰
  */
-public abstract class BaseMainAdapter<M extends RecyclerView.ViewHolder> extends BaseAdapter<BaseMainAdapter.MainHolder>{
+public abstract class BaseMainAdapter extends BaseAdapter<BaseMainAdapter.MainHolder>{
 
     protected List<MainBean> data;
-    private LayoutInflater from;
+    private final LayoutInflater from;
 
     protected BaseMainAdapter(Context mContext, List<MainBean> data) {
         super(mContext);
@@ -37,18 +36,17 @@ public abstract class BaseMainAdapter<M extends RecyclerView.ViewHolder> extends
 
     @Override
     protected void bindHolder(MainHolder mHolder, int i) {
-//        Typeface typeface = ResourcesCompat.getFont(mContext, R.font.mao);
-//        mHolder.tvName.setTypeface(typeface);
         mHolder.tvName.setText(data.get(i).getName());
-        mHolder.tvName.setOnClickListener(v->onClick(data.get(i).getLink()));
+        mHolder.tvName.setOnClickListener(v-> {
+            try {
+                MainBean mainBean = data.get(i);
+                Class<?> aClass = Class.forName(mainBean.packageName + "." + mainBean.className);
+                mContext.startActivity(new Intent(mContext, aClass));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
-
-
-    /**
-     * 条目点击
-     * @param link 条目中的链接
-     */
-    protected abstract void onClick(String link);
 
 
     @Override
@@ -57,7 +55,7 @@ public abstract class BaseMainAdapter<M extends RecyclerView.ViewHolder> extends
     }
 
    public static class MainHolder extends  RecyclerView.ViewHolder{
-        private TextView tvName;
+        private final TextView tvName;
         MainHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);

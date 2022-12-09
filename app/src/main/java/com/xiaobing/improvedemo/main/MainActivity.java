@@ -9,12 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
-import com.xiaobing.improvedemo.link.UriAction;
+import com.xiaobing.improvedemo.link.LinkUtil;
 import com.xiaobing.improvedemo.main.adapter.MainAdapter;
-import com.xiaobing.improvedemo.main.bean.MainBean;
 import com.xiaobing.improvedemo.network.retrofit.Api;
-
-import java.util.ArrayList;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -70,7 +67,9 @@ public class MainActivity extends BaseActivity {
         RecyclerView rvMain = findViewById(R.id.rv_main);
         setTitle(getString(R.string.ID_01_01));
         rvMain.setLayoutManager(new LinearLayoutManager(this));
-        MainAdapter adapter = new MainAdapter(this, getMainBeans());
+
+        MainAdapter adapter = new MainAdapter(this, new LinkUtil().getMainBeans());
+//        MainAdapter adapter = new MainAdapter(this, getMainBeans());
         rvMain.setAdapter(adapter);
         getData();
 
@@ -81,23 +80,4 @@ public class MainActivity extends BaseActivity {
         super.onRestart();
     }
 
-    /**
-     * 这些东西不需要手写，可以使用APT生成
-     * @return 主页的内容列表
-     */
-    private ArrayList<MainBean> getMainBeans() {
-        ArrayList<MainBean> data = new ArrayList<>();
-        data.add(new MainBean.Builder().name(UriAction.ACTION_DESIGN).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_APP_COMPAT_ACTIVITY).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_NOTIFICATION_ACTIVITY).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_SPAN_ACTIVITY).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_IO_ACTIVITY).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_RX_ACTIVITY).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_ANIMATION_MAIN).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_CUSTOM_VIEW_MAIN).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_SETTING_MAIN).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_FONT_MAIN).build());
-        data.add(new MainBean.Builder().name(UriAction.ACTION_AIDL).build());
-        return data;
-    }
 }

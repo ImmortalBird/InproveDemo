@@ -4,20 +4,23 @@ import android.provider.Settings;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.joker.annotation.MainEnter;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.setting.bean.SettingBean;
 
 import java.util.ArrayList;
 
+/**
+ * 各种跳转设置的action
+ */
+@MainEnter(name = "跳转到设置选项")
 public class SettingActivity extends BaseActivity {
-
-    private RecyclerView container;
 
     @Override
     protected void initView() {
         setTitle(R.string.ID_setting_main);
-        container = findViewById(R.id.root);
+        RecyclerView container = findViewById(R.id.root);
 
         ArrayList<SettingBean> settings = new ArrayList<>();
         settings.add(new SettingBean("ACTION_NETWORK_OPERATOR_SETTINGS", Settings.ACTION_NETWORK_OPERATOR_SETTINGS));

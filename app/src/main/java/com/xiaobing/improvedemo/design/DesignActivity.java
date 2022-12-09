@@ -1,5 +1,6 @@
 package com.xiaobing.improvedemo.design;
 
+import com.joker.annotation.MainEnter;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.base.BaseMainAdapter;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+@MainEnter(name="设计")
 public class DesignActivity extends BaseActivity {
 
     @Override
@@ -41,11 +43,7 @@ public class DesignActivity extends BaseActivity {
 //        e.setName(getString(R.string.ID_design_02_03));
 //        e.setLink(ParseLinkUtil.getLink(UriAction.ACTION_EXPAND_CLOSE_ACTIVITY));
 //        data.add(e);
-        BaseMainAdapter<RecyclerView.ViewHolder> adapter = new BaseMainAdapter<RecyclerView.ViewHolder>(this, data) {
-            @Override
-            protected void onClick(String link) {
-                ParseLinkUtil.parseLink(DesignActivity.this,link);
-            }
+        BaseMainAdapter adapter = new BaseMainAdapter(this, data) {
         };
         rvDesign.setAdapter(adapter);
 

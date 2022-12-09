@@ -1,8 +1,8 @@
 package com.xiaobing.improvedemo.custom
 
 import com.google.android.material.tabs.TabLayoutMediator
+import com.joker.annotation.MainEnter
 import com.xiaobing.improvedemo.base.activity.BaseMvvmActivity
-import com.xiaobing.improvedemo.base.activity.BaseViewBindingActivity
 import com.xiaobing.improvedemo.custom.viewModel.CustomViewViewModel
 import com.xiaobing.improvedemo.custom.viewModel.FragmentBean
 import com.xiaobing.improvedemo.databinding.ActivityCustomViewMainBinding
@@ -14,6 +14,7 @@ import com.xiaobing.improvedemo.databinding.ActivityCustomViewMainBinding
  *
  * 自定义控件的总入口 activity
  */
+@MainEnter(name = "自定义控件")
 class CustomViewMainActivity : BaseMvvmActivity<CustomViewViewModel,ActivityCustomViewMainBinding>() {
     override fun initView() {
         mViewModel?.list?.add(FragmentBean(0,"流式布局"))

@@ -56,4 +56,13 @@
     <string name="ID_custom_view_main">自定义控件</string>
     <string name="ID_setting_main">跳转系统设置</string>
 
+
+
+    <string name="ID_FONT_00">默认字体</string>
+    <string name="ID_FONT_01">草檀斋毛泽东字体</string>
+    <string name="ID_FONT_03">叶根友行书繁</string>
+    <string name="ID_FONT_04">金梅毛行書</string>
+    <string name="ID_FONT_05">金梅新毛筆行書</string>
+
+
 </resources>

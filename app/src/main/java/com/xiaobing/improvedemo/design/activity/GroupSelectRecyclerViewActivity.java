@@ -1,5 +1,8 @@
 package com.xiaobing.improvedemo.design.activity;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.design.adapter.GroupSelectAdapter;
@@ -8,12 +11,9 @@ import com.xiaobing.improvedemo.design.bean.GroupBean;
 
 import java.util.ArrayList;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 public class GroupSelectRecyclerViewActivity extends BaseActivity {
 
-    private ArrayList<GroupBean> mobileOSes = new ArrayList<>();
+    private final ArrayList<GroupBean> mobileOSes = new ArrayList<>();
     @Override
     protected void initView() {
         setTitle(getString(R.string.ID_design_01_02));

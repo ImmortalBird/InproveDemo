@@ -13,6 +13,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.*
 import android.view.View
 import android.widget.Toast
+import com.joker.annotation.MainEnter
 import com.xiaobing.improvedemo.R
 import com.xiaobing.improvedemo.base.activity.BaseViewBindingActivity
 import com.xiaobing.improvedemo.databinding.ActivitySpanMainBinding
@@ -25,6 +26,7 @@ import com.xiaobing.improvedemo.databinding.ActivitySpanMainBinding
  *
  * TODO: 2019/3/21 需要添加更多的进阶用法
  */
+@MainEnter(name = "富文本")
 class SpanActivity : BaseViewBindingActivity<ActivitySpanMainBinding>(), View.OnClickListener {
     var content = "预祝党的十九大完美谢慕"
     override fun initView() {

@@ -1,5 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    // kotlin apt插件，如果不引入，apt无法对kotlin代码生效
+    id 'kotlin-kapt'
+}
 android {
     compileSdkVersion 32
     buildToolsVersion '32.0.0'
@@ -11,6 +15,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        // 在gradle文件中配置选项参数值（用于APT传参接收）
+        // 切记：必须写在defaultConfig节点下
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [content : 'hello apt']
+            }
+        }
+        // kotlin 向 apt传参，作用和上面的一样
+        kapt {
+            arguments {
+                arg("kotlinContent", "hello kapt")
+            }
+        }
     }
     signingConfigs {
         sign {
@@ -121,6 +139,18 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.5.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
+
+
+    // 自定义注解和自定义注解处理器
+    implementation project(":annotation")
+    annotationProcessor project(":compiler")
+
+
+    kapt project(path: ':annotation')
+    implementation project(path: ':annotation')
+
+    //注意 一定要kapt
+    kapt project(path: ':compiler')
 }
 repositories {
     mavenCentral()

@@ -8,13 +8,14 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.View;
 
+import com.joker.annotation.MainEnter;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
 
 /**
  * Created by Administrator on 2018/8/29 0029.
  */
-
+@MainEnter(name="通知")
 public class NotificationActivity extends BaseActivity implements View.OnClickListener {
 
     private NotificationManager notificationManager;

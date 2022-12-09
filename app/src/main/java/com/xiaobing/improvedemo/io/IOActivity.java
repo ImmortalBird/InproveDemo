@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.joker.annotation.MainEnter;
 import com.xiaobing.improvedemo.R;
 
 import java.io.BufferedReader;
@@ -25,10 +26,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+/**
+ * IO流
+ */
+@MainEnter(name = "IO流")
 public class IOActivity extends Activity implements View.OnClickListener {
 
     private EditText etContent,etWrite;
-    private String fileName = "NewTextFile.txt";
+    private final String fileName = "NewTextFile.txt";
     private static final int REQUEST_PERMISSION = 100;
     private static final int REQUEST_PERMISSION2 = 101;
 
@@ -122,7 +127,7 @@ public class IOActivity extends Activity implements View.OnClickListener {
                     sb.append(line);
                 }
                 br.close();
-                Log.e("write" ,"sb = "+sb.toString());
+                Log.e("write" ,"sb = "+ sb);
                 return sb.toString();
             }
         } catch (IOException e) {
@@ -150,7 +155,7 @@ public class IOActivity extends Activity implements View.OnClickListener {
                     sb.append(line);
                 }
                 br.close();
-                Log.e("write" ,"sb = "+sb.toString());
+                Log.e("write" ,"sb = "+ sb);
                 return sb.toString();
             }
         } catch (IOException e) {

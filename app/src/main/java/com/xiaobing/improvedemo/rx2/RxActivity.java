@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.joker.annotation.MainEnter;
 import com.xiaobing.improvedemo.R;
 import com.xiaobing.improvedemo.base.activity.BaseActivity;
 import com.xiaobing.improvedemo.network.rr2.NetworkManager;
@@ -31,6 +32,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+@MainEnter(name = "RxJava操作符")
 public class RxActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "XXXX";
     private Disposable subscribe;
@@ -119,7 +121,6 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
             emitter.onNext(4);
             LogUtil.print("Observable emit : 4");
         }).subscribe(new Observer<Integer>() {
-            private int i;
             private Disposable disposable;
 
             @Override
@@ -130,7 +131,7 @@ public class RxActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onNext(Integer integer) {
-                i = integer;
+                int i = integer;
                 LogUtil.print("onNext value: " + integer);
                 if (i == 2) {
                     disposable.dispose();
