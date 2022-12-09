@@ -96,7 +96,7 @@ public class SplitView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.translate(500, 500);
+//        canvas.translate(500, 500);
         for (Ball ball : mBalls) {
             mPaint.setColor(ball.color);
             canvas.drawCircle(ball.x, ball.y, ball.r, mPaint);

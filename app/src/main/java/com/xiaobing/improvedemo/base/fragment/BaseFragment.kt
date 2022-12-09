@@ -11,6 +11,7 @@ import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
 
+@Suppress("OverrideDeprecatedMigration")
 open class BaseFragment<Binding : ViewBinding> : Fragment() {
     /**
      * 默认的ViewBinding

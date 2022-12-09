@@ -3,25 +3,31 @@ package com.xiaobing.custom;
 import android.os.Bundle;
 import android.util.Log;
 
-//import com.example.custom.code.lession_1_2_6.PathMeasureView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.xiaobing.custom.code.lession_1_2_2.ColorFilterView;
+import com.xiaobing.custom.code.lession_1_2_3.SaveRestoreView;
+import com.xiaobing.custom.view.lession_1_2_3.TransformView;
+import com.xiaobing.custom.view.lession_1_2_6.PathMeasureView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setContentView(new com.xiaobing.custom.code.lession_1_2_3.split.SplitView(this));
 //        setContentView(new TransformView(this));
 //        setContentView(new SaveRestoreView(this));
 //        setContentView(new GradientLayout(this));
 //        setContentView(new GradientLayout(this));
 //        setContentView(new ColorFilterView(this));
+        setContentView(R.layout.activity_main_1_2_3);
 //        setContentView(R.layout.activity_main_1_2_4);
 
 //        setContentView(new PathMeasureView(this));
 //        setContentView(new PathView(this));
-        setContentView(new ClearView(this));
+//        setContentView(new ClearView(this));
 //        setContentView(new DragBubbleView(this));
 //        setContentView(R.layout.activity_main_vp);
 //        setContentView(R.layout.activity_main_1_2_5);

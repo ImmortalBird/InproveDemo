@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.zejian.emotionkeyboard.R;
 
 /**
@@ -22,5 +25,10 @@ public class Fragment1 extends BaseFragment {
 
         tv.setText(args.getString("Interge"));
         return rootView ;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 }
