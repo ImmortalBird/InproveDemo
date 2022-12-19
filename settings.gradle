@@ -1,3 +1,4 @@
 include ':app', ':common', ':customView'
 include ':annotation'
+include ':more'
 include ':compiler'
