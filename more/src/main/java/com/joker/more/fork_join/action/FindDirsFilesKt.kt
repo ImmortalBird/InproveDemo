@@ -5,7 +5,7 @@ import java.util.concurrent.ForkJoinPool
 import java.util.concurrent.RecursiveAction
 
 /**
- * 使用ForJoin找出文件Kotlin版
+ * 使用ForJoin找出文件 异步提交 Kotlin版
  * @property path File
  * @property end String
  * @constructor
@@ -35,15 +35,49 @@ class FindDirsFilesKt(val path: File) : RecursiveAction() {
     }
 }
 
+// 异步提交
 fun main() {
     println("main is Running ...")
+    var start = System.currentTimeMillis()
+    /**单线程********************/
+    println("pool invoke task ...")
+    find(File("D:/"))
+    println("main is Running ... ${System.currentTimeMillis() - start} ")
+    /**********************/
+    start = System.currentTimeMillis()
     val pool = ForkJoinPool()
     val task = FindDirsFilesKt(File("D:/"))
-    println("pool execute task ...")
-    pool.execute(task)
-    println("main is Running ...")
-    println("task join ...")
-    task.join()
+
+
+    /**同步提交********************/
+    println("pool invoke task ...")
+    pool.invoke(task)
+    println("main is Running ... ${System.currentTimeMillis() - start}")
+    /**********************/
+
+    /**异步提交********************/
+//    println("pool execute task ...")
+//    pool.execute(task)
+//    println("main is Running ...")
+//    println("task join ...")
+//    task.join()
+    /**********************/
     println("main is Running ...")
     println("main is End")
+}
+
+fun find(path :File ){
+    val end = "wzd"
+    if (path.isDirectory) {
+        val listFiles = path.listFiles() ?: return
+        for (file in listFiles) {
+            if (file.isDirectory) {
+                find(file)
+            } else {
+                if (file.absolutePath.endsWith(end)) println("文件：${file.absolutePath}")
+            }
+        }
+    } else {
+        if (path.absolutePath.endsWith(end)) println("文件：${path.absolutePath}")
+    }
 }
