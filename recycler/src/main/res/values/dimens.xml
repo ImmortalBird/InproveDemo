@@ -1,0 +1,327 @@
+<resources>
+
+<!-- 以下全部取自手机银行 -->
+
+
+    <dimen name="margin_board">15dp</dimen>
+    <dimen name="btn_radis_round">25dp</dimen>
+    <dimen name="btn_radis_round_46">46dp</dimen>
+    <dimen name="btn_radis_round_22">22dp</dimen>
+
+    <!--  正文字体大小 -->
+    <!--  正文字体大小 -->
+    <!--  字体大小 -->
+    <!--  提示字体大小 -->
+    <!--  button字体大小 -->
+
+    <dimen name="title_height">44dp</dimen>
+
+
+    <dimen name="text_size1">15sp</dimen>
+    <dimen name="text_size2">14sp</dimen>
+
+    <dimen name="text_18sp">18sp</dimen>
+
+    <!-- 分割线宽度 -->
+    <dimen name="divider_with">0.8dp</dimen>
+    <!-- 分割线高度 -->
+    <dimen name="divider_high">0.8dp</dimen>
+    <!-- 人脸识别 -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--zxing-->
+    <dimen name="toolBarHeight">48dp</dimen>
+    <dimen name="one_dp">1dp</dimen>
+    <dimen name="two_dp">2dp</dimen>
+    <dimen name="psbc_15sp">15dp</dimen>
+    <dimen name="psbc_16sp">16dp</dimen>
+    <dimen name="psbc_17sp">17dp</dimen>
+
+    <!-- 字体 -->
+    <dimen name="textsize_10">@dimen/dimen_10sp</dimen>
+    <dimen name="textsize_11">@dimen/dimen_11sp</dimen>
+    <dimen name="textsize_12">@dimen/dimen_12sp</dimen>
+    <dimen name="textsize_13">@dimen/dimen_13sp</dimen>
+    <dimen name="textsize_14">@dimen/dimen_14sp</dimen>
+    <dimen name="textsize_15">@dimen/dimen_15sp</dimen>
+    <dimen name="textsize_16">@dimen/dimen_16sp</dimen>
+    <dimen name="textsize_17">@dimen/dimen_17sp</dimen>
+    <dimen name="textsize_18">@dimen/dimen_18sp</dimen>
+    <dimen name="textsize_19">@dimen/dimen_19sp</dimen>
+    <dimen name="textsize_20">@dimen/dimen_20sp</dimen>
+    <dimen name="textsize_22">@dimen/dimen_22sp</dimen>
+    <dimen name="textsize_27">@dimen/dimen_27sp</dimen>
+
+    <!-- dialog字体 -->
+    <dimen name="psbc_dialog_btn_text_size">15sp</dimen>
+    <dimen name="psbc_dialog_msg_text_size">14sp</dimen>
+    <dimen name="psbc_dialog_title_text_size">18sp</dimen>
+    <!-- 默认分割线大小 -->
+    <dimen name="line_size">1px</dimen>
+
+    <!-- 默认按钮的圆角大小 -->
+    <dimen name="button_round_size">999dp</dimen>
+
+    <!-- 通用对话框圆角大小 -->
+    <dimen name="dialog_ui_round_size">15dp</dimen>
+
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimen_0.5">0.5dp</dimen>
+    <dimen name="dimen_1">1dp</dimen>
+    <dimen name="dimen_2">2dp</dimen>
+    <dimen name="dimen_3">3dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimen_6">6dp</dimen>
+    <dimen name="dimen_7">7dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_12">12dp</dimen>
+    <dimen name="dimen_13">13dp</dimen>
+    <dimen name="dimen_14">14dp</dimen>
+    <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_19">19dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_21">21dp</dimen>
+    <dimen name="dimen_25">25dp</dimen>
+    <dimen name="dimen_26">26dp</dimen>
+    <dimen name="dimen_28">28dp</dimen>
+    <dimen name="dimen_27">27dp</dimen>
+    <dimen name="dimen_29">29dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="dimen_34">34dp</dimen>
+    <dimen name="dimen_35">35dp</dimen>
+    <dimen name="dimen_38">38dp</dimen>
+    <dimen name="dimen_39">39dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_41">41dp</dimen>
+    <dimen name="dimen_43">43dp</dimen>
+    <dimen name="dimen_45">45dp</dimen>
+    <dimen name="dimen_46">46dp</dimen>
+    <dimen name="dimen_48">48dp</dimen>
+    <dimen name="dimen_49">49dp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
+    <dimen name="dimen_51">51dp</dimen>
+    <dimen name="dimen_53">53dp</dimen>
+    <dimen name="dimen_54">54dp</dimen>
+    <dimen name="dimen_55">55dp</dimen>
+    <dimen name="dimen_56">56dp</dimen>
+    <dimen name="dimen_57">57dp</dimen>
+    <dimen name="dimen_58">58dp</dimen>
+    <dimen name="dimen_60">60dp</dimen>
+    <dimen name="dimen_minus_60">-60dp</dimen>
+    <dimen name="dimen_minus_40">-40dp</dimen>
+    <dimen name="dimen_62">62dp</dimen>
+    <dimen name="dimen_64">64dp</dimen>
+    <dimen name="dimen_65">65dp</dimen>
+    <dimen name="dimen_66">66dp</dimen>
+    <dimen name="dimen_67">67dp</dimen>
+    <dimen name="dimen_70">70dp</dimen>
+    <dimen name="dimen_74">74dp</dimen>
+    <dimen name="dimen_75">75dp</dimen>
+    <dimen name="dimen_76">76dp</dimen>
+    <dimen name="dimen_77">77dp</dimen>
+    <dimen name="dimen_80">80dp</dimen>
+    <dimen name="dimen_82">82dp</dimen>
+    <dimen name="dimen_86">86dp</dimen>
+    <dimen name="dimen_88">88dp</dimen>
+    <dimen name="dimen_90">90dp</dimen>
+    <dimen name="dimen_92">92dp</dimen>
+    <dimen name="dimen_95">95dp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
+    <dimen name="dimen_102">102dp</dimen>
+    <dimen name="dimen_104">104dp</dimen>
+    <dimen name="dimen_105">105dp</dimen>
+    <dimen name="dimen_106">106dp</dimen>
+    <dimen name="dimen_110">110dp</dimen>
+    <dimen name="dimen_111">111dp</dimen>
+    <dimen name="dimen_112">112dp</dimen>
+    <dimen name="dimen_113">113dp</dimen>
+    <dimen name="dimen_115">115dp</dimen>
+    <dimen name="dimen_116">116dp</dimen>
+    <dimen name="dimen_118">118dp</dimen>
+    <dimen name="dimen_120">120dp</dimen>
+    <dimen name="dimen_123">123dp</dimen>
+    <dimen name="dimen_125">125dp</dimen>
+    <dimen name="dimen_130">130dp</dimen>
+    <dimen name="dimen_131">131dp</dimen>
+    <dimen name="dimen_132">132dp</dimen>
+    <dimen name="dimen_134">134dp</dimen>
+    <dimen name="dimen_135">135dp</dimen>
+    <dimen name="dimen_140">140dp</dimen>
+    <dimen name="dimen_144">144dp</dimen>
+    <dimen name="dimen_149">149dp</dimen>
+    <dimen name="dimen_150">150dp</dimen>
+    <dimen name="dimen_151">151dp</dimen>
+    <dimen name="dimen_156">156dp</dimen>
+    <dimen name="dimen_158">158dp</dimen>
+    <dimen name="dimen_160">160dp</dimen>
+    <dimen name="dimen_162">162dp</dimen>
+    <dimen name="dimen_163">163dp</dimen>
+    <dimen name="dimen_166">166dp</dimen>
+    <dimen name="dimen_167">167dp</dimen>
+    <dimen name="dimen_170">170dp</dimen>
+    <dimen name="dimen_180">180dp</dimen>
+    <dimen name="dimen_190">190dp</dimen>
+    <dimen name="dimen_200">200dp</dimen>
+    <dimen name="dimen_204">204dp</dimen>
+    <dimen name="dimen_208">208dp</dimen>
+    <dimen name="dimen_224">224dp</dimen>
+    <dimen name="dimen_227">227dp</dimen>
+    <dimen name="dimen_232">232dp</dimen>
+    <dimen name="dimen_234">234dp</dimen>
+    <dimen name="dimen_236">236dp</dimen>
+    <dimen name="dimen_244">244dp</dimen>
+    <dimen name="dimen_250">250dp</dimen>
+    <dimen name="dimen_285">285dp</dimen>
+    <dimen name="dimen_291">291dp</dimen>
+    <dimen name="dimen_295">295dp</dimen>
+    <dimen name="dimen_306">306dp</dimen>
+    <dimen name="dimen_309">309dp</dimen>
+    <dimen name="dimen_305">305dp</dimen>
+    <dimen name="dimen_312">312dp</dimen>
+    <dimen name="dimen_315">315dp</dimen>
+    <dimen name="dimen_316">316dp</dimen>
+    <dimen name="dimen_328">328dp</dimen>
+    <dimen name="dimen_336">336dp</dimen>
+    <dimen name="dimen_343">343dp</dimen>
+    <dimen name="dimen_350">350dp</dimen>
+    <dimen name="dimen_375">375dp</dimen>
+    <dimen name="dimen_428">428dp</dimen>
+
+    <dimen name="common_btn_height">50dp</dimen>
+    <dimen name="btn_radis">5dp</dimen>
+
+    <dimen name="arrow_height">13dp</dimen>
+    <dimen name="arrow_width">8dp</dimen>
+
+    <dimen name="dimen_33">33dp</dimen>
+    <dimen name="dimen_36">36dp</dimen>
+    <dimen name="dimen_22">22dp</dimen>
+    <dimen name="dimen_68">68dp</dimen>
+    <dimen name="dimen_96">96dp</dimen>
+    <dimen name="dimen_18">18dp</dimen>
+    <dimen name="dimen_84">84dp</dimen>
+    <dimen name="dimen_32">32dp</dimen>
+    <dimen name="dimen_17">17dp</dimen>
+    <dimen name="dimen_52">52dp</dimen>
+
+    <dimen name="dimen_dialog_radius">4dp</dimen>
+    <dimen name="dimen_dialog_common_radius">10dp</dimen>
+
+    <dimen name="device_item_height">44dp</dimen>
+    <dimen name="device_tag_width">48dp</dimen>
+    <dimen name="share_cancel_btn_height">44dp</dimen>
+    <dimen name="share_icon_width">39dp</dimen>
+    <dimen name="share_icon_height">32dp</dimen>
+    <dimen name="share_window_width">347dp</dimen>
+    <dimen name="share_window_height">184dp</dimen>
+
+    <dimen name="pay_card_list_item_height">50dp</dimen>
+    <dimen name="pay_card_list_height">294dp</dimen>
+    <dimen name="pay_card_list_width">351dp</dimen>
+    <dimen name="big_bar_code_width">452dp</dimen>
+    <dimen name="big_bar_code_height">117dp</dimen>
+    <dimen name="big_qr_code_width">250dp</dimen>
+
+    <dimen name="notice_tab_width">42dp</dimen>
+    <dimen name="notice_tab_space">38dp</dimen>
+    <dimen name="notice_item_time_size">11dp</dimen>
+    <dimen name="notice_tab_layout_width">126dp</dimen>
+
+    <dimen name="dimen_24">24dp</dimen>
+    <dimen name="dimen_23">23dp</dimen>
+    <dimen name="dimen_9">9dp</dimen>
+    <dimen name="dimen_194">194dp</dimen>
+    <dimen name="dimen_197">197dp</dimen>
+    <dimen name="dimen_222">222dp</dimen>
+    <dimen name="dimen_225">225dp</dimen>
+    <dimen name="normal_title_view_height">44dp</dimen>
+    <dimen name="dimen_81">81dp</dimen>
+    <dimen name="dimen_178">178dp</dimen>
+    <dimen name="dimen_11">11dp</dimen>
+    <dimen name="dimen_165">165dp</dimen>
+    <dimen name="dimen_107">107dp</dimen>
+    <dimen name="dimen_44">44dp</dimen>
+    <dimen name="normal_list_item_height">44dp</dimen>
+    <dimen name="find_list_normal_item_height">106dp</dimen>
+    <dimen name="dimen_83">83dp</dimen>
+    <dimen name="dimen_71">71dp</dimen>
+    <dimen name="dimen_72">72dp</dimen>
+    <dimen name="dimen_85">85dp</dimen>
+    <dimen name="dimen_99">99dp</dimen>
+    <dimen name="dimen_191">191dp</dimen>
+    <dimen name="dimen_157">157dp</dimen>
+    <dimen name="dimen_211">211dp</dimen>
+    <dimen name="dimen_126">126dp</dimen>
+    <dimen name="dimen_216">216dp</dimen>
+    <dimen name="dimen_217">217dp</dimen>
+    <dimen name="dimen_98">98dp</dimen>
+    <dimen name="dimen_347">347dp</dimen>
+    <dimen name="dimen_480">480dp</dimen>
+    <dimen name="dimen_42">42dp</dimen>
+    <dimen name="dimen_320">320dp</dimen>
+
+    <dimen name="dimen_7sp">7sp</dimen>
+    <dimen name="dimen_8sp">8sp</dimen>
+    <dimen name="dimen_10sp">10sp</dimen>
+    <dimen name="dimen_auto_format_step_sp">1sp</dimen>
+    <dimen name="dimen_11sp">11sp</dimen>
+    <dimen name="dimen_12sp">12sp</dimen>
+    <dimen name="dimen_13sp">13sp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
+    <dimen name="dimen_15sp">15sp</dimen>
+    <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="dimen_17sp">17sp</dimen>
+    <dimen name="dimen_18sp">18sp</dimen>
+    <dimen name="dimen_19sp">19sp</dimen>
+    <dimen name="dimen_20sp">20sp</dimen>
+    <dimen name="dimen_21sp">21sp</dimen>
+    <dimen name="dimen_22sp">22sp</dimen>
+    <dimen name="dimen_23sp">23sp</dimen>
+    <dimen name="dimen_24sp">24sp</dimen>
+    <dimen name="dimen_25sp">25sp</dimen>
+    <dimen name="dimen_26sp">26sp</dimen>
+    <dimen name="dimen_27sp">27sp</dimen>
+    <dimen name="dimen_28sp">28sp</dimen>
+    <dimen name="dimen_30sp">30sp</dimen>
+    <dimen name="dimen_36sp">36sp</dimen>
+    <dimen name="dimen_40sp">40sp</dimen>
+
+    <!--主快捷入口的宽度-->
+    <dimen name="first_level_shortcut_width">60dp</dimen>
+    <dimen name="first_level_shortcut_ic_width">56dp</dimen>
+    <dimen name="first_level_shortcut_text_size">13sp</dimen>
+    <!-- 副快捷入口的宽度-->
+    <dimen name="second_level_shortcut_width">50dp</dimen>
+    <dimen name="second_level_shortcut_ic_width">28dp</dimen>
+    <dimen name="second_level_shortcut_text_size">12dp</dimen>
+
+    <!--MainActivity中titlebar的高度-->
+    <dimen name="main_title_bar_height">@dimen/dimen_44</dimen>
+    <dimen name="common_line_space">1.5dp</dimen>
+
+    <!-- 登录注册，设置密码等统一的输入框宽高-->
+    <dimen name="login_input_width">320dp</dimen>
+    <dimen name="login_input_height">60dp</dimen>
+    <dimen name="scan_frame_width">200dp</dimen>
+
+    <integer name="card_flip_time_full">500</integer>
+    <integer name="card_flip_time_half">250</integer>
+
+    <!-- 首页 -->
+    <dimen name="home_percent_num_size">@dimen/dimen_24sp</dimen>
+    <dimen name="home_divider_line_margin">15dp</dimen>
+    <dimen name="home_horizontal_item_margin">8dp</dimen>
+    <dimen name="home_top_banner_height">223dp</dimen>
+
+    <dimen name="common_protocol_textsize">12dp</dimen>
+    <dimen name="six_input_width">@dimen/dimen_336</dimen>
+    <dimen name="six_input_height">@dimen/dimen_52</dimen>
+    <dimen name="six_input_paste_height">@dimen/dimen_20</dimen>
+
+    <dimen name="splash_top">135dp</dimen>
+    <dimen name="splash_bottom">36dp</dimen>
+</resources>
